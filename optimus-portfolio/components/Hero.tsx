@@ -38,7 +38,7 @@ export default function Hero() {
                         href="#featured-project"
                         className="bg-white text-black hover:bg-gray-200 font-semibold py-3 px-8 rounded-full transition-colors duration-300 text-lg"
                     >
-                        View Optimus-Relevant Project
+                        View Simulation Work
                     </a>
                     <a
                         href="/resume.pdf"

@@ -52,10 +52,30 @@ export default function FeaturedProject() {
                             </div>
 
                             <div className="bg-zinc-900 p-6 rounded-lg border border-zinc-800">
-                                <h4 className="text-sm font-bold text-gray-500 mb-4 uppercase tracking-wider">Relevance to Optimus</h4>
+                                <h4 className="text-sm font-bold text-gray-500 mb-4 uppercase tracking-wider">Relevance to Embodied AI</h4>
                                 <p className="text-gray-300 italic">
                                     "This pipeline demonstrates scalable techniques for training locomotion policies in simulation that transfer to hardware—directly relevant to developing realistic worlds and neural simulators for humanoid autonomy."
                                 </p>
+                            </div>
+
+                            {/* Hybrid Locomotion Highlight */}
+                            <div className="bg-zinc-900/50 p-6 rounded-lg border border-red-900/30">
+                                <h4 className="text-lg font-bold text-white mb-2 flex items-center gap-2">
+                                    <span className="w-2 h-2 rounded-full bg-red-600"></span>
+                                    New: Hybrid Wheeled-Legged Locomotion
+                                </h4>
+                                <p className="text-gray-400 text-sm mb-4">
+                                    Novel gait combining legged mechanics with wheel assistance. Designed for efficient rough terrain traversal where wheels act as active dampeners and propulsors.
+                                </p>
+                                <div className="relative aspect-video rounded-md overflow-hidden border border-zinc-700">
+                                    <Image
+                                        src="/assets/hybrid locomotion.gif"
+                                        alt="Hybrid Wheeled-Legged Locomotion"
+                                        fill
+                                        className="object-cover"
+                                        unoptimized
+                                    />
+                                </div>
                             </div>
 
                             <div>

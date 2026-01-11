@@ -8,7 +8,7 @@ export default function About() {
                         I develop physics-accurate digital twins in <strong className="text-white">MuJoCo (MJX/JAX)</strong> and train reinforcement learning policies (PPO) with domain randomization to achieve robust <strong className="text-white">sim-to-real transfer</strong> on legged robots.
                     </p>
                     <p className="mb-6">
-                        My current research focuses on reward shaping and simulation fidelity to enable efficient, stable locomotion—skills directly applicable to accelerating autonomy stacks for humanoid platforms like Optimus. I am passionate about neural and physics-based simulators that close the sim-to-real gap.
+                        My current research focuses on reward shaping and simulation fidelity to enable efficient, stable locomotion—skills directly applicable to accelerating autonomy stacks for general-purpose humanoid platforms. I am passionate about neural and physics-based simulators that close the sim-to-real gap.
                     </p>
                 </div>
             </div>
