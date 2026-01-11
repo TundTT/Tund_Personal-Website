@@ -10,6 +10,10 @@ export default function About() {
                     <p className="mb-6">
                         My current research focuses on reward shaping and simulation fidelity to enable efficient, stable locomotion—skills directly applicable to accelerating autonomy stacks for general-purpose humanoid platforms. I am passionate about neural and physics-based simulators that close the sim-to-real gap.
                     </p>
+
+                    <p>
+                        I am a Mechanical Engineer working on simulation and neural network control. I firmly believe that capable hardware is useless without intelligent controls, and vice versa. Mastering the intersection of both disciplines is the key to driving real progress in robotics.
+                    </p>
                 </div>
             </div>
         </section>
