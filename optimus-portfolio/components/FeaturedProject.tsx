@@ -85,7 +85,7 @@ export default function FeaturedProject() {
 
                             <div>
                                 <a
-                                    href="https://github.com/TundTT?tab=repositories" // Replace with specific repo if known
+                                    href="https://github.com/TundTT"
                                     target="_blank"
                                     className="inline-flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 text-white px-6 py-3 rounded-md transition-colors font-mono"
                                 >
@@ -102,157 +102,152 @@ export default function FeaturedProject() {
 
 
                 {/* Full Width Reward Engineering Section */}
-                <div className="mt-16 border-t border-zinc-800 pt-12">
-                    <h3 className="text-3xl font-bold text-white mb-8 flex items-center gap-3">
-                        <svg className="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                <div className="mt-20 border-t border-zinc-800 pt-16">
+                    <h3 className="text-4xl font-bold text-white mb-12 flex items-center gap-4">
+                        <svg className="w-10 h-10 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
                         Reward Engineering & Function Design
                     </h3>
 
-                    <div className="grid lg:grid-cols-2 gap-12">
-                        {/* Left Col: Visual Logic */}
-                        <div className="space-y-12">
-                            {/* Exponential Velocity */}
-                            <div className="space-y-4">
-                                <h4 className="text-xl font-bold text-white flex items-center gap-2">
-                                    <svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-                                    Exponential Velocity Tracking
-                                </h4>
-                                <div className="grid grid-cols-2 gap-4">
-                                    <div className="relative aspect-square bg-white rounded-lg overflow-hidden p-2">
-                                        <Image
-                                            src="/assets/graph.png"
-                                            alt="Exponential Reward Function Graph"
-                                            fill
-                                            className="object-contain"
-                                            unoptimized
-                                        />
-                                    </div>
-                                    <div className="relative aspect-square rounded-lg overflow-hidden border border-zinc-700">
-                                        <Image
-                                            src="/assets/velocity track only approach.gif"
-                                            alt="Naive Velocity Tracking Behavior"
-                                            fill
-                                            className="object-cover"
-                                            unoptimized
-                                        />
-                                        <div className="absolute bottom-2 left-2 bg-black/70 px-2 py-1 text-xs rounded text-red-400">Naive Tracking Behavior</div>
-                                    </div>
+                    {/* Top Row: Velocity Tracking & Effort Conservation side by side */}
+                    <div className="grid lg:grid-cols-2 gap-16 mb-16">
+                        {/* Exponential Velocity */}
+                        <div className="space-y-6">
+                            <h4 className="text-2xl font-bold text-white flex items-center gap-3">
+                                <svg className="w-7 h-7 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                                Exponential Velocity Tracking
+                            </h4>
+                            <div className="grid grid-cols-2 gap-4">
+                                <div className="relative aspect-square bg-white rounded-lg overflow-hidden p-2">
+                                    <Image
+                                        src="/assets/graph.png"
+                                        alt="Exponential Reward Function Graph"
+                                        fill
+                                        className="object-contain"
+                                        unoptimized
+                                    />
                                 </div>
-                                <p className="text-sm text-gray-400">
-                                    Replaced quadratic penalties with an <strong>exponential tracking function</strong> (sigma=0.25) to create a sharp gradient near target velocity (1.0 m/s). This tackled the "lazy agent" problem where policies would settle for sub-optimal speeds to avoid actuation costs.
-                                </p>
-                            </div>
-
-                            {/* Effort Conservation */}
-                            <div className="space-y-4">
-                                <h4 className="text-xl font-bold text-white flex items-center gap-2">
-                                    <svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"></path></svg>
-                                    Effort Conservation
-                                </h4>
-                                <div className="grid grid-cols-2 gap-4">
-                                    <div className="relative aspect-video rounded-lg overflow-hidden border border-zinc-700">
-                                        <Image
-                                            src="/assets/too little.gif"
-                                            alt="Penalizing Effort Too Little"
-                                            fill
-                                            className="object-cover"
-                                            unoptimized
-                                        />
-                                        <div className="absolute bottom-2 left-2 bg-black/70 px-2 py-1 text-xs rounded text-red-400">Penalize Too Little</div>
-                                    </div>
-                                    <div className="relative aspect-video rounded-lg overflow-hidden border border-zinc-700">
-                                        <Image
-                                            src="/assets/too much.gif"
-                                            alt="Penalizing Effort Too Much"
-                                            fill
-                                            className="object-cover"
-                                            unoptimized
-                                        />
-                                        <div className="absolute bottom-2 left-2 bg-black/70 px-2 py-1 text-xs rounded text-red-400">Penalize Too Much</div>
-                                    </div>
+                                <div className="relative aspect-square rounded-lg overflow-hidden border border-zinc-700">
+                                    <Image
+                                        src="/assets/velocity track only approach.gif"
+                                        alt="Naive Velocity Tracking Behavior"
+                                        fill
+                                        className="object-cover"
+                                        unoptimized
+                                    />
+                                    <div className="absolute bottom-2 left-2 bg-black/70 px-2 py-1 text-xs rounded text-red-400">Naive Tracking Behavior</div>
                                 </div>
-                                <p className="text-sm text-gray-400">
-                                    Balancing conflicting priorities: <strong>Penalizing too little</strong> results in unstable, high-energy gait. <strong>Penalizing too much</strong> freezes the robot. Found the "sweet spot" at 10⁻⁴ scale for natural motion.
-                                </p>
                             </div>
+                            <p className="text-base text-gray-400 leading-relaxed">
+                                Replaced quadratic penalties with an <strong>exponential tracking function</strong> (sigma=0.25) to create a sharp gradient near target velocity (1.0 m/s). This tackled the "lazy agent" problem where policies would settle for sub-optimal speeds to avoid actuation costs.
+                            </p>
                         </div>
 
-                        {/* Right Col: Analysis & Code */}
-                        <div className="space-y-12">
-                            {/* Reward Distribution Analysis */}
-                            <div className="space-y-4">
-                                <h4 className="text-xl font-bold text-white flex items-center gap-2">
-                                    <svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                    Reward Analysis & Component Scaling
-                                </h4>
-                                <div className="grid grid-cols-2 gap-4">
-                                    <div className="relative aspect-video rounded-lg overflow-hidden border border-zinc-700 bg-white">
-                                        <Image
-                                            src="/assets/reward_distribution.png"
-                                            alt="Reward Component Distribution"
-                                            fill
-                                            className="object-contain"
-                                            unoptimized
-                                        />
+                        {/* Effort Conservation */}
+                        <div className="space-y-6">
+                            <h4 className="text-2xl font-bold text-white flex items-center gap-3">
+                                <svg className="w-7 h-7 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"></path></svg>
+                                Effort Conservation
+                            </h4>
+                            <div className="grid grid-cols-2 gap-4">
+                                <div className="relative aspect-video rounded-lg overflow-hidden border border-zinc-700">
+                                    <Image
+                                        src="/assets/too little.gif"
+                                        alt="Penalizing Effort Too Little"
+                                        fill
+                                        className="object-cover"
+                                        unoptimized
+                                    />
+                                    <div className="absolute bottom-2 left-2 bg-black/70 px-2 py-1 text-xs rounded text-red-400">Penalize Too Little</div>
+                                </div>
+                                <div className="relative aspect-video rounded-lg overflow-hidden border border-zinc-700">
+                                    <Image
+                                        src="/assets/too much.gif"
+                                        alt="Penalizing Effort Too Much"
+                                        fill
+                                        className="object-cover"
+                                        unoptimized
+                                    />
+                                    <div className="absolute bottom-2 left-2 bg-black/70 px-2 py-1 text-xs rounded text-red-400">Penalize Too Much</div>
+                                </div>
+                            </div>
+                            <p className="text-base text-gray-400 leading-relaxed">
+                                Balancing conflicting priorities: <strong>Penalizing too little</strong> results in unstable, high-energy gait. <strong>Penalizing too much</strong> freezes the robot. Found the "sweet spot" at 10⁻⁴ scale for natural motion.
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Full Width: Reward Analysis Charts */}
+                    <div className="mb-16">
+                        <h4 className="text-2xl font-bold text-white flex items-center gap-3 mb-6">
+                            <svg className="w-7 h-7 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                            Reward Analysis & Component Scaling
+                        </h4>
+                        <div className="grid md:grid-cols-2 gap-8 mb-6">
+                            <div className="relative aspect-[16/10] rounded-lg overflow-hidden border border-zinc-700 bg-white">
+                                <Image
+                                    src="/assets/reward_distribution.png"
+                                    alt="Reward Component Distribution"
+                                    fill
+                                    className="object-contain p-4"
+                                    unoptimized
+                                />
+                            </div>
+                            <div className="relative aspect-[16/10] rounded-lg overflow-hidden border border-zinc-700 bg-white">
+                                <Image
+                                    src="/assets/reward_distribution_pi.png"
+                                    alt="Policy Reward Distribution"
+                                    fill
+                                    className="object-contain p-4"
+                                    unoptimized
+                                />
+                            </div>
+                        </div>
+                        <p className="text-base text-gray-400 leading-relaxed max-w-4xl">
+                            Utilized distribution plots to tune reward scales, ensuring the <strong>tracking objective dominates</strong> while penalties actively shape behavior without paralysis.
+                        </p>
+                    </div>
+
+                    {/* Full Width: Code Implementation */}
+                    <div>
+                        <h4 className="text-2xl font-bold text-white flex items-center gap-3 mb-6">
+                            <svg className="w-7 h-7 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                            Core Reward Implementation (JAX)
+                        </h4>
+                        <div className="grid md:grid-cols-2 gap-8">
+                            {/* Tracking Lin Vel */}
+                            <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-6">
+                                <h5 className="font-bold text-red-400 mb-2 text-lg">Tracking Linear Velocity</h5>
+                                <p className="text-gray-400 mb-4 text-sm">
+                                    Exponential decay of squared error between actual and commanded local velocity.
+                                </p>
+                                <div className="bg-black p-4 rounded text-sm overflow-x-auto font-mono leading-relaxed text-gray-300">
+                                    <div>
+                                        <span className="text-blue-400">def</span> <span className="text-yellow-300">reward_tracking_lin_vel</span>(commands, x, xd, tracking_sigma):
                                     </div>
-                                    <div className="relative aspect-video rounded-lg overflow-hidden border border-zinc-700 bg-white">
-                                        <Image
-                                            src="/assets/reward_distribution_pi.png"
-                                            alt="Policy Reward Distribution"
-                                            fill
-                                            className="object-contain"
-                                            unoptimized
-                                        />
+                                    <div className="pl-4">
+                                        local_vel = <span className="text-yellow-300">math.rotate</span>(xd.vel[0], <span className="text-yellow-300">math.quat_inv</span>(x.rot[0]))
+                                    </div>
+                                    <div className="pl-4">
+                                        lin_vel_error = <span className="text-yellow-300">jp.sum</span>(<span className="text-yellow-300">jp.square</span>(commands[:2] - local_vel[:2]))
+                                    </div>
+                                    <div className="pl-4">
+                                        <span className="text-blue-400">return</span> <span className="text-yellow-300">jp.exp</span>(-lin_vel_error / tracking_sigma)
                                     </div>
                                 </div>
-                                <p className="text-sm text-gray-400">
-                                    Utilized distribution plots to tune reward scales, ensuring the <strong>tracking objective dominates</strong> while penalties actively shape behavior without paralysis.
-                                </p>
                             </div>
 
-                            {/* Reward Code Snippets */}
-                            <div className="space-y-4">
-                                <h4 className="text-xl font-bold text-white flex items-center gap-2">
-                                    <svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
-                                    Core Reward Implementation (JAX)
-                                </h4>
-                                <div className="space-y-4 text-sm">
-                                    {/* Tracking Lin Vel */}
-                                    <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-4">
-                                        <h5 className="font-bold text-red-400 mb-2">Tracking Linear Velocity</h5>
-                                        <p className="text-gray-400 mb-2 text-xs">
-                                            Exponential decay of squared error between actual and commanded local velocity.
-                                        </p>
-                                        <div className="bg-black p-3 rounded text-xs overflow-x-auto font-mono leading-relaxed text-gray-300">
-                                            <div>
-                                                <span className="text-blue-400">def</span> <span className="text-yellow-300">reward_tracking_lin_vel</span>(commands, x, xd, tracking_sigma):
-                                            </div>
-                                            <div className="pl-4">
-                                                local_vel = <span className="text-yellow-300">math.rotate</span>(xd.vel[0], <span className="text-yellow-300">math.quat_inv</span>(x.rot[0]))
-                                            </div>
-                                            <div className="pl-4">
-                                                lin_vel_error = <span className="text-yellow-300">jp.sum</span>(<span className="text-yellow-300">jp.square</span>(commands[:2] - local_vel[:2]))
-                                            </div>
-                                            <div className="pl-4">
-                                                <span className="text-blue-400">return</span> <span className="text-yellow-300">jp.exp</span>(-lin_vel_error / tracking_sigma)
-                                            </div>
-                                        </div>
+                            {/* Torque Penalty */}
+                            <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-6">
+                                <h5 className="font-bold text-red-400 mb-2 text-lg">Torque Penalty</h5>
+                                <p className="text-gray-400 mb-4 text-sm">
+                                    Sum of squared torques to minimize energy and prevent excessive force.
+                                </p>
+                                <div className="bg-black p-4 rounded text-sm overflow-x-auto font-mono leading-relaxed text-gray-300">
+                                    <div>
+                                        <span className="text-blue-400">def</span> <span className="text-yellow-300">reward_torques</span>(torques):
                                     </div>
-
-                                    {/* Torque Grouped */}
-                                    <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-4">
-                                        <h5 className="font-bold text-red-400 mb-2">Torque Penalty</h5>
-                                        <p className="text-gray-400 mb-2 text-xs">
-                                            Sum of squared torques to minimize energy and prevent excessive force.
-                                        </p>
-                                        <div className="bg-black p-3 rounded text-xs overflow-x-auto font-mono leading-relaxed text-gray-300">
-                                            <div>
-                                                <span className="text-blue-400">def</span> <span className="text-yellow-300">reward_torques</span>(torques):
-                                            </div>
-                                            <div className="pl-4">
-                                                <span className="text-blue-400">return</span> <span className="text-yellow-300">jp.sum</span>(<span className="text-yellow-300">jp.square</span>(torques))
-                                            </div>
-                                        </div>
+                                    <div className="pl-4">
+                                        <span className="text-blue-400">return</span> <span className="text-yellow-300">jp.sum</span>(<span className="text-yellow-300">jp.square</span>(torques))
                                     </div>
                                 </div>
                             </div>
@@ -323,9 +318,9 @@ export default function FeaturedProject() {
                         Hardware Deployment & Reliability
                     </h3>
 
-                    <div className="grid lg:grid-cols-2 gap-12 items-center">
+                    <div className="grid lg:grid-cols-[3fr_2fr] gap-12 items-center">
                         {/* Video Grid */}
-                        <div className="grid grid-cols-2 gap-4">
+                        <div className="grid grid-cols-2 gap-6">
                             {/* Video 1: Walking */}
                             <div className="relative aspect-[9/16] rounded-lg overflow-hidden border border-zinc-700 bg-zinc-900">
                                 <video autoPlay loop muted playsInline className="w-full h-full object-cover">

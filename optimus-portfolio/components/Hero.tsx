@@ -50,7 +50,7 @@ export default function Hero() {
                     </a>
                     <div className="flex gap-4 mt-4 sm:mt-0 sm:ml-4">
                         {/* Social Icons placeholders */}
-                        <a href="https://github.com/TundTT?tab=repositories" target="_blank" className="hover:text-red-500 transition-colors">GitHub</a>
+                        <a href="https://github.com/TundTT" target="_blank" className="hover:text-red-500 transition-colors">GitHub</a>
                         <a href="https://www.linkedin.com/in/tund-theerawit-967a53272/" target="_blank" className="hover:text-red-500 transition-colors">LinkedIn</a>
                     </div>
                 </div>
