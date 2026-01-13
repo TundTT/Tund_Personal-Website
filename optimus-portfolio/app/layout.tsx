@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Tund Theerawit | Robotics & Simulation Engineer',
-  description: 'Building High-Fidelity Simulations for Legged Robot Autonomy. Specializing in MuJoCo, JAX, and Sim-to-Real Transfer.',
+  description: 'Simulation-Based Reinforcement Learning for Quadruped Locomotion. Specializing in MuJoCo, JAX, and Sim-to-Real Transfer.',
   keywords: ['Robotics', 'Simulation', 'MuJoCo', 'Reinforcement Learning', 'Humanoid Robotics', 'Pupper', 'Sim-to-Real'],
   openGraph: {
     title: 'Tund Theerawit | Robotics & Simulation Engineer',

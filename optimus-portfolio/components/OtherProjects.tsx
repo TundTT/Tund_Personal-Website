@@ -1,25 +1,25 @@
 export default function OtherProjects() {
     const projects = [
         {
-            title: "Ranger Omnidirectional Robot",
-            org: "CATS Lab",
+            title: "CATS Lab",
+            role: "Summer Undergraduate Research",
+            date: "July 2024 – August 2024",
             tech: "ROS 2 • OpenCV • Navigation",
-            desc: "Designed holistic navigation stack for omnidirectional platform. Integrated vision-based obstacle avoidance.",
-            link: "https://twitter.com/spacex/status/1792613580436852960" // Placeholder, should be repo or video if available
+            desc: "Developed an autonomous navigation system for a Ranger omnidirectional robot. Integrated vision-based obstacle avoidance and real-time sensor–motor communication."
         },
         {
-            title: "Path Planning for Industrial AGVs",
-            org: "AI Group Internship",
+            title: "AI Group Internship",
+            role: "Project Assistant",
+            date: "July 2023 – August 2023",
             tech: "C++ • Graph Search • Motion Planning",
-            desc: "Optimized A* algorithm for multi-agent path finding in dynamic warehouse environments. Reduced compute time by 30%.",
-            link: "https://www.youtube.com/watch?v=Cp215gZt1I4" // Placeholder
+            desc: "Implemented real-time C++ A* path-planning and control algorithms for AGVs in industrial factory settings. Integrated PLC/Ladder logic within a cross-functional team."
         },
         {
             title: "Custom RL Environments",
-            org: "Personal Project",
+            role: "Personal Project",
+            date: "Ongoing",
             tech: "PyTorch • Gymnasium • Physics",
-            desc: "Created custom Gymnasium environments for experimenting with novel reward shaping techniques for pendulum systems.",
-            link: "https://github.com/TundTT" // Placeholder
+            desc: "Created custom Gymnasium environments for experimenting with novel reward shaping techniques for pendulum systems."
         }
     ];
 
@@ -30,15 +30,17 @@ export default function OtherProjects() {
                 <div className="grid md:grid-cols-3 gap-8">
                     {projects.map((proj, idx) => (
                         <div key={idx} className="bg-zinc-900 p-6 rounded-lg border border-zinc-800 hover:border-red-900/40 transition-all hover:-translate-y-1">
-                            <h3 className="text-xl font-bold text-white mb-1">{proj.title}</h3>
-                            <p className="text-red-500 text-sm font-mono mb-3">{proj.org}</p>
+                            <div className="mb-4">
+                                <h3 className="text-xl font-bold text-white mb-1">{proj.title}</h3>
+                                <div className="flex justify-between items-baseline text-sm">
+                                    <p className="text-red-500 font-mono">{proj.role}</p>
+                                    <p className="text-zinc-500 text-xs">{proj.date}</p>
+                                </div>
+                            </div>
                             <p className="text-xs text-zinc-400 font-mono mb-4 px-2 py-1 bg-black/50 inline-block rounded border border-zinc-800">{proj.tech}</p>
-                            <p className="text-gray-400 text-sm mb-6 leading-relaxed">
+                            <p className="text-gray-400 text-sm leading-relaxed">
                                 {proj.desc}
                             </p>
-                            <a href={proj.link} target="_blank" className="text-sm font-semibold text-white hover:text-red-500 flex items-center gap-2 transition-colors">
-                                View Project <span>→</span>
-                            </a>
                         </div>
                     ))}
                 </div>

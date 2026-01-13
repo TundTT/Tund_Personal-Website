@@ -22,11 +22,14 @@ export default function Hero() {
                     Hi, I'm <span className="text-white font-bold">Tund Theerawit</span>
                 </h2>
                 <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-4 animate-fade-in-up delay-200">
-                    Building High-Fidelity Simulations for <span className="text-red-600">Legged Robot Autonomy</span>
+                    Simulation-Based Reinforcement Learning for <span className="text-red-600">Quadruped Locomotion</span>
                 </h1>
 
                 <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-                    Mechanical Engineering @ UW-Madison ’27 | MuJoCo (MJX/JAX) • PPO • Domain Randomization • Sim-to-Real Transfer
+                    Mechanical Engineering @ UW-Madison (May 2027)
+                </p>
+                <p className="text-lg md:text-xl text-gray-400 mb-8 max-w-3xl mx-auto -mt-6">
+                    MuJoCo (MJX/JAX) • PPO • Domain Randomization • Sim-to-Real Transfer
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -37,7 +40,7 @@ export default function Hero() {
                         View Simulation Work
                     </a>
                     <a
-                        href="/resume.pdf"
+                        href="/Tund Theerawit Resume.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="border-2 border-white text-white hover:bg-white hover:text-black font-semibold py-3 px-8 rounded-full transition-colors duration-300 text-lg"

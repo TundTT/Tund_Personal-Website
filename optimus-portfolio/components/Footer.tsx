@@ -7,10 +7,10 @@ export default function Footer() {
                     <div className="flex gap-6">
                         <a href="https://www.linkedin.com/in/tund-theerawit-015054293/" target="_blank" className="text-gray-400 hover:text-white transition-colors">LinkedIn</a>
                         <a href="https://github.com/TundTT" target="_blank" className="text-gray-400 hover:text-white transition-colors">GitHub</a>
-                        <a href="mailto:contact@tund.dev" className="text-gray-400 hover:text-white transition-colors">Email</a>
+                        <a href="mailto:Theerawit@wisc.edu" className="text-gray-400 hover:text-white transition-colors">Email</a>
                     </div>
                     <a
-                        href="/resume.pdf"
+                        href="/Tund Theerawit Resume.pdf"
                         className="bg-zinc-800 hover:bg-zinc-700 text-white px-6 py-2 rounded-full text-sm transition-colors"
                         target="_blank"
                     >
