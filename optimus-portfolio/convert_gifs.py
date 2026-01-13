@@ -2,7 +2,8 @@ from moviepy import VideoFileClip
 import os
 
 assets_dir = r"c:\Users\tundt\Desktop\Tund_Personal-Website\optimus-portfolio\public\assets"
-gifs = ["pupperwalkdomain.gif", "kinematics.gif"]
+# Only process the main file
+gifs = ["pupperwalkdomain.gif"]
 
 for gif_name in gifs:
     gif_path = os.path.join(assets_dir, gif_name)
@@ -20,7 +21,7 @@ for gif_name in gifs:
              clip = clip.resized(width=1280)
              
         # Write to mp4
-        # crf 17 is high quality (visually nearly lossless)
+        # crf 18 is high quality (visually nearly lossless)
         # fps=30 for standard smooth playback
         clip.write_videofile(
             mp4_path, 

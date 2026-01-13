@@ -18,7 +18,10 @@ export default function Hero() {
 
             {/* Content */}
             <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-                <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-4 animate-fade-in-up">
+                <h2 className="text-xl md:text-2xl font-medium text-gray-200 mb-6 animate-fade-in-up">
+                    Hi, I'm <span className="text-white font-bold">Tund Theerawit</span>
+                </h2>
+                <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-4 animate-fade-in-up delay-200">
                     Building High-Fidelity Simulations for <span className="text-red-600">Legged Robot Autonomy</span>
                 </h1>
 
