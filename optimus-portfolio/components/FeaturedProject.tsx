@@ -15,13 +15,9 @@ export default function FeaturedProject() {
                     <div className="space-y-6">
                         {/* Main comparison video/gif */}
                         <div className="relative aspect-video bg-zinc-800 rounded-lg overflow-hidden border border-zinc-700 shadow-2xl">
-                            <Image
-                                src="/assets/pupperwalkdomain.gif" // Using the same gif for now, ideally side-by-side
-                                alt="Sim to Real Comparison"
-                                fill
-                                className="object-cover"
-                                unoptimized
-                            />
+                            <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+                                <source src="/assets/hardware_walking.mp4" type="video/mp4" />
+                            </video>
                             <div className="absolute bottom-4 left-4 bg-black/70 px-3 py-1 text-sm rounded">Simulated Environment</div>
                         </div>
 
