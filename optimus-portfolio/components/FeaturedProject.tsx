@@ -257,13 +257,9 @@ export default function FeaturedProject() {
                     <div className="grid lg:grid-cols-2 gap-6 max-w-4xl mx-auto">
                         {/* Left: Random Movement */}
                         <div className="relative aspect-square lg:aspect-auto h-full min-h-[400px] rounded-lg overflow-hidden border border-zinc-700 bg-zinc-900">
-                            <Image
-                                src="/assets/pupperwalkdomain.gif"
-                                alt="Random movement on rough terrain"
-                                fill
-                                className="object-cover"
-                                unoptimized
-                            />
+                            <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+                                <source src="/assets/pupperwalkdomain.mp4" type="video/mp4" />
+                            </video>
                             <div className="absolute top-4 left-4 bg-black/80 backdrop-blur-sm px-4 py-2 rounded border-l-4 border-red-500">
                                 <h4 className="font-bold text-lg text-white">Random Movement</h4>
                                 <p className="text-xs text-gray-400">Robust traversal on non-flat terrain</p>

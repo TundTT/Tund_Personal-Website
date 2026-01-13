@@ -13,9 +13,23 @@ for gif_name in gifs:
     
     try:
         clip = VideoFileClip(gif_path)
-        # Write to mp4 with H.264 codec, optimized for web (crf 23 is default good quality/size)
-        # yuv420p is needed for compatibility with quicktime/browsers
-        clip.write_videofile(mp4_path, codec="libx264", audio=False, preset="medium", ffmpeg_params=["-pix_fmt", "yuv420p", "-crf", "23"])
+        
+        # Resize to 720p for better web performance and to smooth out some noise
+        # This also often helps with the "bars" artifacts if they were resolution/stride related
+        if clip.w > 1280:
+             clip = clip.resized(width=1280)
+             
+        # Write to mp4
+        # crf 17 is high quality (visually nearly lossless)
+        # fps=30 for standard smooth playback
+        clip.write_videofile(
+            mp4_path, 
+            codec="libx264", 
+            audio=False, 
+            preset="slow", # Better compression efficiency 
+            fps=30,
+            ffmpeg_params=["-pix_fmt", "yuv420p", "-crf", "18"] 
+        )
         clip.close()
         print(f"Success! Output: {mp4_name} (Size: {os.path.getsize(mp4_path)/1024/1024:.2f} MB)")
     except Exception as e:
