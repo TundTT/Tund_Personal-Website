@@ -247,6 +247,93 @@ export default function FeaturedProject() {
                     </div>
                 </div>
 
+                {/* Hardware Challenges - 3 Legged */}
+                <div className="mt-16 border-t border-zinc-800 pt-12">
+                    <h3 className="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+                        <svg className="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                        Adaptive Locomotion Under Hardware Failure
+                    </h3>
+
+                    <div className="grid lg:grid-cols-[1fr_250px] gap-8 mb-8 items-start">
+                        <div className="space-y-6">
+                            <p className="text-gray-300 leading-relaxed">
+                                Rear leg motor failure eliminated one DOF during critical testing, blocking locomotion validation and introducing multi-week hardware lead time.
+                            </p>
+                            <div className="bg-zinc-900 p-6 rounded-lg border border-red-900/30">
+                                <h4 className="text-lg font-bold text-red-400 mb-2">Action: Policy & Morphology Re-architecture</h4>
+                                <p className="text-sm text-gray-400">
+                                    Re-architected the MuJoCo XML to remove the failed actuator and retrained a PPO policy on a 3-legged morphology, enabling asymmetric force redistribution and balance recovery without hardware replacement.
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Time Save Box */}
+                        <div className="bg-zinc-900/80 border border-zinc-800 p-6 rounded-lg flex flex-col justify-center items-center text-center h-full min-h-[160px]">
+                            <div className="text-5xl font-bold text-white mb-2 tracking-tighter">~2</div>
+                            <div className="text-lg font-bold text-white mb-1">WEEKS</div>
+                            <div className="text-sm text-red-400 font-medium uppercase tracking-wide">Saved</div>
+                            <div className="mt-4 pt-4 border-t border-zinc-800 w-full">
+                                <p className="text-xs text-gray-500">
+                                    Avoided stalled progress
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p className="text-gray-300 leading-relaxed mb-8 max-w-4xl">
+                        Achieved stable 3-legged hopping gait with successful sim-to-real transfer, turning 2 weeks of potentially stalled progress into a more robust policy. <span className="text-white font-bold">Waiting for replacement hardware was the wrong optimization target.</span>
+                    </p>
+
+                    <div className="grid md:grid-cols-2 gap-6 mb-8">
+                        {/* Simulation */}
+                        <div className="relative aspect-video rounded-lg overflow-hidden border border-zinc-700 bg-zinc-900">
+                            <Image
+                                src="/assets/sim_3leg.gif"
+                                alt="3-Legged Simulation"
+                                fill
+                                className="object-cover"
+                                unoptimized
+                            />
+                            <div className="absolute top-4 left-4 bg-black/80 backdrop-blur-sm px-4 py-2 rounded border-l-4 border-indigo-500">
+                                <h4 className="font-bold text-lg text-white">Simulation Training</h4>
+                                <p className="text-xs text-gray-400">Learning asymmetric gait</p>
+                            </div>
+                        </div>
+
+                        {/* Hardware Validation */}
+                        <div className="relative aspect-video rounded-lg overflow-hidden border border-zinc-700 bg-zinc-900 shadow-2xl shadow-red-900/10">
+                            <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+                                <source src="/assets/hardware_3leg.mp4" type="video/mp4" />
+                            </video>
+                            <div className="absolute top-4 left-4 bg-black/80 backdrop-blur-sm px-4 py-2 rounded border-l-4 border-red-500">
+                                <h4 className="font-bold text-lg text-white">Hardware Validation</h4>
+                                <p className="text-xs text-gray-400">Successful Sim-to-Real transfer</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* 3 Legged High Speed */}
+                    <div className="bg-zinc-900/50 p-6 rounded-lg border border-red-900/20">
+                        <div className="grid lg:grid-cols-2 gap-8 items-center">
+                            <div className="order-2 lg:order-1 relative aspect-video rounded-lg overflow-hidden border border-zinc-700 bg-zinc-900">
+                                <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+                                    <source src="/assets/hardware_line.mp4" type="video/mp4" />
+                                </video>
+                                <div className="absolute top-4 left-4 bg-black/80 backdrop-blur-sm px-4 py-2 rounded border-l-4 border-blue-500">
+                                    <h4 className="font-bold text-lg text-white">High-Speed 3-Legged Run</h4>
+                                    <p className="text-xs text-gray-400">Line following with missing limb</p>
+                                </div>
+                            </div>
+                            <div className="order-1 lg:order-2">
+                                <h4 className="text-xl font-bold text-white mb-2">Pushing the Limits</h4>
+                                <p className="text-gray-400 text-sm">
+                                    Further testing demonstrated that the 3-legged policy wasn't just a recovery mode—it retained high-performance capabilities, including <span className="text-red-400">high-speed line following</span> and sharp turning dynamics despite the asymmetry.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 {/* Policy Performance Results */}
                 <div className="mt-16 border-t border-zinc-800 pt-12">
                     <h3 className="text-3xl font-bold text-white mb-8 flex items-center gap-3">
@@ -362,77 +449,7 @@ export default function FeaturedProject() {
                     </div>
                 </div>
 
-                {/* Hardware Challenges - 3 Legged */}
-                <div className="mt-16 border-t border-zinc-800 pt-12">
-                    <h3 className="text-3xl font-bold text-white mb-8 flex items-center gap-3">
-                        <svg className="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                        Hardware Challenges & Adaptive Control
-                    </h3>
 
-                    <div className="space-y-6 mb-8 max-w-4xl">
-                        <p className="text-gray-300 leading-relaxed">
-                            Hardware failures are inevitable in robotics. During a critical testing phase, <strong>one of the rear motors burnt out</strong>, rendering the leg useless.
-                        </p>
-                        <div className="bg-zinc-900 p-6 rounded-lg border border-red-900/30">
-                            <h4 className="text-lg font-bold text-red-400 mb-2">The Solution: Morphology Adaptation</h4>
-                            <p className="text-sm text-gray-400">
-                                Instead of halting development, I modified the robot's <strong>XML configuration</strong> to reflect a 3-legged morphology. I then retrained the PPO policy to discover a new locomotion strategy.
-                            </p>
-                        </div>
-                        <p className="text-gray-300 leading-relaxed">
-                            The agent successfully learned a <span className="text-white font-bold">dynamic hopping gait</span> to compensate for the missing limb, capable of both recovery and high-speed traversal.
-                        </p>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-6 mb-8">
-                        {/* Simulation */}
-                        <div className="relative aspect-video rounded-lg overflow-hidden border border-zinc-700 bg-zinc-900">
-                            <Image
-                                src="/assets/sim_3leg.gif"
-                                alt="3-Legged Simulation"
-                                fill
-                                className="object-cover"
-                                unoptimized
-                            />
-                            <div className="absolute top-4 left-4 bg-black/80 backdrop-blur-sm px-4 py-2 rounded border-l-4 border-indigo-500">
-                                <h4 className="font-bold text-lg text-white">Simulation Training</h4>
-                                <p className="text-xs text-gray-400">Learning asymmetric gait</p>
-                            </div>
-                        </div>
-
-                        {/* Hardware Validation */}
-                        <div className="relative aspect-video rounded-lg overflow-hidden border border-zinc-700 bg-zinc-900 shadow-2xl shadow-red-900/10">
-                            <video autoPlay loop muted playsInline className="w-full h-full object-cover">
-                                <source src="/assets/hardware_3leg.mp4" type="video/mp4" />
-                            </video>
-                            <div className="absolute top-4 left-4 bg-black/80 backdrop-blur-sm px-4 py-2 rounded border-l-4 border-red-500">
-                                <h4 className="font-bold text-lg text-white">Hardware Validation</h4>
-                                <p className="text-xs text-gray-400">Successful Sim-to-Real transfer</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* 3 Legged High Speed */}
-                    <div className="bg-zinc-900/50 p-6 rounded-lg border border-red-900/20">
-                        <div className="grid lg:grid-cols-2 gap-8 items-center">
-                            <div className="order-2 lg:order-1 relative aspect-video rounded-lg overflow-hidden border border-zinc-700 bg-zinc-900">
-                                <video autoPlay loop muted playsInline className="w-full h-full object-cover">
-                                    <source src="/assets/hardware_line.mp4" type="video/mp4" />
-                                </video>
-                                <div className="absolute top-4 left-4 bg-black/80 backdrop-blur-sm px-4 py-2 rounded border-l-4 border-blue-500">
-                                    <h4 className="font-bold text-lg text-white">High-Speed 3-Legged Run</h4>
-                                    <p className="text-xs text-gray-400">Line following with missing limb</p>
-                                </div>
-                            </div>
-                            <div className="order-1 lg:order-2">
-                                <h4 className="text-xl font-bold text-white mb-2">Pushing the Limits</h4>
-                                <p className="text-gray-400 text-sm">
-                                    Further testing demonstrated that the 3-legged policy wasn't just a recovery mode—it retained high-performance capabilities, including <span className="text-red-400">high-speed line following</span> and sharp turning dynamics despite the asymmetry.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 {/* Digital Twin Section */}
                 <div className="mt-16 border-t border-zinc-800 pt-12">
