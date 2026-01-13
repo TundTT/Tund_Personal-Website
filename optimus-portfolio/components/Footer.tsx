@@ -10,7 +10,7 @@ export default function Footer() {
                         <a href="mailto:Theerawit@wisc.edu" className="text-gray-400 hover:text-white transition-colors">Email</a>
                     </div>
                     <a
-                        href="/Tund Theerawit Resume.pdf"
+                        href="/Tund_Theerawit_Resume.pdf"
                         className="bg-zinc-800 hover:bg-zinc-700 text-white px-6 py-2 rounded-full text-sm transition-colors"
                         target="_blank"
                     >

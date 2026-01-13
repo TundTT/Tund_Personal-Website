@@ -40,7 +40,7 @@ export default function Hero() {
                         View Simulation Work
                     </a>
                     <a
-                        href="/Tund Theerawit Resume.pdf"
+                        href="/Tund_Theerawit_Resume.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="border-2 border-white text-white hover:bg-white hover:text-black font-semibold py-3 px-8 rounded-full transition-colors duration-300 text-lg"
