@@ -9,17 +9,10 @@ export default function Hero() {
                     muted
                     playsInline
                     className="object-cover w-full h-full"
-                    poster="/assets/pupperwalkdomain.gif"
+                    poster="/assets/pupperwalkdomain.mp4"
                 >
-                    {/* Note: Using gif as poster and fallback if video not available yet, but ideally this would be an mp4 for performance */}
-                    <source src="/assets/pupperwalkdomain.gif" type="video/mp4" />
+                    <source src="/assets/pupperwalkdomain.mp4" type="video/mp4" />
                 </video>
-                {/* Fallback to Image if video tag fails or for gif specifically */}
-                <img
-                    src="/assets/pupperwalkdomain.gif"
-                    alt="Pupper Simulation Domain Randomization"
-                    className="absolute inset-0 w-full h-full object-cover -z-10"
-                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
             </div>
 
@@ -51,7 +44,7 @@ export default function Hero() {
                     <div className="flex gap-4 mt-4 sm:mt-0 sm:ml-4">
                         {/* Social Icons placeholders */}
                         <a href="https://github.com/TundTT" target="_blank" className="hover:text-red-500 transition-colors">GitHub</a>
-                        <a href="https://www.linkedin.com/in/tund-theerawit-967a53272/" target="_blank" className="hover:text-red-500 transition-colors">LinkedIn</a>
+                        <a href="https://www.linkedin.com/in/tund-theerawit-015054293/" target="_blank" className="hover:text-red-500 transition-colors">LinkedIn</a>
                     </div>
                 </div>
             </div>
