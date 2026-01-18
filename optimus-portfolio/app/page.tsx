@@ -1,6 +1,7 @@
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import FeaturedProject from '@/components/FeaturedProject';
+import DataProcessing from '@/components/DataProcessing';
 import OtherProjects from '@/components/OtherProjects';
 import Skills from '@/components/Skills';
 import Footer from '@/components/Footer';
@@ -11,6 +12,7 @@ export default function Home() {
       <Hero />
       <About />
       <FeaturedProject />
+      <DataProcessing />
       <OtherProjects />
       <Skills />
       <Footer />
