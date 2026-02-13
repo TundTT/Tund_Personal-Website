@@ -45,7 +45,7 @@ export default function Hero() {
                         rel="noopener noreferrer"
                         className="border-2 border-white text-white hover:bg-white hover:text-black font-semibold py-3 px-8 rounded-full transition-colors duration-300 text-lg"
                     >
-                        Download Resume
+                        View Resume
                     </a>
                     <div className="flex gap-4 mt-4 sm:mt-0 sm:ml-4">
                         {/* Social Icons placeholders */}
