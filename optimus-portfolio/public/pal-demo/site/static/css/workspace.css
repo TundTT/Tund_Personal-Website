@@ -1,0 +1,122 @@
+/* Evaluation controls and help pages; layout comes from arena.css and handheld.css. */
+.evaluation-page [hidden], .help-page [hidden] { display: none !important; }
+.help-page .topbar { min-height: 61px; padding: 10px max(24px, calc((100vw - 1392px) / 2)); gap: 16px; }
+.help-page .brand { font-size: 24px; }
+.help-page .brand > span:last-child { max-width: none; line-height: 1.5; }
+.help-page .topbar nav { gap: 20px; }
+.help-page .topbar nav > a { font-size: 13px; }
+.run-context-controls { display: flex; flex-wrap: wrap; gap: 9px; }
+.evaluation-page .run-settings { position: relative; margin: 0; }
+.evaluation-page .run-settings > summary { padding: 7px 10px; border: 1px solid #87976e; background: #e9edcf; font-size: 13px; cursor: pointer; }
+.run-settings-body { position: absolute; top: calc(100% + 7px); right: 0; width: 300px; z-index: 12; padding: 15px; border: 2px solid var(--arena-ink); background: var(--gym-paper); box-shadow: 4px 4px 0 #a2ad87; }
+.run-settings-body p, .run-settings-body a { font-size: 13px; line-height: 1.55; }
+.run-settings-body #rerun-gauntlet { margin-bottom: 15px; }
+.evaluation-page .run-settings-body label { display: block; margin: 0 0 5px; }
+.evaluation-page .run-settings-body select { font-size: 13px; }
+.policy-gem-view-status { margin: 4px 0 !important; color: var(--arena-ink); font-size: 13px !important; line-height: 1.45; }
+.policy-gem-axis-button { cursor: pointer; outline: none; }
+.policy-gem-axis-button > .policy-gem-axis-badge { fill: var(--gym-paper); stroke: #738551; stroke-width: 1.5; }
+.policy-gem-axis-button > text { fill: var(--arena-ink); font-weight: 500; }
+.policy-gem-axis-button:hover > .policy-gem-axis-badge, .policy-gem-axis-button[aria-pressed="true"] > .policy-gem-axis-badge { fill: var(--gym-yellow); stroke: var(--arena-ink); stroke-width: 2; }
+.policy-gem-axis-button:focus-visible > .policy-gem-axis-badge { fill: var(--gym-yellow); stroke: var(--gym-red); stroke-width: 3; }
+.policy-gem-axis-button[data-focused="true"] > .policy-gem-axis-badge { stroke: var(--gym-red); stroke-width: 3; }
+.evaluation-page .character-panel { padding: 16px; }
+.evaluation-page .character-panel .panel-heading { padding-bottom: 10px; margin-bottom: 12px; }
+.evaluation-page .policy-gem-inspect { margin: 8px 0 0; }
+.evaluation-page .policy-gem-inspect > summary { font-size: 13px; }
+.evaluation-page .score-summary { gap: 10px; margin: 10px 0; }
+.evaluation-page .score-summary > .metric { padding: 7px 10px; }
+.evaluation-page .score-summary .metric > span { font-size: 12px; }
+.evaluation-page .score-summary .metric > strong { display: inline; margin: 0; font-size: 24px; }
+.evaluation-page .score-summary .metric > small { display: inline; margin-left: 5px; font-size: 12px; }
+.evaluation-page .workspace-grid { align-items: stretch; }
+.evaluation-page .policy-header { padding-right: 0; }
+.evaluation-page .policy-header > .eyebrow, .evaluation-page .policy-header > h1 { padding-right: 82px; }
+.policy-header-details { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(320px, 1fr); gap: 22px; align-items: center; }
+.policy-metadata { min-width: 0; }
+.evaluation-page .result-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin: 0; padding: 0 100px 0 18px; }
+.result-actions #save-status { flex: 1 1 140px; margin: 0; font-size: 12px; line-height: 1.5; color: var(--arena-ink); }
+.result-action-buttons { display: flex; flex-wrap: wrap; gap: 9px; }
+.result-action-buttons .button { font-size: 12px; padding: 7px 9px; min-height: 36px; }
+.result-action-buttons .button:disabled { color: #46553c; background: #e4e7d2; border-color: #7d8b6b; }
+.arena-footer nav { display: flex; flex-wrap: wrap; gap: 10px 20px; }
+.evaluation-page.batch-embedded > .arena-page { padding: 10px; }
+.evaluation-page.batch-embedded .run-controls, .evaluation-page.batch-embedded .policy-header { display: none; }
+
+.evaluation-page .run-controls { justify-content: space-between; }
+.evaluation-page #evaluation-status:empty { display: none; }
+.evaluation-page .score-context { margin: 8px 0; }
+.evaluation-page .score-context > summary { font-size: 13px; }
+.evaluation-page .score-context #result-note { margin: 8px 0; }
+.evaluation-page .score-context #result-evaluated { font-size: 13px; }
+.evaluation-page .score-context a { font-size: 13px; }
+.evaluation-page .trace-heading-info { max-width: 60%; }
+.evaluation-page .trace-key { margin: 0; }
+.evaluation-page .trace-key > summary { font-size: 13px; }
+.evaluation-page .trace-key #trace-legend { display: block; margin-top: 6px; }
+.evaluation-page .measurement-help { margin: 12px 0; }
+
+/* Help is ordinary readable documentation, in the same handheld shell. */
+.help-page .arena-page { max-width: 1140px; padding: 0 28px 32px; }
+.help-hero { padding: 38px 0 27px; max-width: 850px; }
+.help-hero h1 { margin: 0 0 15px; font: 36px/1.3 var(--gym-font); letter-spacing: -.6px; }
+.help-hero .lead { max-width: 760px; font-size: 16px; line-height: 1.7; color: var(--arena-muted); }
+.help-layout { display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 28px; align-items: start; }
+.help-contents { position: sticky; top: 20px; padding: 15px; }
+.help-contents h2 { margin: 0 0 11px; font: 14px/1.6 var(--gym-font); }
+.help-contents a { display: block; padding: 6px 0; font-size: 14px; line-height: 1.4; color: var(--arena-ink); }
+.help-copy { min-width: 0; }
+.help-copy > section { padding: 22px 24px; margin-bottom: 20px; scroll-margin-top: 20px; }
+.help-copy h2 { margin: 0 0 13px; font: 20px/1.5 var(--gym-font); }
+.help-copy h3 { margin: 21px 0 8px; font-size: 16px; line-height: 1.5; }
+.help-copy p, .help-copy li, .help-copy td, .help-copy th { font-size: 15px; line-height: 1.7; }
+.help-copy p { margin: 0 0 13px; }
+.help-copy p:last-child { margin-bottom: 0; }
+.help-copy ul, .help-copy ol { padding-left: 22px; margin: 12px 0; }
+.help-copy li { margin-bottom: 8px; }
+.help-copy code { color: #314d2a; background: #e9edd4; padding: 1px 4px; font: 13px/1.6 ui-monospace, Consolas, monospace; overflow-wrap: anywhere; }
+.help-copy pre { margin: 14px 0; padding: 13px; background: #e9edd4; border: 1px solid #a9b58a; overflow-x: auto; }
+.help-copy pre code { padding: 0; white-space: pre; }
+.help-copy .help-note { padding: 13px 15px; background: #f2e7bb; border-left: 4px solid #a9853e; font-size: 14px; }
+.help-copy .table-scroll { box-shadow: none; margin: 14px 0; }
+.help-copy table { border-collapse: collapse; width: 100%; text-align: left; }
+.help-copy th { background: #e1e8c3; font-weight: 650; }
+.help-copy td, .help-copy th { padding: 10px 12px; vertical-align: top; border-bottom: 1px solid #c9d2b0; font-size: 14px; }
+.help-copy tr:last-child td { border-bottom: 0; }
+.help-copy .help-link-list { padding-left: 20px; }
+.help-page .arena-footer { margin-top: 25px; }
+
+@media (max-width: 849px) {
+  .help-layout { grid-template-columns: 1fr; gap: 18px; }
+  .help-contents { position: static; display: flex; flex-wrap: wrap; gap: 4px 18px; }
+  .help-contents h2 { flex-basis: 100%; margin-bottom: 4px; }
+  .help-hero { padding-top: 28px; }
+}
+@media (max-width: 599px) {
+  .evaluation-page .arena-page, .help-page .arena-page { padding-inline: 14px; }
+  .evaluation-page .topbar, .help-page .topbar { align-items: flex-start; flex-wrap: wrap; padding: 12px 14px; gap: 11px; }
+  .evaluation-page .topbar nav, .help-page .topbar nav { width: 100%; justify-content: space-between; flex-wrap: wrap; gap: 8px 14px; }
+  .evaluation-page .run-controls { align-items: flex-start; gap: 12px; }
+  .evaluation-page .run-settings { width: 100%; }
+  .evaluation-page .run-settings > summary { display: list-item; width: fit-content; }
+  .run-settings-body { position: static; margin-top: 8px; width: 100%; box-shadow: none; padding: 12px; }
+  .evaluation-page #trace-panel .panel-heading { flex-direction: column; gap: 7px; }
+  .evaluation-page .trace-heading-info { max-width: none; align-items: flex-start; text-align: left; }
+  .evaluation-page .arena-footer, .help-page .arena-footer { flex-direction: column; gap: 10px; }
+  .help-hero h1 { font-size: 29px; }
+  .help-hero .lead { font-size: 15px; }
+  .help-copy > section { padding: 18px 16px; }
+  .help-copy h2 { font-size: 18px; }
+  .help-copy p, .help-copy li { font-size: 14px; }
+}
+
+@media (min-width: 781px) and (max-width: 1000px) {
+  .policy-header-details { grid-template-columns: minmax(0, 1.25fr) minmax(300px, 1fr); gap: 15px; }
+}
+@media (max-width: 780px) {
+  .policy-header-details { grid-template-columns: minmax(0, 1fr); gap: 14px; padding-right: 82px; }
+  .evaluation-page .result-actions { padding: 0; }
+}
+@media (max-width: 599px) {
+  .policy-header-details, .evaluation-page .policy-header > .eyebrow, .evaluation-page .policy-header > h1 { padding-right: 58px; }
+}

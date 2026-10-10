@@ -1,0 +1,25 @@
+[
+  {
+    "slug": "walk-flat-amp/k1_amp_legs_ref_turn",
+    "task": "walk-flat-amp",
+    "name": "k1_amp_legs_ref_turn",
+    "title": "AMP legs - upright, steps on tiny commands, spot turns + sidesteps (9k it)",
+    "author": "Tund",
+    "added": "2026-10-03T22:26:46-05:00",
+    "env": {
+      "xml": "../../../scenes/walk-flat-amp/k1_web.xml",
+      "controlDt": 0.02,
+      "simDt": 0.002
+    },
+    "profile": {
+      "trainingMatch": "source-reconstructed",
+      "trainer": "Tund",
+      "exporter": "Tund",
+      "sourceCommit": "69d87b6617218678337bf3d0e106493ca807f7bc",
+      "branch": "t-walk",
+      "validationStatus": "passed",
+      "runtimeRevision": "native-nominal-v1"
+    },
+    "fingerprint": "61c6a8e99d8c16bb36aa93cb321f18a621cecac5c571e39175ec4864b7aceeec"
+  }
+]

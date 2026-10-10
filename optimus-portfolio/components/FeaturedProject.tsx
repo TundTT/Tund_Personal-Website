@@ -343,7 +343,7 @@ export default function FeaturedProject() {
 
                     <div className="grid lg:grid-cols-2 gap-6 max-w-4xl mx-auto">
                         {/* Left: Random Movement */}
-                        <div className="relative aspect-square lg:aspect-auto h-full min-h-[400px] rounded-lg overflow-hidden border border-zinc-700 bg-zinc-900">
+                        <div className="relative aspect-square lg:aspect-auto h-full min-h-[240px] sm:min-h-[400px] rounded-lg overflow-hidden border border-zinc-700 bg-zinc-900">
                             <video autoPlay loop muted playsInline className="w-full h-full object-cover">
                                 <source src="/assets/pupperwalkdomain.mp4" type="video/mp4" />
                             </video>

@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "results": [
+    {
+      "slug": "walk-flat-amp/k1_amp_legs_ref_turn",
+      "file": "walk-flat-amp/k1_amp_legs_ref_turn.json",
+      "completedAt": "2026-10-06T16:41:14.150Z",
+      "fingerprint": "61c6a8e99d8c16bb36aa93cb321f18a621cecac5c571e39175ec4864b7aceeec",
+      "version": "1.2.0",
+      "sha256": "853006ec2c800af232db2d540baab162870d9f547722860d4a74cddcd155a844",
+      "bytes": 10394128
+    }
+  ]
+}

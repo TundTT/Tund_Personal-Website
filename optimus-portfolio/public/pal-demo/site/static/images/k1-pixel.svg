@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 80" shape-rendering="crispEdges">
+  <title>Original pixel illustration of the Booster K1 robot</title>
+  <path fill="#182e2a" d="M25 4h14v2h4v4h2v12h-4v4h-6v5h6v2h6v6h3v12h3v10h-6V49h-4v-8h-2v14h-3v6h2v12h5v5H32V64h-3v14H16v-5h5V60h3v-6h-3V40h-3v10h-4v10H9V49h3V37h5v-5h8v-6h-6V11h2V7h4z"/>
+  <path fill="#3a4842" d="M25 7h14v2h3v12h-4v2H24v-3h-2v-9h3zm-8 27h6v7h-5v7h-4v-9h3zm24 1h4v5h-4zM12 50h4v8h-4zm34-8h3v9h-3zM25 56h7v7h-6v8h-3V61h2zm11 6h3v11h-5v-7h2zM18 74h10v2H18zm17 0h8v2h-8z"/>
+  <path fill="#79857a" d="M25 8h12v2H25zm-2 3h2v6h-2zm15 1h3v6h-3zM26 27h7v5h-7z"/>
+  <path fill="#ebe8cd" d="M26 31h12v3h4v15h-3v4H25v-3h-2V35h3z"/>
+  <path fill="#bac3ac" d="M37 32h2v3h3v14h-3v4h-5v-3h3zM25 34h3v2h-3zm-2 5h2v10h-2z"/>
+  <path fill="#596a5b" d="M31 36h5v2h-5z"/>
+  <path fill="#edb843" d="M31 36h2v2h-2z"/>
+  <path fill="#95ad87" d="M28 15h2v2h-2zm7 0h2v2h-2z"/>
+</svg>

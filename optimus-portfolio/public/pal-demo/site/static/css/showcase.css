@@ -1,0 +1,189 @@
+/* Portfolio adaptation of the original PAL Policy Gym (see ../../../NOTICE.txt). */
+.showcase-intro { padding: 24px 0 18px; max-width: 1000px; }
+.showcase-intro h1 { font: 27px/1.5 var(--gym-font); margin: 0 0 12px; }
+.showcase-intro > p { font-size: 15px; line-height: 1.65; max-width: 780px; margin: 0 0 16px; }
+.showcase-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.showcase-caption { font-size: 13px; color: var(--arena-muted); margin: 12px 0 0; }
+.showcase-tour-status { padding: 9px 12px; border-left: 3px solid var(--gym-red); background: var(--gym-paper); font-size: 14px; }
+.showcase-tour-status:empty { display: none; }
+.showcase-intro progress { width: 100%; height: 8px; accent-color: var(--gym-red); }
+.evaluation-page .policy-header { padding-block: 10px 14px; }
+.evaluation-page .policy-header > h1 { font: 16px/1.6 system-ui,sans-serif; padding-right: 0; }
+.evaluation-page .policy-header > .eyebrow { display: none; }
+.evaluation-page .policy-header::after { display: none; }
+.evaluation-page .policy-header-details { grid-template-columns: 1fr auto; }
+.evaluation-page .result-actions { padding: 0; }
+.policy-metadata #policy-profile { font-size: 12px; }
+.policy-metadata #policy-added, .policy-metadata #policy-identity { display: none; }
+.touch-commands { display: flex; justify-content: flex-end; gap: 7px; margin-top: 10px; }
+.touch-commands button { min-height: 40px; padding: 7px 12px; touch-action: none; user-select: none; }
+.touch-commands button.is-held { background: var(--gym-yellow); }
+.showcase-guide { margin-top: 24px; padding: 18px 22px; }
+.showcase-guide p { font-size: 14px; line-height: 1.65; max-width: 900px; }
+.showcase-guide h2 { font: 18px/1.5 var(--gym-font); }
+body.showcase-embedded .topbar { display: none; }
+body.showcase-embedded .showcase-intro { padding-top: 15px; }
+body.showcase-embedded .arena-page { padding-inline: 18px; }
+@media (max-width: 599px) {
+  .showcase-intro h1 { font-size: 22px; }
+  .showcase-actions { align-items: stretch; }
+  .showcase-actions .button { flex: 1 1 150px; }
+  .evaluation-page .policy-header-details { grid-template-columns: 1fr; gap: 10px; }
+  .touch-commands { justify-content: center; }
+  .touch-commands .button { flex: 1; font-size: 12px; padding-inline: 5px; }
+  .showcase-guide { padding-inline: 15px; }
+}
+
+/* Embedded mode keeps the original gym UI while putting controls and results first. */
+body.showcase-embedded .showcase-intro { max-width: none; padding: 16px 0 8px; }
+body.showcase-embedded .showcase-intro > .eyebrow,
+body.showcase-embedded .showcase-intro > h1,
+body.showcase-embedded .showcase-intro > p:not(.showcase-caption):not(.showcase-tour-status) { display: none; }
+body.showcase-embedded .showcase-caption { font-size: 11px; margin-block: 9px 0; }
+body.showcase-embedded .policy-header { padding-block: 5px 12px; }
+.evaluation-page .policy-header > .policy-title { font: 15px/1.5 system-ui,sans-serif; margin: 0 0 8px; }
+body.showcase-embedded .policy-header > .policy-title { color: var(--arena-ink); }
+body.showcase-embedded .policy-header-details { display: none; }
+body.showcase-embedded .showcase-tour-status { margin-block: 9px 0; font-size: 12px; }
+body.showcase-embedded #run-ready-controls:has(> #run-gauntlet[hidden]) { display: none; }
+
+/* Embedded portfolio theme: black/zinc surfaces, white type, red-600 actions.
+   The standalone Policy Gym keeps its original skin and all layouts are shared. */
+body.showcase-embedded {
+  --arena-ink: #f4f4f5;
+  --arena-muted: #a1a1aa;
+  --arena-line: #3f3f46;
+  --arena-soft: #27272a;
+  --arena-accent: #f87171;
+  --arena-accent-soft: #450a0a;
+  --gym-paper: #18181b;
+  --gym-shell: #09090b;
+  --gym-green: #27272a;
+  --gym-red: #dc2626;
+  --gym-yellow: #f87171;
+  --gem-text: #f4f4f5;
+  --gem-muted: #a1a1aa;
+  --gem-background: #09090b;
+  --gem-border: #3f3f46;
+  --gem-control-background: #18181b;
+  --gem-grid: #a1a1aa;
+  --gem-facet-top: #d4d4d8;
+  --gem-facet-bottom: #a1a1aa;
+  --gem-measured-back: #a1a1aa;
+  --gem-measured-front: #e4e4e7;
+  --gem-point: #f4f4f5;
+  --gem-selected: #f87171;
+  --gem-active-text: #09090b;
+  --braking-grid: #71717a;
+  --braking-label: #d4d4d8;
+  --braking-background: #09090b;
+  --braking-pass: #86efac;
+  --braking-fail: #fca5a5;
+  color-scheme: dark;
+  color: var(--arena-ink);
+  background: var(--gym-shell);
+  scrollbar-color: #52525b #18181b;
+}
+body.showcase-embedded ::selection { background: #dc2626; color: #fff; }
+body.showcase-embedded a { color: #fca5a5; }
+body.showcase-embedded :is(button, a, input, select, summary, svg):focus-visible { outline-color: #f87171; }
+body.showcase-embedded .panel,
+body.showcase-embedded .table-scroll { background: #18181b; border-color: #3f3f46; box-shadow: none; }
+body.showcase-embedded .panel-heading { border-color: #3f3f46; }
+body.showcase-embedded .panel-heading :is(p, .muted),
+body.showcase-embedded .policy-header .muted,
+body.showcase-embedded .character-panel #result-note,
+body.showcase-embedded .metric :is(span, label, small),
+body.showcase-embedded .score-summary :is(label, span, small),
+body.showcase-embedded .round-row small,
+body.showcase-embedded .run-controls label,
+body.showcase-embedded .provenance-grid :is(dt, label, small, span),
+body.showcase-embedded .evaluation-date,
+body.showcase-embedded .evaluation-date time,
+body.showcase-embedded .braking-outcome-reason { color: #a1a1aa; }
+body.showcase-embedded .metric-value,
+body.showcase-embedded .metric .metric-value,
+body.showcase-embedded .score-summary strong,
+body.showcase-embedded .score-summary .metric-value,
+body.showcase-embedded .score-summary > div:last-child strong,
+body.showcase-embedded .provenance-grid :is(dd, strong),
+body.showcase-embedded .braking-outcome-distance strong { color: #f4f4f5; }
+body.showcase-embedded .button,
+body.showcase-embedded .icon-button { color: #fff; background: #dc2626; border-color: #dc2626; box-shadow: none; }
+body.showcase-embedded .button:hover { background: #b91c1c; border-color: #ef4444; box-shadow: none; }
+body.showcase-embedded .button-secondary,
+body.showcase-embedded .icon-button { color: #f4f4f5; background: #27272a; border-color: #52525b; }
+body.showcase-embedded .button-secondary:hover,
+body.showcase-embedded .icon-button:hover { color: #fff; background: #3f3f46; border-color: #71717a; }
+body.showcase-embedded .button:disabled,
+body.showcase-embedded .result-action-buttons .button:disabled { color: #a1a1aa; background: #27272a; border-color: #3f3f46; }
+body.showcase-embedded .touch-commands button.is-held { color: #fff; background: #dc2626; border-color: #f87171; }
+body.showcase-embedded .pill { color: #d4d4d8; background: #27272a; border-color: #52525b; }
+body.showcase-embedded .pill-success { color: #86efac; background: #052e16; border-color: #166534; }
+body.showcase-embedded :is(.pill-error, .pill-failed) { color: #fca5a5; background: #450a0a; border-color: #991b1b; }
+body.showcase-embedded .simulation-panel .demo { border-color: #52525b; background: #09090b; }
+body.showcase-embedded .simulation-panel .demo-overlay { background: #18181b; }
+body.showcase-embedded .simulation-panel :is(.demo-blurb, .demo-status, .demo-help, .joystick-label) { color: #d4d4d8; }
+body.showcase-embedded .simulation-panel .demo-status.is-error { color: #fca5a5; }
+body.showcase-embedded .simulation-panel .demo-readout { color: #f4f4f5; background: #18181bee; border-color: #71717a; }
+body.showcase-embedded .simulation-panel .demo-reset { color: #fff; background: #27272aee; border-color: #71717a; }
+body.showcase-embedded .simulation-panel .demo-reset:hover { background: #dc2626; }
+body.showcase-embedded .joystick { background: #18181be6; border-color: #71717a; box-shadow: none; }
+body.showcase-embedded .joystick-knob { background: #dc2626; }
+body.showcase-embedded .joystick.active .joystick-knob { background: #ef4444; }
+body.showcase-embedded kbd { color: #e4e4e7; background: #27272a; border-color: #52525b; }
+body.showcase-embedded .arena-page summary { color: #d4d4d8; }
+body.showcase-embedded .run-settings > summary { background: #27272a; border-color: #52525b; }
+body.showcase-embedded .run-settings-body { background: #18181b; border-color: #52525b; box-shadow: 3px 3px 0 #09090b; }
+body.showcase-embedded .arena-page :is(select, input) { color: #f4f4f5; background: #27272a; border-color: #52525b; accent-color: #dc2626; }
+body.showcase-embedded .run-progress { background: #27272a; border-color: #52525b; accent-color: #dc2626; }
+body.showcase-embedded progress.run-progress::-webkit-progress-bar { background: #27272a; }
+body.showcase-embedded progress.run-progress::-webkit-progress-value { background: #dc2626; }
+body.showcase-embedded progress.run-progress::-moz-progress-bar { background: #dc2626; }
+body.showcase-embedded .round-status { color: #d4d4d8; }
+body.showcase-embedded .telemetry-grid,
+body.showcase-embedded .score-summary > div,
+body.showcase-embedded .score-summary > div:last-child { background: #27272a; border-color: #52525b; box-shadow: none; }
+body.showcase-embedded .policy-gem-toolbar button:hover { background: #3f3f46 !important; }
+body.showcase-embedded .policy-gem-readout { background: #27272a; border-color: #52525b !important; }
+body.showcase-embedded :is(.policy-gem-hint, .policy-gem-legend, .policy-gem-picker-label, .policy-gem-readout, .policy-gem-readout > span, .policy-gem-readout strong, .policy-gem-readout strong + span, .policy-gem-empty) { color: #d4d4d8 !important; }
+body.showcase-embedded .policy-gem-axis-button > .policy-gem-axis-badge { fill: #18181b; stroke: #71717a; }
+body.showcase-embedded .policy-gem-axis-button > text { fill: #f4f4f5; }
+body.showcase-embedded .policy-gem-axis-button:hover > .policy-gem-axis-badge,
+body.showcase-embedded .policy-gem-axis-button[aria-pressed="true"] > .policy-gem-axis-badge { fill: #450a0a; stroke: #f87171; }
+body.showcase-embedded .trace-chart { background: #09090b; border-color: #52525b; }
+body.showcase-embedded .trace-chart text { fill: #d4d4d8; }
+body.showcase-embedded .trace-chart line[stroke="#e6e9ee"],
+body.showcase-embedded .trace-chart line[stroke="#eef0f3"],
+body.showcase-embedded .trace-chart rect[stroke="#e6e9ee"] { stroke: #52525b; }
+body.showcase-embedded .trace-chart polyline[stroke="#8d97a5"] { stroke: #a1a1aa; }
+body.showcase-embedded .round-list { scrollbar-color: #52525b #18181b; }
+body.showcase-embedded .round-row { color: #e4e4e7; background: #18181b; border-color: #3f3f46; }
+body.showcase-embedded .round-row:is(.is-active, :hover, [aria-pressed="true"], [aria-selected="true"], .active) { color: #fff; background: #27272a; border-color: #71717a; }
+body.showcase-embedded .round-row.is-active { box-shadow: inset 4px 0 0 #dc2626; }
+body.showcase-embedded .round-outcome { color: #d4d4d8; }
+body.showcase-embedded .round-row.is-passed .round-outcome { color: #86efac; }
+body.showcase-embedded .round-row.is-failed .round-outcome { color: #fca5a5; }
+body.showcase-embedded .metric-table th,
+body.showcase-embedded .braking-outcomes th { color: #e4e4e7; background: #27272a; border-color: #52525b; }
+body.showcase-embedded .metric-table td,
+body.showcase-embedded .braking-outcomes td { color: #d4d4d8; border-color: #3f3f46; }
+body.showcase-embedded #protocol-details { color: #d4d4d8; background: #09090b; border-color: #52525b; }
+body.showcase-embedded .braking-footprint,
+body.showcase-embedded .braking-outcome-scroll { background: #09090b; border-color: #52525b; }
+body.showcase-embedded .braking-summary,
+body.showcase-embedded .braking-readout { color: #d4d4d8; background: #27272a; border-color: #52525b; }
+body.showcase-embedded .braking-summary { border-left-color: #dc2626; }
+body.showcase-embedded .braking-outcomes tr:nth-child(even) { background: #18181b; }
+body.showcase-embedded .braking-outcomes .is-failed .braking-outcome-status { color: #fca5a5; }
+body.showcase-embedded .braking-outcomes .is-partial .braking-outcome-status { color: #fcd34d; }
+body.showcase-embedded .braking-outcomes .is-passed .braking-outcome-status { color: #86efac; }
+body.showcase-embedded .braking-outcomes .is-untested .braking-outcome-status { color: #a1a1aa; }
+body.showcase-embedded .braking-direction-button { color: #f4f4f5; border-color: #71717a; }
+body.showcase-embedded .braking-direction-button:hover { color: #fca5a5; border-color: #ef4444; }
+body.showcase-embedded .braking-outcomes tr:has([aria-pressed="true"]) :is(th, td) { background: #450a0a; }
+body.showcase-embedded .braking-figure g[role="button"]:focus-visible rect,
+body.showcase-embedded .braking-figure g[role="button"][aria-pressed="true"] rect { fill: #450a0a; stroke: #f87171; }
+body.showcase-embedded .braking-figure circle[role="button"]:focus-visible { stroke: #f87171; }
+body.showcase-embedded .empty-state,
+body.showcase-embedded .arena-footer { color: #a1a1aa; border-color: #3f3f46; }

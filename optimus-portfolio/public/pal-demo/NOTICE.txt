@@ -1,0 +1,22 @@
+PAL Playground single-policy portfolio adaptation
+
+Source: badger-bots/pal-playground, Gallery branch, commit
+4ad1b9c (Improve gallery layout and smooth replay and gauntlet previews).
+The original project is licensed under Apache License 2.0; see LICENSE-PAL.txt.
+Original file headers and credits are preserved in the copied modules.
+
+Portfolio adaptation (2026-10-10): one policy selected, portfolio navigation,
+recorded evaluation tour, touch control additions, and static-only result storage.
+Embedded mode uses the portfolio's black/zinc, white, and red theme; the
+standalone page preserves the original Policy Gym skin and shared layout.
+The trained policy, scene, meshes, and saved evaluation are unchanged.
+Featured policy: walk-flat-amp/k1_amp_legs_ref_turn. Trainer/exporter: Tund.
+
+Runtime dependencies loaded on demand:
+Three.js 0.186.0, MIT License, https://github.com/mrdoob/three.js
+MuJoCo WebAssembly 3.11.0, Apache License 2.0,
+https://github.com/google-deepmind/mujoco
+Dependencies are served by jsDelivr; their distribution retains their own notices.
+
+Booster K1 robot meshes/model are included from the PAL gallery export.
+Simulation results are not hardware measurements or a safety certification.

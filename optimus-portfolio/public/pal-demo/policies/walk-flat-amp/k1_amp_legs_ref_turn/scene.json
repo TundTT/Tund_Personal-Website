@@ -1,0 +1,665 @@
+{
+ "xml": "../../../scenes/walk-flat-amp/k1_web.xml",
+ "meshes": [
+  "../../../scenes/walk-flat-amp/meshes/Head_1.STL",
+  "../../../scenes/walk-flat-amp/meshes/Head_2.STL",
+  "../../../scenes/walk-flat-amp/meshes/K1logo.STL",
+  "../../../scenes/walk-flat-amp/meshes/Left_Ankle_Cross.STL",
+  "../../../scenes/walk-flat-amp/meshes/Left_Arm_1.STL",
+  "../../../scenes/walk-flat-amp/meshes/Left_Arm_2.STL",
+  "../../../scenes/walk-flat-amp/meshes/Left_Arm_3.STL",
+  "../../../scenes/walk-flat-amp/meshes/Left_Arm_4.STL",
+  "../../../scenes/walk-flat-amp/meshes/Left_Foot.STL",
+  "../../../scenes/walk-flat-amp/meshes/Left_Hip_Pitch.STL",
+  "../../../scenes/walk-flat-amp/meshes/Left_Hip_Roll.STL",
+  "../../../scenes/walk-flat-amp/meshes/Left_Hip_Yaw.STL",
+  "../../../scenes/walk-flat-amp/meshes/Left_Shank.STL",
+  "../../../scenes/walk-flat-amp/meshes/Right_Ankle_Cross.STL",
+  "../../../scenes/walk-flat-amp/meshes/Right_Arm_1.STL",
+  "../../../scenes/walk-flat-amp/meshes/Right_Arm_2.STL",
+  "../../../scenes/walk-flat-amp/meshes/Right_Arm_3.STL",
+  "../../../scenes/walk-flat-amp/meshes/Right_Arm_4.STL",
+  "../../../scenes/walk-flat-amp/meshes/Right_Foot.STL",
+  "../../../scenes/walk-flat-amp/meshes/Right_Hip_Pitch.STL",
+  "../../../scenes/walk-flat-amp/meshes/Right_Hip_Roll.STL",
+  "../../../scenes/walk-flat-amp/meshes/Right_Hip_Yaw.STL",
+  "../../../scenes/walk-flat-amp/meshes/Right_Shank.STL",
+  "../../../scenes/walk-flat-amp/meshes/Trunk_1.STL",
+  "../../../scenes/walk-flat-amp/meshes/Trunk_2.STL"
+ ],
+ "sim_dt": 0.002,
+ "decimation": 10,
+ "control_dt": 0.02,
+ "trunk_body_id": 1,
+ "gyro_adr": 3,
+ "keyframe_id": 0,
+ "observation_names": [
+  "projected_gravity",
+  "base_ang_vel",
+  "commands",
+  "joint_pos",
+  "joint_vel",
+  "actions"
+ ],
+ "observation_term_dims": [
+  [
+   "projected_gravity",
+   3
+  ],
+  [
+   "base_ang_vel",
+   3
+  ],
+  [
+   "commands",
+   3
+  ],
+  [
+   "joint_pos",
+   12
+  ],
+  [
+   "joint_vel",
+   12
+  ],
+  [
+   "actions",
+   12
+  ]
+ ],
+ "joint_vel_scale": 0.1,
+ "command_limits": {
+  "vx": [
+   -1,
+   2
+  ],
+  "vy": [
+   -1,
+   1
+  ],
+  "wz": [
+   -1,
+   1
+  ]
+ },
+ "joints": [
+  {
+   "name": "Left_Hip_Pitch",
+   "qpos_adr": 17,
+   "dof_adr": 16,
+   "default": -0.15000000596046448
+  },
+  {
+   "name": "Left_Hip_Roll",
+   "qpos_adr": 18,
+   "dof_adr": 17,
+   "default": 0
+  },
+  {
+   "name": "Left_Hip_Yaw",
+   "qpos_adr": 19,
+   "dof_adr": 18,
+   "default": 0
+  },
+  {
+   "name": "Left_Knee_Pitch",
+   "qpos_adr": 20,
+   "dof_adr": 19,
+   "default": 0.30000001192092896
+  },
+  {
+   "name": "Left_Ankle_Pitch",
+   "qpos_adr": 21,
+   "dof_adr": 20,
+   "default": -0.15000000596046448
+  },
+  {
+   "name": "Left_Ankle_Roll",
+   "qpos_adr": 22,
+   "dof_adr": 21,
+   "default": 0
+  },
+  {
+   "name": "Right_Hip_Pitch",
+   "qpos_adr": 23,
+   "dof_adr": 22,
+   "default": -0.15000000596046448
+  },
+  {
+   "name": "Right_Hip_Roll",
+   "qpos_adr": 24,
+   "dof_adr": 23,
+   "default": 0
+  },
+  {
+   "name": "Right_Hip_Yaw",
+   "qpos_adr": 25,
+   "dof_adr": 24,
+   "default": 0
+  },
+  {
+   "name": "Right_Knee_Pitch",
+   "qpos_adr": 26,
+   "dof_adr": 25,
+   "default": 0.30000001192092896
+  },
+  {
+   "name": "Right_Ankle_Pitch",
+   "qpos_adr": 27,
+   "dof_adr": 26,
+   "default": -0.15000000596046448
+  },
+  {
+   "name": "Right_Ankle_Roll",
+   "qpos_adr": 28,
+   "dof_adr": 27,
+   "default": 0
+  }
+ ],
+ "actions": [
+  {
+   "name": "Left_Hip_Pitch",
+   "ctrl_id": 0,
+   "action_default": -0.15000000596046448,
+   "action_scale": 1
+  },
+  {
+   "name": "Left_Hip_Roll",
+   "ctrl_id": 2,
+   "action_default": 0,
+   "action_scale": 1
+  },
+  {
+   "name": "Left_Hip_Yaw",
+   "ctrl_id": 4,
+   "action_default": 0,
+   "action_scale": 1
+  },
+  {
+   "name": "Left_Knee_Pitch",
+   "ctrl_id": 6,
+   "action_default": 0.30000001192092896,
+   "action_scale": 1
+  },
+  {
+   "name": "Left_Ankle_Pitch",
+   "ctrl_id": 8,
+   "action_default": -0.15000000596046448,
+   "action_scale": 1
+  },
+  {
+   "name": "Left_Ankle_Roll",
+   "ctrl_id": 9,
+   "action_default": 0,
+   "action_scale": 1
+  },
+  {
+   "name": "Right_Hip_Pitch",
+   "ctrl_id": 1,
+   "action_default": -0.15000000596046448,
+   "action_scale": 1
+  },
+  {
+   "name": "Right_Hip_Roll",
+   "ctrl_id": 3,
+   "action_default": 0,
+   "action_scale": 1
+  },
+  {
+   "name": "Right_Hip_Yaw",
+   "ctrl_id": 5,
+   "action_default": 0,
+   "action_scale": 1
+  },
+  {
+   "name": "Right_Knee_Pitch",
+   "ctrl_id": 7,
+   "action_default": 0.30000001192092896,
+   "action_scale": 1
+  },
+  {
+   "name": "Right_Ankle_Pitch",
+   "ctrl_id": 10,
+   "action_default": -0.15000000596046448,
+   "action_scale": 1
+  },
+  {
+   "name": "Right_Ankle_Roll",
+   "ctrl_id": 11,
+   "action_default": 0,
+   "action_scale": 1
+  }
+ ],
+ "held": [
+  {
+   "name": "Head_Yaw",
+   "ctrl_id": 20,
+   "default": 0
+  },
+  {
+   "name": "Head_Pitch",
+   "ctrl_id": 21,
+   "default": 0
+  },
+  {
+   "name": "Left_Shoulder_Pitch",
+   "ctrl_id": 12,
+   "default": 0.20000000298023224
+  },
+  {
+   "name": "Left_Shoulder_Roll",
+   "ctrl_id": 13,
+   "default": -1.25
+  },
+  {
+   "name": "Left_Elbow_Pitch",
+   "ctrl_id": 14,
+   "default": 0
+  },
+  {
+   "name": "Left_Elbow_Yaw",
+   "ctrl_id": 15,
+   "default": -0.5
+  },
+  {
+   "name": "Right_Shoulder_Pitch",
+   "ctrl_id": 16,
+   "default": 0.20000000298023224
+  },
+  {
+   "name": "Right_Shoulder_Roll",
+   "ctrl_id": 17,
+   "default": 1.25
+  },
+  {
+   "name": "Right_Elbow_Pitch",
+   "ctrl_id": 18,
+   "default": 0
+  },
+  {
+   "name": "Right_Elbow_Yaw",
+   "ctrl_id": 19,
+   "default": 0.5
+  }
+ ],
+ "policy": {
+  "file": "policy.bin",
+  "input_dim": 45,
+  "output_dim": 12,
+  "layers": [
+   {
+    "op": "sub",
+    "offset": 0,
+    "size": 45,
+    "tensor_first": true
+   },
+   {
+    "op": "div",
+    "offset": 45,
+    "size": 45,
+    "tensor_first": true
+   },
+   {
+    "op": "gemm",
+    "in": 45,
+    "out": 512,
+    "w_offset": 90,
+    "b_offset": 23130
+   },
+   {
+    "op": "elu",
+    "alpha": 1
+   },
+   {
+    "op": "gemm",
+    "in": 512,
+    "out": 256,
+    "w_offset": 23642,
+    "b_offset": 154714
+   },
+   {
+    "op": "elu",
+    "alpha": 1
+   },
+   {
+    "op": "gemm",
+    "in": 256,
+    "out": 128,
+    "w_offset": 154970,
+    "b_offset": 187738
+   },
+   {
+    "op": "elu",
+    "alpha": 1
+   },
+   {
+    "op": "gemm",
+    "in": 128,
+    "out": 12,
+    "w_offset": 187866,
+    "b_offset": 189402
+   }
+  ]
+ },
+ "torque_speed": [
+  {
+   "ctrl_id": 0,
+   "dof_adr": 16,
+   "peak": 68,
+   "no_load": 14.66,
+   "width": 12.780000000000001
+  },
+  {
+   "ctrl_id": 1,
+   "dof_adr": 22,
+   "peak": 68,
+   "no_load": 14.66,
+   "width": 12.780000000000001
+  },
+  {
+   "ctrl_id": 2,
+   "dof_adr": 17,
+   "peak": 76,
+   "no_load": 12.57,
+   "width": 9.95
+  },
+  {
+   "ctrl_id": 3,
+   "dof_adr": 23,
+   "peak": 76,
+   "no_load": 12.57,
+   "width": 9.95
+  },
+  {
+   "ctrl_id": 4,
+   "dof_adr": 18,
+   "peak": 38.3,
+   "no_load": 17.59,
+   "width": 9.74
+  },
+  {
+   "ctrl_id": 5,
+   "dof_adr": 24,
+   "peak": 38.3,
+   "no_load": 17.59,
+   "width": 9.74
+  },
+  {
+   "ctrl_id": 6,
+   "dof_adr": 19,
+   "peak": 112,
+   "no_load": 12.57,
+   "width": 10.48
+  },
+  {
+   "ctrl_id": 7,
+   "dof_adr": 25,
+   "peak": 112,
+   "no_load": 12.57,
+   "width": 10.48
+  },
+  {
+   "ctrl_id": 8,
+   "dof_adr": 20,
+   "peak": 38.3,
+   "no_load": 17.59,
+   "width": 9.74
+  },
+  {
+   "ctrl_id": 9,
+   "dof_adr": 21,
+   "peak": 38.3,
+   "no_load": 17.59,
+   "width": 9.74
+  },
+  {
+   "ctrl_id": 10,
+   "dof_adr": 26,
+   "peak": 38.3,
+   "no_load": 17.59,
+   "width": 9.74
+  },
+  {
+   "ctrl_id": 11,
+   "dof_adr": 27,
+   "peak": 38.3,
+   "no_load": 17.59,
+   "width": 9.74
+  }
+ ],
+ "title": "AMP legs - upright, steps on tiny commands, spot turns + sidesteps (9k it)",
+ "author": "Tund",
+ "action_delay_substeps": 22,
+ "added": "2026-10-03T22:26:46-05:00",
+ "evaluation_profile": {
+  "schema": 1,
+  "id": "historical-nominal-v1",
+  "runtime": {
+   "package": "@mujoco/mujoco",
+   "version": "3.11.0"
+  },
+  "physics": {
+   "integrator": "implicitfast",
+   "timestep": 0.002,
+   "solver": "Newton",
+   "cone": "elliptic",
+   "jacobian": "auto",
+   "iterations": 10,
+   "ls_iterations": 20,
+   "tolerance": 1e-8,
+   "ls_tolerance": 0.01,
+   "ccd_iterations": 50,
+   "impratio": 10,
+   "gravity": [
+    0,
+    0,
+    -9.81
+   ]
+  },
+  "actuation": {
+   "explicit_delay_substeps": 22,
+   "bus_delay_substeps": 5,
+   "source_ranges": {
+    "explicit_delay_physics_steps": [
+     15,
+     30
+    ],
+    "bus_delay_physics_steps": [
+     2,
+     8
+    ]
+   },
+   "nominal_choice": "Use floor midpoint of historical physical-step delay range and midpoint of the independent motor bus delay.",
+   "motor_parameters": "Preserve exported per-joint gains, armature, torque-speed curves, action scaling, offsets and target clipping."
+  },
+  "observations": {
+   "sampling": "pre-forward",
+   "noise": false,
+   "sensor_delay_control_steps": 0,
+   "source_ranges": {
+    "sensor_delay_control_steps": [
+     0,
+     1
+    ],
+    "hold_probability": 0.8,
+    "update_period_control_steps": 50
+   },
+   "notes": "Preserve training order: buffered derived gyro/gravity before forward, fresh joint positions/velocities. Choose zero extra sensor lag and no noise for a repeatable nominal profile."
+  },
+  "provenance": {
+   "trainer": "Tund",
+   "trainer_confidence": "inferred",
+   "exporter": "Tund",
+   "branch": "t-walk",
+   "source_commit": "69d87b6617218678337bf3d0e106493ca807f7bc",
+   "source_confidence": "logged-config-corroborated",
+   "export_commit": "9de8081d95abffa780f3f4faf81aba9a41d22110",
+   "checkpoint_commit": null,
+   "training_match": "source-reconstructed",
+   "task": "Mjlab-Locomotion-Flat-Amp-Legs-Ref-Turn-Upright-Step-Tiny-Booster-K1",
+   "training_engine": "Logged run requirements: MuJoCo 3.11.1.dev965888812; mujoco-warp 3.11.0; mjlab 1.6.0. Native CPU checks use that MuJoCo distribution; the browser uses WASM 3.11.0.",
+   "evidence": [
+    {
+     "kind": "export-commit",
+     "commit": "9de8081d95abffa780f3f4faf81aba9a41d22110",
+     "summary": "Gallery: replace the turn policy with the upright tiny-step fine-tune\n\nResumed from the mid-tilt step run with the tilt penalty at -5 and swing\npaid 4x under commands within SMALL_MOVE_LIMITS. It now steps under 0.15 m/s\nsidesteps and 0.3 rad/s spot turns, and passes the gallery replica on every\nkey with no falls.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+    },
+    {
+     "kind": "source-candidate",
+     "commit": "69d87b6617218678337bf3d0e106493ca807f7bc",
+     "summary": "This is the replacement upright/tiny-step checkpoint, not the earlier generic turn export; candidate source commit is five seconds before run start, but no checkpoint Git SHA is embedded."
+    },
+    {
+     "kind": "metadata",
+     "file": "policy.meta.json",
+     "field": "run_path",
+     "run": [
+      "2026-10-03_21-34-27_amp_legs_ref_turn_u_tiny",
+      "model_30994.pt"
+     ],
+     "sha256": "bcfd64f903c61686884df26f6463504f8df5e494cda9ceed49c4b1dd1894804c"
+    },
+    {
+     "kind": "wandb-checkpoint",
+     "run_url": "https://wandb.ai/Motion_Control_Team/T-walk/runs/8spk05sy",
+     "summary": "Exact actor and normalization match; logged configuration and reached curriculum checked.",
+     "reports": [
+      "wandb-model-checks.json",
+      "wandb-checkpoint-checks.json"
+     ]
+    }
+   ],
+   "wandb": {
+    "run_id": "8spk05sy",
+    "run_url": "https://wandb.ai/Motion_Control_Team/T-walk/runs/8spk05sy",
+    "run_git_commit": "69d87b6617218678337bf3d0e106493ca807f7bc",
+    "source_tree_note": "No tracked changes were logged; untracked files were gallery outputs.",
+    "checkpoint_file": "model_30994.pt",
+    "checkpoint_sha256": "3741891a769e4d841bb37460f4eddbd940d170fd07f72b84cf66481e5c588c2f",
+    "actor_parameters_exact": true,
+    "config_sha256": "7c9d17ee59a8ad9948b032dd3b30cbda28676b1c0814b926d19f9e47d6226ae0",
+    "source_diff_sha256": "e0097fad770f32b7f2daed44f8d0b34f496fe32d0ddca5a17db389c909f60b33",
+    "curriculum_evidence": {
+     "checkpoint": "model_30994.pt",
+     "sample_at_or_before": {
+      "_step": 30745
+     },
+     "sample_after": {},
+     "evidence_sha256": "655191b4a7b0c0d8d8fcea4e03229204237b3be1f283e060fce72a0e69575ff6",
+     "source_rule": "Recovered source removes command_range curriculum for these variants; use logged fixed action ranges."
+    }
+   }
+  },
+  "limitations": [
+   "This is the replacement upright/tiny-step checkpoint, not the earlier generic turn export; candidate source commit is five seconds before run start, but no checkpoint Git SHA is embedded.",
+   "Nominal deterministic reconstruction: training domain randomization, observation noise and stochastic latency are disabled; this does not establish hardware or exact training-rollout equivalence.",
+   "W&B checkpoint evidence: No tracked changes were logged; untracked files were gallery outputs. A matched checkpoint and logged settings do not establish GPU-training or hardware rollout equivalence."
+  ],
+  "validation": {
+   "status": "passed",
+   "runtime_revision": "native-nominal-v1",
+   "runtime_version": "3.11.0",
+   "native_version": "3.11.1",
+   "checked_at": "2026-10-06T10:35:01.051Z",
+   "configuration_sha256": "e0e57a3b078fcce83cda72e0e5879358213041e4dd3921c40475df8e892102cd",
+   "asset_hashes": {
+    "../../../scenes/walk-flat-amp/k1_web.xml": "8abb339ef082daeff4f4ff003e51912f07fa54a02c6ea1b942d1919e76cc2acd",
+    "../../../scenes/walk-flat-amp/meshes/Head_1.STL": "9ab00ca2c2ae9b27cdd54cdbbe7d9e50b1873f5815163aef5d719beceb445c96",
+    "../../../scenes/walk-flat-amp/meshes/Head_2.STL": "ae8f81b864fd0f16efaab6b0ee697a0fd80e54c2bd38f48526a326bc03085020",
+    "../../../scenes/walk-flat-amp/meshes/K1logo.STL": "93aab425a2e953fdd1c704ce9d9a4fb8d8431da9cc0cc4d2648838b11c47b487",
+    "../../../scenes/walk-flat-amp/meshes/Left_Ankle_Cross.STL": "1798cb3b9721d82c913ce4b0080da9c0eaa69749445bc4a8d6f13dc6a69da232",
+    "../../../scenes/walk-flat-amp/meshes/Left_Arm_1.STL": "e1a6de4b34f17260daa09b81aa3bc115d450787b808190aca286073b45540775",
+    "../../../scenes/walk-flat-amp/meshes/Left_Arm_2.STL": "b5861bc9f6119baf50f131bbc4f6420867e63c7c1de31792d1e788cac70ad8ae",
+    "../../../scenes/walk-flat-amp/meshes/Left_Arm_3.STL": "5424bdfedad4e70edc2dab6587bf0062c44489768c6e53ba4c2e58d700267f78",
+    "../../../scenes/walk-flat-amp/meshes/Left_Arm_4.STL": "e7de1dc79b85b23792eaf8d49688891876f46b4eab7234f2513ae9e241a72b14",
+    "../../../scenes/walk-flat-amp/meshes/Left_Foot.STL": "1a391f4b3b87a27726e09f15f6d2ce7795c702c13c0d76307d4756d8aeaadde3",
+    "../../../scenes/walk-flat-amp/meshes/Left_Hip_Pitch.STL": "ca604e643aaf41ec4d05c8a13ff66ce39587f9d80be7268376c2a6368decd55f",
+    "../../../scenes/walk-flat-amp/meshes/Left_Hip_Roll.STL": "aa278205ca751295c3d073ca3ddf682762a66218e6e5f239a22109b1d8f5ecf9",
+    "../../../scenes/walk-flat-amp/meshes/Left_Hip_Yaw.STL": "2d8ed37c3a7c954937d5e3b462869f93292e4c4b76047fd4667380fedd3d66d2",
+    "../../../scenes/walk-flat-amp/meshes/Left_Shank.STL": "0e99f5850ba752492a7d5fa0fb066efae03823cb4020e7e57a38e652a34be85c",
+    "../../../scenes/walk-flat-amp/meshes/Right_Ankle_Cross.STL": "fd59798e9b4b55661372b601db3dbec9ef5567256b631c3d679a2e3446638256",
+    "../../../scenes/walk-flat-amp/meshes/Right_Arm_1.STL": "1dc1518437d0b2de09d7c559d13f620ee4910b985ca0b70cb387f29fad67a7d6",
+    "../../../scenes/walk-flat-amp/meshes/Right_Arm_2.STL": "2f7f4bf14aac5fdb06974c2336be24b5f5577b069a6e0a36e98a443779bb15cc",
+    "../../../scenes/walk-flat-amp/meshes/Right_Arm_3.STL": "e3ae9cbd20736f4c3b29b2a455b07d8a59e6c093258d467fc20ecd4dc4b7486d",
+    "../../../scenes/walk-flat-amp/meshes/Right_Arm_4.STL": "4a70e0006cc89bfeacb9b825821cdf715113b9cf7d267de6fe4b64ad3e5b9aad",
+    "../../../scenes/walk-flat-amp/meshes/Right_Foot.STL": "059b969922a9a31eb40828206070731d3612453f3aa3c2559702c566abb4b0fd",
+    "../../../scenes/walk-flat-amp/meshes/Right_Hip_Pitch.STL": "ab6052ca8f6a2ddf75ad536e3daf51024cbd8f6b9fa5ca36a8ac966347d850ac",
+    "../../../scenes/walk-flat-amp/meshes/Right_Hip_Roll.STL": "9655e49b0ae12366eb8dba28dcc9593d63d6ec7a8431d90dc692041c8bb74765",
+    "../../../scenes/walk-flat-amp/meshes/Right_Hip_Yaw.STL": "dd54f3cd1cdbaead210692a4cd4e131a1b696ceefd9715ab1eb6a8e9f44d88aa",
+    "../../../scenes/walk-flat-amp/meshes/Right_Shank.STL": "6a7e831055148894ba623bf8d2eca27f2cef32e324819566c39e33cb12c0b4f9",
+    "../../../scenes/walk-flat-amp/meshes/Trunk_1.STL": "9a48b7fc366dac059c1a0a446abbf6fe205cacce034c4e72f9ba6e256e6ff648",
+    "../../../scenes/walk-flat-amp/meshes/Trunk_2.STL": "2a6c08aa314083f834d0a15c0028124c9778e6593aca150f7e45e6469dd5cf39",
+    "policy.bin": "39837ca67f8d1783dc607cbad45980e4a425c006b9219f345e457b7f7619e6f7",
+    "policy.meta.json": "b21dc5560ba197dea92d6bbe5c04a79f193ba101483144a4a44eadde82a611ee"
+   },
+   "harness": "tests/gallery/native-reference.integration.cjs",
+   "thresholds": {
+    "single_step_qpos": 1e-7,
+    "single_step_qvel": 0.00001,
+    "open_loop_base_position_m": 0.001
+   },
+   "trajectory": {
+    "seconds": 3,
+    "physics_steps": 1500,
+    "schedule": [
+     {
+      "until": 0.5,
+      "command": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "until": 1.25,
+      "command": [
+       0.5,
+       0,
+       0
+      ]
+     },
+     {
+      "until": 2,
+      "command": [
+       0,
+       0.3,
+       0.4
+      ]
+     },
+     {
+      "until": 3,
+      "command": [
+       0,
+       0,
+       0
+      ]
+     }
+    ]
+   },
+   "metrics": {
+    "single_step_max_qpos_error": 2.498001805406602e-16,
+    "single_step_max_qvel_error": 1.1945999744966684e-13,
+    "single_step_worst_qpos_step": 730,
+    "single_step_worst_qvel_step": 730,
+    "open_loop_max_base_position_error_m": 1.7622729270717269e-13,
+    "open_loop_max_qpos_error": 2.9072577678590505e-13,
+    "open_loop_max_qvel_error": 6.070699498650356e-12
+   },
+   "scope": "Short nominal browser/native physics regression with identical applied controls; browser 3.11.0 versus native 3.11.1. Does not verify original checkpoint provenance, randomized training, or hardware performance."
+  },
+  "training_command_limits": {
+   "vx": [
+    -1,
+    2
+   ],
+   "vy": [
+    -1,
+    1
+   ],
+   "wz": [
+    -1,
+    1
+   ]
+  }
+ }
+}

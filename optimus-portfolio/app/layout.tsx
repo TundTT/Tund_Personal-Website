@@ -1,18 +1,28 @@
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import { Analytics } from '@vercel/analytics/next';
-import './globals.css';
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import "./globals.css";
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Tund Theerawit | Robotics & Simulation Engineer',
-  description: 'Simulation-Based Reinforcement Learning for Quadruped Locomotion. Specializing in MuJoCo, JAX, and Sim-to-Real Transfer.',
-  keywords: ['Robotics', 'Simulation', 'MuJoCo', 'Reinforcement Learning', 'Humanoid Robotics', 'Pupper', 'Sim-to-Real'],
+  title: "Tund Theerawit | Robotics, Design & Learned Control",
+  description:
+    "Mechanical engineering and robot learning at UW–Madison. Explore QuadMorph morphing wheels and test-drive a trained humanoid policy in the PAL Playground.",
+  keywords: [
+    "Robotics",
+    "Simulation",
+    "MuJoCo",
+    "Reinforcement Learning",
+    "Humanoid Robotics",
+    "Pupper",
+    "Sim-to-Real",
+  ],
   openGraph: {
-    title: 'Tund Theerawit | Robotics & Simulation Engineer',
-    description: 'High-Fidelity MuJoCo Simulations & Sim-to-Real Transfer',
-    type: 'website',
+    title: "Tund Theerawit | Making robots move in the real world",
+    description:
+      "Mechanical design, reinforcement learning, and real hardware. Explore the projects and try a trained K1 walking policy.",
+    type: "website",
   },
 };
 

@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tund Theerawit — personal portfolio
 
-## Getting Started
+Next.js portfolio preserving the original layout, black/red theme, simulation case studies, charts, videos, earlier projects, and skills. Recent Work features QuadMorph first and PAL Playground second, ahead of the original projects. Experience from the fall 2026 résumé appears after the earlier projects.
 
-First, run the development server:
+## Run locally
 
-```bash
+```sh
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000. The full standalone policy workspace is `/pal-demo/site/index.html`. Use the explicit `index.html` URL: Next's public directory does not automatically resolve directory indexes in development.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Validate and build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```sh
+npm run check:showcase
+npm run build
+```
 
-## Learn More
+The existing `output: 'export'` configuration produces `out/`, including the policy assets. Keep `optimus-portfolio` as the Vercel project root. No new environment variables or backend are needed. Serve the export over HTTP(S), not `file://`. WebGL and WebAssembly are required for the live robot.
 
-To learn more about Next.js, take a look at the following resources:
+## PAL showcase
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+`public/pal-demo` is a bounded snapshot of PAL Playground's `Gallery` branch at `4ad1b9c`. Only `walk-flat-amp/k1_amp_legs_ref_turn` is included. It has the highest saved Dependability and Performance scores among Tund-authored, rankable checkpoints in the supplied gallery snapshot. This is a relative selection within that snapshot, not a claim about all policies.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Drive** runs the actual exported network in the original MuJoCo browser simulator. W/S walk, A/D sidestep, Q/E turn. Joystick, touch buttons, gamepad, camera orbit, and reset are retained.
+- **Replay evaluation** plays five real saved rounds, progressively revealing measured motion-gem points. It is clearly labeled as recorded; it does not invent an evaluation or new scores.
+- **Run gauntlet / Quick check** run the real evaluator in the browser. Full results are saved locally; there is no repository-write endpoint.
+- The motion gem, recorded traces, test outcomes, and failures remain inspectable.
+- Embedded mode uses the site's dark palette. The standalone workspace preserves the original gallery design.
 
-## Deploy on Vercel
+The model, policy, meshes, and saved evaluation are unchanged. The manifest's `completedAt` must exactly match the record, including fractional-second formatting; `check:showcase` verifies this plus hashes, paths, authorship, and tour-round availability.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The bundle is approximately 24 MB before transfer compression and loads only after a visitor launches it. Pinned Three.js and MuJoCo WASM dependencies load from jsDelivr. An internet connection is required for these runtime modules. Attribution and licensing are in `public/pal-demo/NOTICE.txt` and `LICENSE-PAL.txt`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Content maintenance
+
+See `SOURCE_NOTES.md` for biography and imagery provenance. Both résumé download paths intentionally serve the updated document. QuadMorph is an ICRA submission under review; the website includes selected hardware photographs, not the manuscript, full figures, equations, training settings, or quantitative research results.
+
+`app/page.tsx` mounts `Hero`, `About`, `RecentWork`, `FeaturedProject`, `DataProcessing`, `OtherProjects`, `RecentExperience`, `Skills`, and `Footer` in that order. `components/RecentWork.tsx` presents QuadMorph first and PAL Playground second. The original projects retain their order and content; recent experience follows them before skills and contact. The hero includes a shortcut to the new work. All original media remain available.
+
+The rolling configuration photo has an AI-enhanced presentation version. The original is retained in the assets directory; the page uses a simple hardware-configuration caption at the owner’s request. See `IMAGE_ENHANCEMENT.md` for the exact prompt and limitations.

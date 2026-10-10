@@ -1,0 +1,172 @@
+{
+  "run_path": "/home/theerawit/pal-playground/logs/rsl_rl/k1_locomotion_amp_legs_ref/2026-10-03_21-34-27_amp_legs_ref_turn_u_tiny/model_30994.pt",
+  "joint_names": [
+    "Left_Hip_Pitch",
+    "Left_Hip_Roll",
+    "Left_Hip_Yaw",
+    "Left_Knee_Pitch",
+    "Left_Ankle_Pitch",
+    "Left_Ankle_Roll",
+    "Right_Hip_Pitch",
+    "Right_Hip_Roll",
+    "Right_Hip_Yaw",
+    "Right_Knee_Pitch",
+    "Right_Ankle_Pitch",
+    "Right_Ankle_Roll"
+  ],
+  "joint_stiffness": [
+    90.0,
+    90.0,
+    90.0,
+    90.0,
+    45.0,
+    45.0,
+    90.0,
+    90.0,
+    90.0,
+    90.0,
+    45.0,
+    45.0
+  ],
+  "joint_damping": [
+    3.2,
+    3.2,
+    3.2,
+    3.2,
+    1.6,
+    1.6,
+    3.2,
+    3.2,
+    3.2,
+    3.2,
+    1.6,
+    1.6
+  ],
+  "default_joint_pos": [
+    -0.15000000596046448,
+    0.0,
+    0.0,
+    0.30000001192092896,
+    -0.15000000596046448,
+    0.0,
+    -0.15000000596046448,
+    0.0,
+    0.0,
+    0.30000001192092896,
+    -0.15000000596046448,
+    0.0
+  ],
+  "command_names": [],
+  "observation_names": [
+    "projected_gravity",
+    "base_ang_vel",
+    "commands",
+    "joint_pos",
+    "joint_vel",
+    "actions"
+  ],
+  "observation_terms_scale": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "observation_terms_flatten_history_dim": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "observation_terms_history_length": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "observation_terms_clip": [
+    [
+      -Infinity,
+      Infinity
+    ],
+    [
+      -Infinity,
+      Infinity
+    ],
+    [
+      -Infinity,
+      Infinity
+    ],
+    [
+      -Infinity,
+      Infinity
+    ],
+    [
+      -Infinity,
+      Infinity
+    ],
+    [
+      -Infinity,
+      Infinity
+    ]
+  ],
+  "action_joint_names": [
+    "Left_Hip_Pitch",
+    "Left_Hip_Roll",
+    "Left_Hip_Yaw",
+    "Left_Knee_Pitch",
+    "Left_Ankle_Pitch",
+    "Left_Ankle_Roll",
+    "Right_Hip_Pitch",
+    "Right_Hip_Roll",
+    "Right_Hip_Yaw",
+    "Right_Knee_Pitch",
+    "Right_Ankle_Pitch",
+    "Right_Ankle_Roll"
+  ],
+  "action_default_joint_pos": [
+    -0.15000000596046448,
+    0.0,
+    0.0,
+    0.30000001192092896,
+    -0.15000000596046448,
+    0.0,
+    -0.15000000596046448,
+    0.0,
+    0.0,
+    0.30000001192092896,
+    -0.15000000596046448,
+    0.0
+  ],
+  "action_scale": 1.0,
+  "action_pipeline": "target_k = action_default_joint_pos_k + action_k * action_scale_k, for k indexing action_joint_names (NOT joint_names -- the action head's dimension order is the action term's actuator-resolution order, which differs from the joint_pos/joint_vel observation order in joint_names). (encoder_bias and action-delay are sim-only DR, not part of deploy)",
+  "held_joint_names": [
+    "Head_Yaw",
+    "Head_Pitch",
+    "Left_Shoulder_Pitch",
+    "Left_Shoulder_Roll",
+    "Left_Elbow_Pitch",
+    "Left_Elbow_Yaw",
+    "Right_Shoulder_Pitch",
+    "Right_Shoulder_Roll",
+    "Right_Elbow_Pitch",
+    "Right_Elbow_Yaw"
+  ],
+  "held_joint_default_pos": [
+    0.0,
+    0.0,
+    0.20000000298023224,
+    -1.25,
+    0.0,
+    -0.5,
+    0.20000000298023224,
+    1.25,
+    0.0,
+    0.5
+  ]
+}

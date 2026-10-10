@@ -3,6 +3,7 @@ import About from '@/components/About';
 import FeaturedProject from '@/components/FeaturedProject';
 import DataProcessing from '@/components/DataProcessing';
 import OtherProjects from '@/components/OtherProjects';
+import RecentWork, { RecentExperience } from '@/components/RecentWork';
 import Skills from '@/components/Skills';
 import Footer from '@/components/Footer';
 
@@ -11,9 +12,11 @@ export default function Home() {
     <main className="min-h-screen bg-black text-white selection:bg-red-900 selection:text-white">
       <Hero />
       <About />
+      <RecentWork />
       <FeaturedProject />
       <DataProcessing />
       <OtherProjects />
+      <RecentExperience />
       <Skills />
       <Footer />
     </main>

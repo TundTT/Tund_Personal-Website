@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PAL Policy Gym · Tund Theerawit</title>
+  <meta name="description" content="Drive Tund's trained Booster K1 walking policy in your browser, then replay its saved evaluation and explore the motion gem.">
+  <link rel="stylesheet" href="./static/css/gallery.css">
+  <link rel="stylesheet" href="./static/css/arena.css">
+  <link rel="stylesheet" href="./static/css/handheld.css">
+  <link rel="stylesheet" href="./static/css/workspace.css">
+  <link rel="stylesheet" href="./static/css/showcase.css">
+  <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.186.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.186.0/examples/jsm/"}}</script>
+</head>
+<body class="evaluation-page">
+  <header class="topbar"><a class="brand" href="#"><span class="brand-mark" aria-hidden="true"></span>K1 <span>POLICY GYM</span></a><nav aria-label="Main"><a href="../../#recent-work" target="_top">← Portfolio</a><a href="#showcase-guide">How it works</a><a href="../NOTICE.txt">Credits</a></nav></header>
+  <main class="arena-page">
+    <section class="showcase-intro" aria-labelledby="showcase-heading">
+      <p class="eyebrow">PAL PLAYGROUND · INTERACTIVE SHOWCASE</p>
+      <h1 id="showcase-heading">Take a policy for a walk.</h1>
+      <p>With several teammates training policies, I built the PAL Playground gallery as a central, browser-based space to test-drive and evaluate our work. It helps us compare policies and select the best ones to hand off to the high-level control team for motion planning and gameplay.</p>
+      <p>Try one of my trained K1 walking policies: drive it live, or replay a short tour of its recorded evaluation.</p>
+      <div class="showcase-actions"><button id="showcase-drive" class="button" type="button">Drive the policy</button><button id="showcase-tour" class="button button-secondary" type="button">Replay evaluation</button></div>
+      <p class="showcase-caption">Real policy inference in your browser · saved evaluation from October 6, 2026 · no installation</p>
+      <p id="showcase-tour-status" class="showcase-tour-status" role="status" aria-live="polite"></p>
+      <progress id="showcase-tour-progress" max="1" value="0" aria-label="Recorded evaluation replay progress" hidden></progress>
+    </section>
+    <section class="policy-header"><p class="eyebrow">POLICY</p><h2 class="policy-title">Loading policy…</h2><div class="policy-header-details"><div class="policy-metadata"><p class="checkpoint" id="policy-identity"></p><p class="muted" id="policy-profile">Native export · forward, lateral, and yaw commands</p><p class="policy-added" id="policy-added"></p></div>
+      <section class="result-actions" id="result-actions" aria-label="Save results" hidden><p id="save-status" role="status" aria-live="polite">Not saved to repository</p><div class="result-action-buttons"><button class="button" id="save-evaluation" type="button" title="Save scorecard and traces to the repository">Save</button><button class="button button-secondary" id="download-results" type="button" title="Download scorecard and traces as JSON" disabled>Download</button></div></section>
+    </div></section>
+    <div class="workspace-grid" id="evaluation-workspace" data-run-state="ready">
+      <section class="simulation-panel panel" aria-labelledby="simulation-heading">
+        <div class="panel-heading"><h2 id="simulation-heading">Simulation</h2><span class="pill" id="run-mode">Playground</span></div>
+        <div class="demo" tabindex="0" data-default-policy="walk-flat-amp/k1_amp_legs_ref_turn" aria-label="Interactive K1 simulation. W and S walk, A and D sidestep, Q and E turn.">
+          <canvas class="demo-canvas" aria-hidden="true"></canvas>
+          <div class="demo-overlay demo-start"><button class="button demo-start-button" type="button">Load policy</button><p class="demo-blurb">A trained neural policy, running in MuJoCo physics. Click to load the robot and take control.</p><p class="demo-status" role="status"></p></div>
+          <div class="demo-hud" hidden><p class="demo-readout">Waiting for telemetry</p><button class="demo-reset" type="button">Reset</button></div>
+          <div class="joystick" aria-label="Walk forward or backward, push sideways to turn"><div class="joystick-knob"></div><span class="joystick-label">walk / turn</span></div>
+        </div>
+        <div class="touch-commands" aria-label="Hold to move"><button type="button" class="button button-secondary" data-command-key="KeyA">Sidestep left</button><button type="button" class="button button-secondary" data-command-key="KeyW">Walk forward</button><button type="button" class="button button-secondary" data-command-key="KeyD">Sidestep right</button></div>
+        <div class="run-controls">
+          <div class="run-context-controls" id="run-ready-controls"><button class="button" id="run-gauntlet" type="button">Run gauntlet</button></div>
+          <div class="run-context-controls" id="run-active-controls" hidden><button class="button button-secondary" id="pause-run" type="button" disabled>Pause</button><button class="button button-secondary" id="cancel-run" type="button" disabled>End run</button></div>
+          <details class="run-settings" id="run-settings"><summary>Settings</summary><div class="run-settings-body"><button class="button button-secondary" id="rerun-gauntlet" type="button" hidden>Run again</button><label for="run-pace">Pace</label><select id="run-pace"><option value="1">1×</option><option value="4">4×</option><option value="8">8×</option><option value="max">Max</option></select><p>Faster pace keeps the same physics and scoring.</p><button class="button button-secondary" id="run-smoke" type="button">Quick check</button><p>Checks loading and motion; does not rank.</p><a href="#showcase-guide">Run help ↗</a></div></details>
+        </div>
+        <div id="run-progress-panel" hidden><div class="round-status"><strong id="round-name">Ready when you are</strong><span id="round-count"></span></div><progress class="run-progress" id="run-progress" max="1" value="0" aria-label="Gauntlet progress"></progress></div>
+        <p class="muted small" id="evaluation-status" role="status"></p>
+        <details class="playground-help"><summary>Controls</summary><p><kbd>W</kbd>/<kbd>S</kbd> forward/back · <kbd>A</kbd>/<kbd>D</kbd> strafe · <kbd>Q</kbd>/<kbd>E</kbd> turn. Drag to orbit; scroll to zoom. Driving pauses during evaluation.</p><p>Each round resets. Stops include the command ramp.</p></details>
+      </section>
+      <section class="character-panel panel" aria-labelledby="gem-heading">
+        <div class="panel-heading"><h2 id="gem-heading">Motion gem</h2><span class="pill" id="result-state">Unmapped</span></div>
+        <div id="motion-gem"></div>
+        <div class="score-summary"><div class="metric"><span>Dependability</span><strong class="metric-value" id="dependability-score">—</strong><small>/ 100</small></div><div class="metric"><span>Performance</span><strong class="metric-value" id="performance-score">—</strong><small>/ 100</small></div></div>
+        <details class="score-context"><summary>Score details</summary><p class="evaluation-date" id="result-evaluated" hidden></p><p class="muted small" id="result-note">Run the gauntlet for scores.</p><a href="#showcase-guide">Scoring guide ↗</a></details>
+      </section>
+    </div>
+    <section class="panel" id="trace-panel" aria-labelledby="trace-heading"><div class="panel-heading"><h2 id="trace-heading">Tracking & path</h2><div class="trace-heading-info"><span class="pill" id="trace-source" role="status">No telemetry yet</span><details class="trace-key"><summary>Legend</summary><span class="muted small" id="trace-legend">Dashed: target · light: actual · solid: scored</span></details></div></div><div class="chart-grid"><svg class="trace-chart" id="velocity-chart" role="img" aria-label="Commanded, raw, and scored forward, lateral and yaw velocities over time"></svg><svg class="trace-chart" id="path-chart" role="img" aria-label="Commanded target path and measured robot path in world coordinates"></svg></div><div class="replay-controls" id="replay-controls" hidden><label>Replay<input type="range" id="replay-scrub" min="0" max="1" step="1" value="0"></label><button class="button button-secondary" id="replay-play" type="button">Play</button><button class="button button-secondary" id="replay-exit" type="button">Back to live</button><output id="replay-time"></output></div></section>
+    <section class="panel" aria-labelledby="standstill-heading"><div class="panel-heading"><h2 id="standstill-heading">Standstill & braking</h2><span class="muted small">Successful stops only</span></div><div class="telemetry-grid" id="standstill-stats"><div class="metric"><span>Standstill drift</span><strong class="metric-value">—</strong></div><div class="metric"><span>Longest successful stop</span><strong class="metric-value">—</strong></div><div class="metric"><span>Total falls</span><strong class="metric-value">—</strong></div></div>
+    <div id="braking-footprint"></div>
+    <details class="measurement-help"><summary>How stops are measured</summary><p>A pass tracks the approach, then holds still at zero command. Distance includes the command ramp. Falls, poor tracking, and continued motion fail. Each attempt resets.</p></details><div class="table-scroll"><table class="metric-table"><thead><tr><th>Direction</th><th>Tracking / 100</th><th>Sustained speed</th><th>Commanded approach</th><th>Mean successful stop</th><th>Longest successful stop</th><th>Passed attempts</th><th>Failed attempts</th></tr></thead><tbody id="direction-results"><tr><td colspan="8" class="empty-state">Run the gauntlet to measure stopping.</td></tr></tbody></table></div></section>
+    <section class="panel" aria-labelledby="turning-heading"><div class="panel-heading"><h2 id="turning-heading">Turning radius</h2><span class="muted small">Compare at matching speeds</span></div><details class="measurement-help"><summary>How radius is measured</summary><p>Smallest passing test radius. The estimate uses mean velocity and yaw rate, not a path fit or physical minimum.</p></details><div class="table-scroll"><table class="metric-table"><thead><tr><th>Turn / facing direction</th><th>Commanded speed</th><th>Smallest passed test radius</th><th>Measured radius estimate</th></tr></thead><tbody id="turning-results"><tr><td colspan="4" class="empty-state">Run the gauntlet to measure turns.</td></tr></tbody></table></div></section>
+    <section class="panel" aria-labelledby="rounds-heading"><div class="panel-heading"><h2 id="rounds-heading">Rounds</h2><span class="muted small" id="plan-duration"></span></div><p class="muted small">Select a round to replay. Limits shown are tested, not absolute.</p><div class="round-list" id="round-list"></div><div class="run-detail" id="round-detail" hidden></div></section>
+    <details class="panel provenance"><summary>Technical details</summary><div class="provenance-grid" id="provenance-details"></div><pre id="protocol-details"></pre></details>
+    <section class="panel showcase-guide" id="showcase-guide" aria-labelledby="guide-heading"><h2 id="guide-heading">From policy to proof.</h2><p><strong>Drive:</strong> the exported neural policy selects joint actions 50 times per second inside a live MuJoCo simulation. Keyboard, joystick, touch controls, and gamepad inputs change its target velocity.</p><p><strong>Replay evaluation:</strong> a short guided playback of five genuine recorded tests: forward walking, sidestepping, turning, stopping, and a speed limit test. This is a replay, not a new evaluation. The full saved scorecard and all 228 attempts remain available below the simulation.</p><p><strong>Motion gem:</strong> rotate and inspect the measured movement map. Its facets connect observed passing commands; the space between them is not a guaranteed capability region.</p><p><strong>Run gauntlet:</strong> run the actual evaluator locally in your browser. The full circuit takes up to 18 simulation minutes; choose a faster pace in Settings, or start with Quick check. New results are stored only in this browser. These scores compare simulation packages, not hardware performance.</p><p>The featured checkpoint has the highest Dependability and Performance scores among Tund-authored, rankable policies in this gallery snapshot. Source: PAL Playground, Gallery branch. <a href="../NOTICE.txt">Attribution and licenses</a>.</p></section>
+    <footer class="arena-footer"><span>PAL Playground · trained by Tund · measured in simulation.</span><nav aria-label="Help"><a href="#showcase-guide">How it works</a><a href="../NOTICE.txt">Credits</a><a href="../../#recent-work" target="_top">Portfolio ↗</a></nav></footer>
+  </main>
+  <script type="module" src="./static/js/viewer.js"></script>
+  <script type="module" src="./static/js/showcase.js"></script>
+</body>
+</html>

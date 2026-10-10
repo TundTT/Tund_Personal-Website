@@ -1,0 +1,3 @@
+# Local research extraction and integration staging; never publish source PDFs.
+/tmp/
+/pal-demo/
