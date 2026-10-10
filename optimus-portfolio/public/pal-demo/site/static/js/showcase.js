@@ -16,8 +16,6 @@ const tourRounds = [
 let activeTour = 0;
 let originalResult;
 
-if (new URLSearchParams(location.search).get('embed') === '1') document.body.classList.add('showcase-embedded');
-
 async function ensureReady() {
   const debug = window.k1gallery;
   if (!debug) throw Error('The policy viewer did not initialize. Please reload.');

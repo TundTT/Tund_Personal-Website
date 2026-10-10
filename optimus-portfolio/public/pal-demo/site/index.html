@@ -13,6 +13,10 @@
   <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.186.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.186.0/examples/jsm/"}}</script>
 </head>
 <body class="evaluation-page">
+  <script>
+    // Apply the embedded palette before parsing visible content, without waiting for modules.
+    if (new URLSearchParams(location.search).get('embed') === '1') document.body.classList.add('showcase-embedded');
+  </script>
   <header class="topbar"><a class="brand" href="#"><span class="brand-mark" aria-hidden="true"></span>K1 <span>POLICY GYM</span></a><nav aria-label="Main"><a href="../../#recent-work" target="_top">← Portfolio</a><a href="#showcase-guide">How it works</a><a href="../NOTICE.txt">Credits</a></nav></header>
   <main class="arena-page">
     <section class="showcase-intro" aria-labelledby="showcase-heading">

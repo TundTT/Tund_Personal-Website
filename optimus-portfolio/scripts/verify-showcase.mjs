@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile, access } from "node:fs/promises";
 import { createHash } from "node:crypto";
+import { runInNewContext } from "node:vm";
 
 const root = new URL("../public/pal-demo/", import.meta.url);
 const json = async (path) =>
@@ -71,7 +72,19 @@ for (const id of tourIds) {
     `Missing recorded tour round ${id}`,
   );
 }
-await access(new URL("site/index.html", root));
+// The palette must be ready before visible markup, even if viewer modules stall.
+const html = await readFile(new URL("site/index.html", root), "utf8");
+const bootstrap = html.match(/<body[^>]*>\s*<script>([\s\S]*?)<\/script>/);
+assert.ok(bootstrap, "Theme bootstrap must run synchronously before body content");
+for (const [search, embedded] of [["?embed=1", true], ["", false], ["?embed=0", false]]) {
+  const classes = new Set();
+  runInNewContext(bootstrap[1], {
+    URLSearchParams,
+    location: { search },
+    document: { body: { classList: { add: (name) => classes.add(name) } } },
+  });
+  assert.equal(classes.has("showcase-embedded"), embedded);
+}
 await access(new URL("LICENSE-PAL.txt", root));
 await access(new URL("NOTICE.txt", root));
 console.log(
