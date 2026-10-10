@@ -1,17 +1,18 @@
+import Image from "next/image";
+
 export default function Hero() {
     return (
         <section className="relative h-screen min-h-[740px] sm:min-h-0 w-full overflow-hidden bg-black text-white flex flex-col items-center justify-center">
-            {/* Background Video/GIF */}
+            {/* BadgerBots competition backdrop */}
             <div className="absolute inset-0 z-0 opacity-40">
-                <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="object-cover w-full h-full"
-                >
-                    <source src="/assets/pupperwalkdomain.mp4" type="video/mp4" />
-                </video>
+                <Image
+                    src="/assets/badgerbots/robots-2026.png"
+                    alt=""
+                    fill
+                    priority
+                    sizes="100vw"
+                    className="object-cover"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
             </div>
 
@@ -21,7 +22,7 @@ export default function Hero() {
                     Hi, I'm <span className="text-white font-bold">Tund Theerawit</span>
                 </h2>
                 <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight mb-4 animate-fade-in-up delay-200">
-                    Simulation-Based Reinforcement Learning for <span className="text-red-600">Quadruped Locomotion</span>
+                    Robot Learning for <span className="text-red-600">Competition & Locomotion</span>
                 </h1>
 
                 <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
@@ -53,7 +54,7 @@ export default function Hero() {
                     </div>
                 </div>
                 <a href="#recent-work" className="inline-block mt-8 text-sm text-gray-400 hover:text-red-400 transition-colors">
-                    Recent work: QuadMorph & PAL Playground <span aria-hidden="true">↓</span>
+                    Recent work: RoboCup & Pupper Research <span aria-hidden="true">↓</span>
                 </a>
             </div>
         </section>

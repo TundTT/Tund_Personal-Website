@@ -28,12 +28,24 @@ At the owner's request, the unpublished manuscript itself is omitted from the pu
 
 ## Original website
 
-The supplied October 10, 2026 website screenshot was checked against the original repository components. The original hero, about text, full MuJoCo and reward-design case study, three-leg recovery, hardware performance and telemetry, WandB/Foxglove tools, other projects, and skills are retained. At the owner's request, the project order is QuadMorph first, PAL Playground second, then the original projects. Existing public technical details come from the original site, not the unpublished manuscript.
+The supplied October 10, 2026 website screenshot was checked against the original repository components. The original hero layout, about text, full MuJoCo and reward-design case study, three-leg recovery, hardware performance and telemetry, WandB/Foxglove tools, other projects, and skills are retained. At the owner's request, the project order is the RoboCup policy gallery and competition result first, then QuadMorph and the original Pupper projects. Existing public technical details come from the original site, not the unpublished manuscript.
 
-The page order is `Hero`, `About`, `RecentWork` (QuadMorph, then PAL Playground), `FeaturedProject`, `DataProcessing`, `OtherProjects`, `RecentExperience`, `Skills`, and `Footer`. Recent experience is added after the original projects, before skills and contact; it does not replace their content.
+The page order is `Hero`, `About`, `RecentWork` (RoboCup policy gallery, then QuadMorph), `FeaturedProject`, `DataProcessing`, `OtherProjects`, `RecentExperience`, `Skills`, and `Footer`. Recent experience is added after the original projects, before skills and contact; it does not replace their content.
 
 `public/assets/pal-gallery-preview.jpg` is an actual browser screenshot of the integrated PAL demo, showing the simulator and saved motion gem.
 
 ## Gallery collaboration context
 
 The owner clarified that multiple teammates train policies. He built the centralized browser-based gallery to test-drive and evaluate them, compare candidates, and select policies for handoff to the high-level control team for motion planning and gameplay.
+
+## Official team website and confirmed competition result
+
+The owner supplied https://badger-bots-github-io.vercel.app/ and requested reuse of team elements. The site's crest, robot lineup, and 2026 team photograph are copied unchanged into `public/assets/badgerbots/`; the portfolio links back to the team site and credits the team photo. The homepage backdrop now features the team's humanoids. Original Pupper videos remain in the quadruped case study.
+
+The résumé states 4th of 14 teams in robot soccer, using the event name World Humanoid Robot Games. The official team site uses RoboCup Asia-Pacific Beijing Masters (2026, Humanoid Soccer League, Middle Division 5v5, international teams). On October 10, 2026 the owner explicitly confirmed that the portfolio should use the team site's event name. The fourth-place result remains a team achievement, not a claim that the gallery or featured policy individually earned that result.
+
+Source assets:
+
+- https://badger-bots-github-io.vercel.app/assets/badgerbots-logo.png → `logo.png`
+- https://badger-bots-github-io.vercel.app/assets/badgerbots-rcap-team-2026.jpg → `team-2026.jpg`
+- https://badger-bots-github-io.vercel.app/assets/robots-2026.png → `robots-2026.png`

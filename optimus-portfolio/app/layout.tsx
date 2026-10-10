@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Tund Theerawit | Robotics, Design & Learned Control",
   description:
-    "Mechanical engineering and robot learning at UW–Madison. Explore QuadMorph morphing wheels and test-drive a trained humanoid policy in the PAL Playground.",
+    "Robot learning at UW–Madison: RoboCup competition, a browser-based policy gallery, and Pupper quadruped research with QuadMorph morphing wheels.",
   keywords: [
     "Robotics",
     "Simulation",

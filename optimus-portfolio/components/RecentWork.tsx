@@ -32,147 +32,83 @@ export default function RecentWork() {
             Recent Work
           </h2>
           <p className="text-gray-400 text-lg">
-            New work in morphing robot hardware, humanoid control, and
-            interactive policy evaluation.
+            From RoboCup competition and policy evaluation to Pupper quadruped
+            research.
           </p>
         </div>
 
         <article
-          id="quadmorph"
-          aria-labelledby="quad-title"
+          id="playground"
+          aria-labelledby="pal-title"
           className="scroll-mt-8"
         >
           <div className="mb-8">
             <p className="text-sm text-gray-400 font-mono mb-3">
-              LEGGEDAI LAB • MECHANICAL DESIGN • LEARNED LOCOMOTION
-            </p>
-            <h3
-              id="quad-title"
-              className="text-3xl font-semibold text-red-500 mb-4"
-            >
-              QuadMorph: Wheels That Change Shape
-            </h3>
-            <p className="text-gray-300 leading-relaxed max-w-3xl">
-              Building on my quadruped locomotion work, QuadMorph explores
-              morphing end effectors that let the same robot roll or walk. My
-              work connects mechanical design, simulation, and learned control
-              on the physical platform.
-            </p>
-            <span className="inline-flex items-center gap-2 text-xs text-red-400 bg-red-950/20 border border-red-900/40 rounded-full px-3 py-1.5 mt-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-red-500" />
-              ICRA submission · Under review
-            </span>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <figure className="bg-zinc-900 rounded-lg border border-zinc-800 overflow-hidden">
-              <Image
-                src={`/assets/quadmorph/quadmorph-${mode === "rolling" ? "rolling-enhanced" : "walking"}.png`}
-                alt={
-                  mode === "rolling"
-                    ? "QuadMorph with its end effectors in the wheel configuration"
-                    : "QuadMorph research robot with its end effectors reshaped into walking feet"
-                }
-                width={mode === "rolling" ? 1421 : 795}
-                height={mode === "rolling" ? 1107 : 620}
-                className="w-full h-auto"
-              />
-              <figcaption className="px-5 py-3 text-sm text-gray-400 border-t border-zinc-800">
-                {mode === "rolling"
-                  ? "Wheel configuration · QuadMorph hardware"
-                  : "Walking configuration · QuadMorph hardware"}
-              </figcaption>
-            </figure>
-            <div>
-              <h4 className="text-2xl font-bold mb-4">
-                One platform, two ways to move
-              </h4>
-              <div
-                role="group"
-                aria-label="Compare robot configurations"
-                className="inline-flex p-1 gap-1 bg-zinc-900 border border-zinc-700 rounded-lg mb-6"
-              >
-                {(["rolling", "walking"] as const).map((value) => (
-                  <button
-                    key={value}
-                    type="button"
-                    aria-pressed={mode === value}
-                    onClick={() => setMode(value)}
-                    className={`px-5 py-2.5 rounded-md text-sm font-semibold transition-colors cursor-pointer ${mode === value ? "bg-red-600 text-white" : "text-gray-400 hover:text-white"}`}
-                  >
-                    {value === "rolling" ? "Rolling" : "Walking"}
-                  </button>
-                ))}
-              </div>
-              <div aria-live="polite">
-                <h5 className="text-lg font-semibold text-white mb-3">
-                  {mode === "rolling"
-                    ? "Circular wheels for rolling"
-                    : "Reshaped feet for walking"}
-                </h5>
-                <p className="text-gray-400 leading-relaxed">
-                  {mode === "rolling"
-                    ? "The end effectors form wheels, supporting rolling locomotion on the same quadruped platform."
-                    : "The end effectors change their geometry to become walking feet, giving the robot another way to interact with the ground."}
-                </p>
-              </div>
-              <p className="text-sm text-zinc-500 mt-6">
-                A visual comparison of the hardware configurations. Research
-                methods and results will be shared with the paper.
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-10">
-            <h4 className="text-xl font-bold mb-6">
-              A closer look at the morphing mechanism
-            </h4>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              {[
-                { src: "wheel", label: "Wheel configuration" },
-                { src: "morph", label: "Changing shape" },
-                { src: "leg", label: "Reconfigured shin" },
-              ].map((item, index) => (
-                <figure
-                  key={item.src}
-                  className="rounded-lg overflow-hidden border border-zinc-800 bg-zinc-900"
-                >
-                  <Image
-                    src={`/assets/quadmorph/quadmorph-${item.src}-detail.png`}
-                    alt={`QuadMorph end effector: ${item.label.toLowerCase()}`}
-                    width={499}
-                    height={499}
-                    className="w-full h-auto"
-                  />
-                  <figcaption className="px-5 py-4 text-sm text-gray-300">
-                    <span className="text-red-500 font-mono mr-3">
-                      0{index + 1}
-                    </span>
-                    {item.label}
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-          </div>
-        </article>
-
-        <article
-          id="playground"
-          aria-labelledby="pal-title"
-          className="mt-20 border-t border-zinc-800 pt-16 scroll-mt-8"
-        >
-          <div className="mb-8">
-            <p className="text-sm text-gray-400 font-mono mb-3">
-              PAL PLAYGROUND • POLICY TRAINING • EVALUATION UI
+              BADGERBOTS • UW–MADISON ROBOCUP • PAL PLAYGROUND
             </p>
             <h3
               id="pal-title"
               className="text-3xl font-semibold text-red-500 mb-4"
             >
-              Interactive Policy Gallery
+              RoboCup: Interactive Policy Gallery
             </h3>
+            <div className="my-8 grid lg:grid-cols-[1.1fr_1fr] rounded-lg overflow-hidden border border-red-900/40 bg-zinc-900">
+              <figure className="flex flex-col">
+                <Image
+                  src="/assets/badgerbots/team-2026.jpg"
+                  alt="BadgerBots teammates with their humanoid robots at RCAP 2026 in Beijing"
+                  width={1727}
+                  height={1219}
+                  className="w-full h-auto lg:h-full object-cover"
+                />
+                <figcaption className="px-5 py-3 text-xs text-gray-400 bg-black/40">
+                  BadgerBots at RCAP 2026 · Photo from the official team site
+                </figcaption>
+              </figure>
+              <div className="p-6 md:p-8 flex flex-col justify-center">
+                <a
+                  href="https://badger-bots-github-io.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 mb-6 text-gray-300 hover:text-white transition-colors"
+                >
+                  <Image
+                    src="/assets/badgerbots/logo.png"
+                    alt="BadgerBots crest"
+                    width={56}
+                    height={56}
+                    className="shrink-0"
+                  />
+                  <span>
+                    <strong className="block text-white">BadgerBots</strong>
+                    <span className="text-sm">
+                      UW–Madison RoboCup · Team website ↗
+                    </span>
+                  </span>
+                </a>
+                <p className="text-5xl font-bold text-red-500">
+                  4th{" "}
+                  <span className="text-lg text-gray-400 font-normal">
+                    of 14 teams
+                  </span>
+                </p>
+                <h4 className="text-xl font-semibold text-white mt-3 mb-2">
+                  RoboCup Asia-Pacific Beijing Masters
+                </h4>
+                <p className="text-sm text-gray-400 mb-5">
+                  2026 · Humanoid Soccer · Middle Division 5v5 · International
+                  Teams
+                </p>
+                <p className="text-sm text-gray-300 leading-relaxed">
+                  Our BadgerBots team placed fourth in robot soccer. As
+                  Low-Level Control Co-Lead for UW–Madison’s RoboCup team, I
+                  work on locomotion policies, deployment, and hardware
+                  recovery.
+                </p>
+              </div>
+            </div>
             <p className="text-gray-300 leading-relaxed max-w-3xl">
-              With several teammates training policies, I built the PAL
+              With several RoboCup teammates training policies, I built the PAL
               Playground gallery as a central, browser-based space to test-drive
               and evaluate our work. It helps us compare policies and select the
               best ones to hand off to the high-level control team for motion
@@ -296,6 +232,125 @@ export default function RecentWork() {
             ))}
           </div>
         </article>
+
+        <article
+          id="quadmorph"
+          aria-labelledby="quad-title"
+          className="mt-20 border-t border-zinc-800 pt-16 scroll-mt-8"
+        >
+          <div className="mb-8">
+            <p className="text-sm text-gray-400 font-mono mb-3">
+              PUPPER QUADRUPED • LEGGEDAI LAB • MECHANICAL DESIGN
+            </p>
+            <h3
+              id="quad-title"
+              className="text-3xl font-semibold text-red-500 mb-4"
+            >
+              QuadMorph: Wheels That Change Shape
+            </h3>
+            <p className="text-gray-300 leading-relaxed max-w-3xl">
+              My quadruped research centers on Pupper, a four-legged robot.
+              QuadMorph adds morphing end effectors that let it roll or walk. My
+              work connects mechanical design, simulation, and learned control
+              on the physical platform.
+            </p>
+            <span className="inline-flex items-center gap-2 text-xs text-red-400 bg-red-950/20 border border-red-900/40 rounded-full px-3 py-1.5 mt-5">
+              <span className="w-1.5 h-1.5 rounded-full bg-red-500" />
+              ICRA submission · Under review
+            </span>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <figure className="bg-zinc-900 rounded-lg border border-zinc-800 overflow-hidden">
+              <Image
+                src={`/assets/quadmorph/quadmorph-${mode === "rolling" ? "rolling-enhanced" : "walking"}.png`}
+                alt={
+                  mode === "rolling"
+                    ? "QuadMorph with its end effectors in the wheel configuration"
+                    : "QuadMorph research robot with its end effectors reshaped into walking feet"
+                }
+                width={mode === "rolling" ? 1421 : 795}
+                height={mode === "rolling" ? 1107 : 620}
+                className="w-full h-auto"
+              />
+              <figcaption className="px-5 py-3 text-sm text-gray-400 border-t border-zinc-800">
+                {mode === "rolling"
+                  ? "Wheel configuration · QuadMorph hardware"
+                  : "Walking configuration · QuadMorph hardware"}
+              </figcaption>
+            </figure>
+            <div>
+              <h4 className="text-2xl font-bold mb-4">
+                One platform, two ways to move
+              </h4>
+              <div
+                role="group"
+                aria-label="Compare robot configurations"
+                className="inline-flex p-1 gap-1 bg-zinc-900 border border-zinc-700 rounded-lg mb-6"
+              >
+                {(["rolling", "walking"] as const).map((value) => (
+                  <button
+                    key={value}
+                    type="button"
+                    aria-pressed={mode === value}
+                    onClick={() => setMode(value)}
+                    className={`px-5 py-2.5 rounded-md text-sm font-semibold transition-colors cursor-pointer ${mode === value ? "bg-red-600 text-white" : "text-gray-400 hover:text-white"}`}
+                  >
+                    {value === "rolling" ? "Rolling" : "Walking"}
+                  </button>
+                ))}
+              </div>
+              <div aria-live="polite">
+                <h5 className="text-lg font-semibold text-white mb-3">
+                  {mode === "rolling"
+                    ? "Circular wheels for rolling"
+                    : "Reshaped feet for walking"}
+                </h5>
+                <p className="text-gray-400 leading-relaxed">
+                  {mode === "rolling"
+                    ? "The end effectors form wheels, supporting rolling locomotion on the same quadruped platform."
+                    : "The end effectors change their geometry to become walking feet, giving the robot another way to interact with the ground."}
+                </p>
+              </div>
+              <p className="text-sm text-zinc-500 mt-6">
+                A visual comparison of the hardware configurations. Research
+                methods and results will be shared with the paper.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-10">
+            <h4 className="text-xl font-bold mb-6">
+              A closer look at the morphing mechanism
+            </h4>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              {[
+                { src: "wheel", label: "Wheel configuration" },
+                { src: "morph", label: "Changing shape" },
+                { src: "leg", label: "Reconfigured shin" },
+              ].map((item, index) => (
+                <figure
+                  key={item.src}
+                  className="rounded-lg overflow-hidden border border-zinc-800 bg-zinc-900"
+                >
+                  <Image
+                    src={`/assets/quadmorph/quadmorph-${item.src}-detail.png`}
+                    alt={`QuadMorph end effector: ${item.label.toLowerCase()}`}
+                    width={499}
+                    height={499}
+                    className="w-full h-auto"
+                  />
+                  <figcaption className="px-5 py-4 text-sm text-gray-300">
+                    <span className="text-red-500 font-mono mr-3">
+                      0{index + 1}
+                    </span>
+                    {item.label}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </article>
       </div>
     </section>
   );
@@ -325,8 +380,8 @@ export function RecentExperience() {
                 RoboCup.
               </p>
               <p className="text-gray-400 text-sm leading-relaxed mt-3">
-                Our team also placed 4th of 14 in robot soccer at the World
-                Humanoid Robot Games in Beijing.
+                Our team placed 4th of 14 in robot soccer at the RoboCup
+                Asia-Pacific Beijing Masters.
               </p>
             </article>
             <article className="p-6 rounded-lg bg-zinc-900 border border-zinc-800">

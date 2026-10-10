@@ -1,6 +1,6 @@
 # Tund Theerawit — personal portfolio
 
-Next.js portfolio preserving the original layout, black/red theme, simulation case studies, charts, videos, earlier projects, and skills. Recent Work features QuadMorph first and PAL Playground second, ahead of the original projects. Experience from the fall 2026 résumé appears after the earlier projects.
+Next.js portfolio preserving the original layout, black/red theme, simulation case studies, charts, videos, earlier projects, and skills. Recent Work features the RoboCup policy gallery and competition result first, followed by QuadMorph, ahead of the original projects. Experience from the fall 2026 résumé appears after the earlier projects.
 
 ## Run locally
 
@@ -38,6 +38,6 @@ The bundle is approximately 24 MB before transfer compression and loads only aft
 
 See `SOURCE_NOTES.md` for biography and imagery provenance. Both résumé download paths intentionally serve the updated document. QuadMorph is an ICRA submission under review; the website includes selected hardware photographs, not the manuscript, full figures, equations, training settings, or quantitative research results.
 
-`app/page.tsx` mounts `Hero`, `About`, `RecentWork`, `FeaturedProject`, `DataProcessing`, `OtherProjects`, `RecentExperience`, `Skills`, and `Footer` in that order. `components/RecentWork.tsx` presents QuadMorph first and PAL Playground second. The original projects retain their order and content; recent experience follows them before skills and contact. The hero includes a shortcut to the new work. All original media remain available.
+`app/page.tsx` mounts `Hero`, `About`, `RecentWork`, `FeaturedProject`, `DataProcessing`, `OtherProjects`, `RecentExperience`, `Skills`, and `Footer` in that order. `components/RecentWork.tsx` presents the RoboCup policy gallery and competition result first, followed by QuadMorph. The original projects retain their order and content; recent experience follows them before skills and contact. The hero includes a shortcut to the new work. All original media remain available.
 
 The rolling configuration photo has an AI-enhanced presentation version. The original is retained in the assets directory; the page uses a simple hardware-configuration caption at the owner’s request. See `IMAGE_ENHANCEMENT.md` for the exact prompt and limitations.
