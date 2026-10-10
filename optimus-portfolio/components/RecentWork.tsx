@@ -1,25 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
 const demoUrl = "/pal-demo/site/index.html";
 
 export default function RecentWork() {
-  const [demoOpen, setDemoOpen] = useState(false);
   const [mode, setMode] = useState<"rolling" | "walking">("rolling");
-  const launchButton = useRef<HTMLButtonElement>(null);
-  const demoFrame = useRef<HTMLIFrameElement>(null);
-  const hasOpened = useRef(false);
-
-  useEffect(() => {
-    if (demoOpen) {
-      hasOpened.current = true;
-      demoFrame.current?.focus();
-    } else if (hasOpened.current) {
-      launchButton.current?.focus();
-    }
-  }, [demoOpen]);
 
   return (
     <section
@@ -135,72 +122,19 @@ export default function RecentWork() {
               </a>
             </div>
 
-            {demoOpen ? (
-              <div>
-                <iframe
-                  ref={demoFrame}
-                  tabIndex={0}
-                  src={`${demoUrl}?embed=1`}
-                  title="PAL Playground: drive Tund’s K1 walking policy and explore recorded evaluations"
-                  allow="fullscreen; gamepad"
-                  allowFullScreen
-                  className="block w-full h-[820px] md:h-[900px] border-0 bg-black"
-                />
-                <div className="flex flex-wrap justify-between items-center gap-3 p-5 border-t border-zinc-800 text-sm">
-                  <p className="text-gray-400">
-                    Live policy simulation · Evaluation tour uses recorded
-                    results
-                  </p>
-                  <button
-                    type="button"
-                    onClick={() => setDemoOpen(false)}
-                    className="text-white hover:text-red-400 cursor-pointer"
-                  >
-                    Close demo ×
-                  </button>
-                </div>
-              </div>
-            ) : (
-              <div>
-                <Image
-                  src="/assets/pal-gallery-preview.jpg"
-                  alt="The PAL gallery showing Tund’s K1 policy in the simulator alongside its measured motion gem"
-                  width={1280}
-                  height={720}
-                  className="w-full h-auto"
-                />
-                <div className="p-6 md:p-8 grid md:grid-cols-[1fr_auto] gap-8 items-center">
-                  <div>
-                    <h4 className="text-xl font-bold mb-3">
-                      Drive it. Replay the evaluation. Explore its limits.
-                    </h4>
-                    <p className="text-gray-400 leading-relaxed max-w-2xl">
-                      Walk, sidestep, and turn with the keyboard or joystick.
-                      Then replay five saved evaluation rounds and explore the
-                      motion gem to see how the policy performs across
-                      directions and speeds.
-                    </p>
-                    <p className="text-xs text-zinc-500 mt-4">
-                      Actual gallery interface shown. The simulation loads when
-                      you launch it.
-                    </p>
-                  </div>
-                  <div>
-                    <button
-                      ref={launchButton}
-                      type="button"
-                      onClick={() => setDemoOpen(true)}
-                      className="bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-full transition-colors cursor-pointer"
-                    >
-                      Launch interactive demo <span aria-hidden="true">↗</span>
-                    </button>
-                    <p className="text-xs text-gray-400 mt-3">
-                      Desktop recommended · Touch controls included
-                    </p>
-                  </div>
-                </div>
-              </div>
-            )}
+            <iframe
+              tabIndex={0}
+              src={`${demoUrl}?embed=1`}
+              loading="eager"
+              title="PAL Playground: drive Tund’s K1 walking policy and explore recorded evaluations"
+              allow="fullscreen; gamepad"
+              allowFullScreen
+              className="block w-full h-[820px] md:h-[900px] border-0 bg-black"
+            />
+            <div className="px-5 py-4 border-t border-zinc-800 text-sm text-gray-400">
+              Click Load policy to start the simulation · Evaluation tour uses
+              recorded results
+            </div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 mt-6">

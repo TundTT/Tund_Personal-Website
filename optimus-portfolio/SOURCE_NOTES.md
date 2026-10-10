@@ -32,7 +32,7 @@ The supplied October 10, 2026 website screenshot was checked against the origina
 
 The page order is `Hero`, `About`, `RecentWork` (RoboCup policy gallery, then QuadMorph), `FeaturedProject`, `DataProcessing`, `OtherProjects`, `RecentExperience`, `Skills`, and `Footer`. Recent experience is added after the original projects, before skills and contact; it does not replace their content.
 
-`public/assets/pal-gallery-preview.jpg` is an actual browser screenshot of the integrated PAL demo, showing the simulator and saved motion gem.
+The PAL gallery is embedded directly and loads automatically. Visitors start the robot through its Load policy control; the former screenshot and launch gate have been removed.
 
 ## Gallery collaboration context
 

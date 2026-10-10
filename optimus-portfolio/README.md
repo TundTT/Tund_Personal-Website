@@ -32,7 +32,7 @@ The existing `output: 'export'` configuration produces `out/`, including the pol
 
 The model, policy, meshes, and saved evaluation are unchanged. The manifest's `completedAt` must exactly match the record, including fractional-second formatting; `check:showcase` verifies this plus hashes, paths, authorship, and tour-round availability.
 
-The bundle is approximately 24 MB before transfer compression and loads only after a visitor launches it. Pinned Three.js and MuJoCo WASM dependencies load from jsDelivr. An internet connection is required for these runtime modules. Attribution and licensing are in `public/pal-demo/NOTICE.txt` and `LICENSE-PAL.txt`.
+The bundle is approximately 24 MB before transfer compression. The gallery and saved evaluation load automatically with the page. The robot simulation remains behind the gallery’s Load policy control (or another explicit drive/replay action); there is no screenshot or separate launch step. Pinned Three.js and MuJoCo WASM dependencies load from jsDelivr. An internet connection is required for these runtime modules. Attribution and licensing are in `public/pal-demo/NOTICE.txt` and `LICENSE-PAL.txt`.
 
 ## Content maintenance
 
