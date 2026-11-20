@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>P · Scroll reveal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* Layout idea: opens on one full-screen photo. As you scroll it shrinks into its place in a wall of all eight projects. */
+  :root { --bg:#0c0f14; --card:#171c24; --ink:#f2f4f7; --mute:#99a3b3; --rule:#252c38; --accent:#ffd166; --font:Sora,system-ui,sans-serif; --pad:clamp(10px,1vw,20px); --nav:54px; }
+  * { box-sizing:border-box; margin:0; }
+  body { background:var(--bg); color:var(--ink); font-family:var(--font); line-height:1.4; }
+  a { color:inherit; text-decoration:none; }
+  nav { position:fixed; z-index:20; top:0; left:0; right:0; height:var(--nav); display:flex; justify-content:space-between; align-items:center; padding:0 clamp(18px,2.4vw,48px); font-size:14px; background:linear-gradient(180deg,rgba(12,15,20,.85),transparent); }
+  nav b { font-size:17px; font-weight:600; letter-spacing:-.02em; }
+  nav span { display:flex; gap:clamp(16px,2.2vw,38px); align-items:center; }
+  nav .cv { background:var(--ink); color:var(--bg); padding:7px 16px; border-radius:99px; font-weight:500; }
+  .pin { height:230vh; }
+  .stage { position:sticky; top:0; height:100vh; padding:var(--nav) var(--pad) var(--pad); }
+  .wall { position:relative; height:100%; display:grid; grid-template-columns:repeat(4,1fr); grid-template-rows:repeat(3,1fr); gap:var(--pad); }
+  .tile { position:relative; overflow:hidden; border-radius:clamp(6px,.6vw,12px); background:var(--card); will-change:transform,opacity; }
+  .slot { grid-column:1 / 3; grid-row:1 / 3; visibility:hidden; }
+  .tile.wide { grid-column:span 2; }
+  .tile img, .tile video, .tile .ph { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  .ph { display:grid; place-items:center; text-align:center; color:#5d6878; font-size:13px; }
+  .tile::after { content:""; position:absolute; inset:0; background:linear-gradient(0deg,rgba(8,10,14,.88),transparent 55%); }
+  .cap { position:absolute; z-index:1; left:clamp(12px,1.2vw,24px); right:12px; bottom:clamp(10px,1vw,20px); }
+  .cap small { font-size:clamp(11px,.8vw,14px); color:var(--accent); }
+  .cap b { display:block; font-size:clamp(16px,1.5vw,28px); font-weight:600; letter-spacing:-.025em; line-height:1.12; }
+  .cap p { font-size:clamp(12px,.9vw,16px); color:#cfd6e0; margin-top:3px; max-width:40ch; }
+  .hero { position:absolute; z-index:5; overflow:hidden; background:var(--card); }
+  .hero img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 55%; }
+  .hero::after { content:""; position:absolute; inset:0; background:linear-gradient(0deg,rgba(8,10,14,.85),transparent 55%); }
+  .hero .open { position:absolute; z-index:1; left:clamp(22px,4vw,80px); bottom:clamp(26px,7vh,90px); max-width:min(70vw,1200px); }
+  .hero .open h1 { font-size:clamp(30px,4.4vw,88px); font-weight:500; letter-spacing:-.04em; line-height:1.04; text-wrap:balance; }
+  .hero .open p { font-size:clamp(15px,1.2vw,22px); color:#dfe4ec; margin-top:14px; }
+  .hero .cap b { font-size:clamp(22px,2.4vw,46px); }
+  .hero .cap p { font-size:clamp(14px,1.05vw,19px); }
+  .hint { position:absolute; z-index:6; left:50%; bottom:18px; transform:translateX(-50%); font-size:13px; color:#dfe4ec; }
+  .after { padding:clamp(30px,4vw,80px) clamp(18px,4vw,80px); display:grid; grid-template-columns:1.3fr repeat(4,1fr); gap:30px; align-items:start; border-top:1px solid var(--rule); }
+  .after p { font-size:clamp(17px,1.5vw,28px); letter-spacing:-.02em; line-height:1.3; max-width:30ch; }
+  .after b { display:block; font-size:clamp(24px,2.6vw,52px); font-weight:500; letter-spacing:-.04em; font-variant-numeric:tabular-nums; }
+  .after span { color:var(--mute); font-size:clamp(12px,.9vw,15px); }
+  @media (max-width:820px){ .pin{height:auto} .stage{position:static;height:auto} .wall{grid-template-columns:1fr 1fr;grid-template-rows:none;grid-auto-rows:42vw} .slot{display:none} .hero{position:relative!important;inset:auto!important;width:auto!important;height:70vh!important;grid-column:1/-1} .after{grid-template-columns:1fr 1fr} .hint{display:none} }
+</style>
+</head>
+<body>
+<nav><b>Tund Theerawit</b><span><a href="#">Work</a><a href="#">Research</a><a href="#">About</a><a href="#">Contact</a><a class="cv" href="#">CV</a></span></nav>
+<div class="pin" id="pin">
+  <div class="stage">
+    <div class="wall" id="wall">
+      <div class="slot" id="slot"></div>
+    </div>
+    <div class="hint" id="hint">Scroll</div>
+  </div>
+</div>
+<div class="after">
+  <p>I'm a senior in Mechanical Engineering at UW–Madison, working on robot learning and the hardware it runs on.</p>
+  <div><b>First author</b><span>QuadMorph, under review at ICRA</span></div>
+  <div><b>4th of 14</b><span>RoboCup Asia-Pacific Beijing Masters</span></div>
+  <div><b data-n="10">10</b><span>people on the motion-control team I co-lead</span></div>
+  <div><b data-n="15">15</b><span>policies ranked in the policy gallery</span></div>
+</div>
+<script src="r2-data.js"></script>
+<script>
+  const [first, ...rest] = PROJECTS;
+  wall.insertAdjacentHTML('beforeend', rest.map((p,i) => `<a class="tile ${i === rest.length - 1 ? 'wide' : ''}" href="#">${media(p)}<div class="cap"><small>${p.tag}</small><b>${p.title}</b><p>${p.line}</p></div></a>`).join(''));
+  wall.insertAdjacentHTML('beforeend', `<a class="hero tile" id="hero" href="#"><img src="${first.img}" alt=""><div class="open" id="open"><h1>I teach robots to walk, and I build and fix the robots too.</h1><p>Robot learning and hardware. UW–Madison, class of 2027.</p></div><div class="cap" id="hcap"><small>${first.tag}</small><b>${first.title}</b><p>${first.line}</p></div></a>`);
+  const tiles = [...wall.querySelectorAll('.tile:not(.hero)')], ease = t => t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3)/2;
+  const small = matchMedia('(max-width:820px)');
+  function tick() {
+    if (small.matches) { hero.removeAttribute('style'); tiles.forEach(t => t.removeAttribute('style')); open.style.opacity = 1; hcap.style.opacity = 0; return; }
+    const total = pin.offsetHeight - innerHeight, raw = Math.min(1, Math.max(0, -pin.getBoundingClientRect().top / total)), t = ease(Math.min(1, raw / .8));
+    // The hero travels from the whole screen to the empty two-by-two slot in the wall.
+    const w = wall.getBoundingClientRect(), s = slot.getBoundingClientRect(), mix = (a,b) => a + (b - a) * t;
+    hero.style.left = mix(-w.left, s.left - w.left) + 'px'; hero.style.top = mix(-w.top, s.top - w.top) + 'px';
+    hero.style.width = mix(innerWidth, s.width) + 'px'; hero.style.height = mix(innerHeight, s.height) + 'px';
+    hero.style.borderRadius = mix(0, 10) + 'px';
+    open.style.opacity = Math.max(0, 1 - t * 2.2); hcap.style.opacity = Math.max(0, (t - .7) / .3); hint.style.opacity = Math.max(0, 1 - raw * 6);
+    tiles.forEach((el,i) => { const d = Math.min(1, Math.max(0, (t - .35 - i * .04) / .5)); el.style.opacity = d; el.style.transform = `translateY(${(1 - d) * 40}px) scale(${.94 + .06 * d})`; });
+  }
+  addEventListener('scroll', tick, { passive:true }); addEventListener('resize', tick); tick();
+</script>
+</body>
+</html>

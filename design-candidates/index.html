@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Website design candidates</title>
+<style>
+  * { box-sizing:border-box; margin:0; }
+  html,body { height:100%; }
+  body { display:flex; flex-direction:column; font-family:system-ui,sans-serif; background:#222; }
+  header { display:flex; gap:8px; align-items:center; padding:8px 12px; background:#111; color:#bbb; font-size:13px; flex-wrap:wrap; }
+  header span { margin-right:8px; }
+  button { font:inherit; color:#ddd; background:#2a2a2a; border:1px solid #444; padding:6px 12px; border-radius:6px; cursor:pointer; }
+  button.on { background:#fff; color:#111; border-color:#fff; }
+  iframe { flex:1; width:100%; border:0; background:#fff; }
+</style>
+</head>
+<body>
+<header>
+  <span>Round 3</span>
+  <button data-src="i-side-panel.html">I · Side panel</button>
+  <button data-src="j-filmstrip.html">J · Filmstrip timeline</button>
+  <button data-src="k-reel-and-list.html">K · Reel and list</button>
+  <button data-src="l-scroll-timeline.html">L · Scroll timeline</button>
+  <span style="margin-left:auto">Earlier:</span><button data-src="c-field-report.html">C</button><button data-src="e-name-first.html">E</button><button data-src="h-my-path.html">H</button>
+</header>
+<iframe id="f"></iframe>
+<script>
+  const f = document.getElementById('f'), bs = [...document.querySelectorAll('button')];
+  function go(b){ bs.forEach(x => x.classList.toggle('on', x === b)); f.src = b.dataset.src; location.hash = b.dataset.src[0]; }
+  bs.forEach(b => b.onclick = () => go(b));
+  go(bs.find(b => b.dataset.src[0] === location.hash.slice(1)) || bs[0]);
+</script>
+</body>
+</html>

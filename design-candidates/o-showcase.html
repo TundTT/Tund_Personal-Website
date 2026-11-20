@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>O · Showcase</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Layout idea: a wide featured carousel with the next slide peeking in, then rows of large rounded cards. */
+  :root { --bg:#17181a; --card:#222427; --ink:#f4f4f4; --mute:#a4a7ab; --rule:#33363a; --accent:#3e6ae1; --font:Figtree,system-ui,sans-serif; --pad:clamp(16px,2.5vw,48px); --gap:clamp(12px,1.2vw,24px); --r:clamp(8px,.8vw,14px); }
+  * { box-sizing:border-box; margin:0; }
+  body { background:var(--bg); color:var(--ink); font-family:var(--font); line-height:1.4; overflow-x:hidden; }
+  a { color:inherit; text-decoration:none; }
+  nav { display:grid; grid-template-columns:1fr auto 1fr; align-items:center; height:56px; padding:0 var(--pad); font-size:14.5px; font-weight:500; }
+  nav b { font-size:18px; font-weight:700; letter-spacing:-.01em; }
+  nav .mid { display:flex; gap:6px; }
+  nav .mid a { padding:6px 14px; border-radius:6px; }
+  nav .mid a:hover { background:var(--card); }
+  nav .end { justify-self:end; display:flex; gap:6px; }
+  nav .end a { padding:6px 14px; border-radius:6px; }
+  nav .end a:last-child { background:var(--ink); color:var(--bg); }
+  .car { overflow:hidden; padding:4px 0 0; }
+  .track { display:flex; gap:var(--gap); padding:0 var(--pad); transition:transform .9s cubic-bezier(.3,.7,.2,1); }
+  .slide { position:relative; flex:none; width:calc(100vw - 2*var(--pad) - 9vw); height:clamp(320px,36vw,720px); border-radius:var(--r); overflow:hidden; background:var(--card); opacity:.45; transition:opacity .9s; cursor:pointer; }
+  .slide.on { opacity:1; cursor:default; }
+  .slide img, .slide video, .card img, .card video, .ph { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  .slide::after { content:""; position:absolute; inset:0; background:linear-gradient(0deg,rgba(0,0,0,.72),transparent 50%); }
+  .slide .t { position:absolute; z-index:1; left:clamp(20px,3vw,60px); bottom:clamp(20px,3vw,56px); right:20px; }
+  .slide small { font-size:clamp(13px,1vw,17px); font-weight:500; }
+  .slide h2 { font-size:clamp(30px,4vw,76px); font-weight:600; letter-spacing:-.03em; line-height:1.02; margin-top:4px; }
+  .slide p { font-size:clamp(15px,1.25vw,23px); margin-top:8px; color:#ececec; max-width:44ch; }
+  .btns { display:flex; gap:10px; margin-top:clamp(12px,1.3vw,22px); }
+  .btns a { font-size:clamp(13px,.95vw,16px); font-weight:600; padding:.7em 0; width:clamp(120px,11vw,200px); text-align:center; border-radius:5px; background:var(--accent); color:#fff; }
+  .btns a + a { background:var(--ink); color:#222; }
+  .dots { display:flex; justify-content:center; gap:10px; padding:16px 0 4px; }
+  .dots button { width:8px; height:8px; border-radius:50%; border:0; padding:0; background:#55595e; cursor:pointer; transition:width .3s, background .3s; }
+  .dots button.on { width:34px; border-radius:6px; background:var(--ink); }
+  h3.sec { font-size:clamp(20px,1.9vw,34px); font-weight:600; letter-spacing:-.02em; padding:clamp(22px,2.6vw,48px) var(--pad) clamp(10px,1vw,18px); display:flex; justify-content:space-between; align-items:baseline; }
+  h3.sec a { font-size:clamp(13px,.95vw,16px); font-weight:500; color:var(--mute); }
+  .row { display:grid; gap:var(--gap); padding:0 var(--pad); grid-template-columns:repeat(3,1fr); }
+  .row.two { grid-template-columns:1fr 1fr; margin-top:var(--gap); }
+  .card { position:relative; border-radius:var(--r); overflow:hidden; background:var(--card); height:clamp(240px,24vw,480px); display:flex; flex-direction:column; justify-content:space-between; padding:clamp(16px,1.7vw,32px); }
+  .card::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,.66) 0%,transparent 42%,transparent 60%,rgba(0,0,0,.5) 100%); }
+  .card > * { position:relative; z-index:1; }
+  .card img, .card video, .card .ph { z-index:0; transition:transform .9s cubic-bezier(.2,.7,.2,1); }
+  .card:hover img, .card:hover video { transform:scale(1.04); }
+  .ph { display:grid; place-items:center; color:#666a70; font-size:13px; text-align:center; }
+  .card small { font-size:clamp(12px,.9vw,15px); font-weight:500; color:#e0e0e0; }
+  .card h4 { font-size:clamp(20px,2vw,38px); font-weight:600; letter-spacing:-.025em; line-height:1.08; }
+  .card p { font-size:clamp(14px,1vw,18px); color:#ececec; margin-top:4px; max-width:36ch; }
+  .card .btns a { width:clamp(100px,8vw,150px); background:var(--ink); color:#222; }
+  .about { margin:var(--gap) var(--pad) 0; background:var(--card); border-radius:var(--r); display:grid; grid-template-columns:1.2fr 1fr 1fr 1fr 1fr; gap:24px; padding:clamp(22px,2.4vw,44px); align-items:center; }
+  .about p { font-size:clamp(15px,1.15vw,20px); color:#dadada; }
+  .about b { display:block; font-size:clamp(22px,2.2vw,42px); font-weight:600; letter-spacing:-.03em; }
+  .about span { color:var(--mute); font-size:clamp(12px,.9vw,15px); }
+  footer { padding:26px var(--pad) 40px; color:var(--mute); font-size:13px; text-align:center; }
+  @media (max-width:860px){ .row,.row.two{grid-template-columns:1fr} .about{grid-template-columns:1fr 1fr} nav .mid{display:none} }
+</style>
+</head>
+<body>
+<nav><b>Tund Theerawit</b><span class="mid"><a href="#">Research</a><a href="#">Competition</a><a href="#">Tools</a><a href="#">Stories</a><a href="#">About</a></span><span class="end"><a href="#">Contact</a><a href="#">CV</a></span></nav>
+<div class="car"><div class="track" id="track"></div></div>
+<div class="dots" id="dots"></div>
+<h3 class="sec">More work <a href="#">See everything</a></h3>
+<div class="row" id="row3"></div>
+<div class="row two" id="row2"></div>
+<div class="about">
+  <p>I teach robots to walk, and I build and fix the robots too. Mechanical Engineering at UW–Madison, class of 2027.</p>
+  <div><b>First author</b><span>QuadMorph, under review at ICRA</span></div>
+  <div><b>4th of 14</b><span>RoboCup Asia-Pacific Beijing Masters</span></div>
+  <div><b>10 people</b><span>motion-control team I co-lead</span></div>
+  <div><b>15 policies</b><span>ranked in the policy gallery</span></div>
+</div>
+<footer>Tund Theerawit, Madison, Wisconsin. Email, GitHub, LinkedIn.</footer>
+<script src="r2-data.js"></script>
+<script>
+  const by = id => PROJECTS.find(p => p.id === id);
+  const feat = ['quadmorph','soccer','korea'].map(by), three = ['gallery','threeleg','pupper'].map(by), two = ['tail','early'].map(by);
+  track.innerHTML = feat.map(p => `<div class="slide">${media(p)}<div class="t"><small>${p.where}, ${p.tag}</small><h2>${p.title}</h2><p>${p.line}</p><div class="btns"><a href="#">Read more</a><a href="#">Watch</a></div></div></div>`).join('');
+  const card = p => `<a class="card" href="#">${media(p)}<div><small>${p.tag}</small><h4>${p.title}</h4><p>${p.line}</p></div><div class="btns"><span></span></div></a>`.replace('<div class="btns"><span></span></div>', '<div class="btns"><span style="font-size:14px;font-weight:600;background:#f4f4f4;color:#222;padding:.6em 1.4em;border-radius:5px">Read more</span></div>');
+  row3.innerHTML = three.map(card).join(''); row2.innerHTML = two.map(card).join('');
+  // The featured carousel moves on by itself and stops while you point at it.
+  const slides = [...track.children]; let cur = 0, timer;
+  dots.innerHTML = slides.map(() => '<button aria-label="Show slide"></button>').join('');
+  function show(i) { cur = (i + slides.length) % slides.length;
+    slides.forEach((s,j) => s.classList.toggle('on', j === cur)); [...dots.children].forEach((d,j) => d.classList.toggle('on', j === cur));
+    const s = slides[cur], w = s.offsetWidth, gap = parseFloat(getComputedStyle(track).gap);
+    const peek = cur === slides.length - 1 ? innerWidth - 2*parseFloat(getComputedStyle(track).paddingLeft) - w : 0;
+    track.style.transform = `translateX(${-(cur * (w + gap)) + peek}px)`; }
+  const play = () => { clearInterval(timer); timer = setInterval(() => show(cur + 1), 5500); };
+  slides.forEach((s,i) => s.onclick = () => { if (i !== cur) { show(i); play(); } });
+  [...dots.children].forEach((d,i) => d.onclick = () => { show(i); play(); });
+  track.onmouseenter = () => clearInterval(timer); track.onmouseleave = play; addEventListener('resize', () => show(cur));
+  show(0); play();
+</script>
+</body>
+</html>

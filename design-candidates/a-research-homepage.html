@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A · Research homepage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root { --paper:#faf7f2; --ink:#1c1a17; --mute:#6b655c; --rule:#e2dcd1; --red:#a8200d; }
+  * { box-sizing:border-box; margin:0; }
+  body { background:var(--paper); color:var(--ink); font-family:Inter,system-ui,sans-serif; font-size:16px; line-height:1.6; }
+  a { color:var(--red); text-decoration:none; border-bottom:1px solid transparent; }
+  a:hover { border-bottom-color:var(--red); }
+  .wrap { max-width:920px; margin:0 auto; padding:0 28px; }
+  nav { display:flex; justify-content:space-between; align-items:baseline; padding:26px 0; border-bottom:1px solid var(--rule); font-size:14px; }
+  nav .name { font-family:Newsreader,serif; font-size:20px; font-weight:600; color:var(--ink); }
+  nav .links a { color:var(--mute); margin-left:26px; }
+  .intro { display:grid; grid-template-columns:1fr 220px; gap:48px; padding:64px 0 52px; align-items:start; }
+  h1 { font-family:Newsreader,serif; font-weight:500; font-size:44px; line-height:1.12; letter-spacing:-0.01em; margin-bottom:22px; }
+  h1 em { color:var(--red); font-style:italic; }
+  .intro p { font-size:17px; color:#3a362f; margin-bottom:14px; max-width:58ch; }
+  .intro img { width:220px; height:270px; object-fit:cover; object-position:50% 30%; border-radius:4px; filter:saturate(.9); }
+  .intro figcaption { font-size:13px; color:var(--mute); margin-top:10px; line-height:1.45; }
+  .cta { display:flex; flex-wrap:wrap; gap:10px; margin-top:26px; }
+  .btn { font-size:14px; font-weight:500; padding:9px 16px; border:1px solid var(--ink); border-radius:3px; color:var(--ink); }
+  .btn.solid { background:var(--ink); color:var(--paper); }
+  .btn:hover { border-color:var(--red); background:var(--red); color:#fff; }
+  h2 { font-family:Inter,sans-serif; font-size:12px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--mute); padding:18px 0; border-top:1px solid var(--ink); }
+  section { padding-bottom:44px; }
+  .pub { display:grid; grid-template-columns:240px 1fr; gap:30px; padding:6px 0 34px; }
+  .pub + .pub { border-top:1px solid var(--rule); padding-top:34px; }
+  .pub .media { position:relative; aspect-ratio:4/3; border-radius:4px; overflow:hidden; background:#ddd; }
+  .pub .media img, .pub .media video { width:100%; height:100%; object-fit:cover; display:block; }
+  .tag { position:absolute; left:8px; bottom:8px; background:rgba(28,26,23,.82); color:#fff; font-size:11px; padding:3px 8px; border-radius:2px; letter-spacing:.04em; }
+  .pub h3 { font-family:Newsreader,serif; font-size:24px; font-weight:500; line-height:1.25; margin-bottom:6px; }
+  .pub .meta { font-size:14px; color:var(--mute); margin-bottom:10px; }
+  .pub .meta b { color:var(--ink); font-weight:600; }
+  .pub p { font-size:15.5px; color:#3a362f; max-width:60ch; }
+  .pub .links { margin-top:12px; font-size:14px; }
+  .pub .links a { margin-right:16px; }
+  .status { display:inline-block; font-size:12px; color:var(--red); border:1px solid var(--red); padding:1px 8px; border-radius:20px; margin-left:8px; vertical-align:middle; }
+  .news { list-style:none; padding:0; }
+  .news li { display:grid; grid-template-columns:130px 1fr; gap:20px; padding:10px 0; border-bottom:1px solid var(--rule); font-size:15.5px; }
+  .news time { color:var(--mute); font-size:14px; }
+  footer { border-top:1px solid var(--ink); padding:24px 0 60px; font-size:14px; color:var(--mute); display:flex; justify-content:space-between; }
+  @media (max-width:720px){ .intro{grid-template-columns:1fr} .pub{grid-template-columns:1fr} h1{font-size:34px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <span class="name">Tund Theerawit</span>
+    <span class="links"><a href="#">Research</a><a href="#">Projects</a><a href="#">News</a><a href="#">CV</a></span>
+  </nav>
+
+  <div class="intro">
+    <div>
+      <h1>I train robot controllers and build the <em>hardware they run on.</em></h1>
+      <p>I'm a senior in Mechanical Engineering at UW–Madison, working on reinforcement learning and sim-to-real transfer for legged and humanoid robots.</p>
+      <p>I do research in the LeggedAI Lab with Prof. Xiaobin Xiong, co-lead motion control for BadgerBots, our RoboCup humanoid team advised by Prof. Josiah Hanna, and am building a stabilizing tail for a quadruped with Prof. Peter Adamczyk.</p>
+      <div class="cta">
+        <a class="btn solid" href="#">CV (PDF)</a>
+        <a class="btn" href="#">Email</a>
+        <a class="btn" href="#">GitHub</a>
+        <a class="btn" href="#">LinkedIn</a>
+      </div>
+    </div>
+    <figure>
+      <img src="tund.jpeg" alt="Tund Theerawit">
+      <figcaption>B.S. Mechanical Engineering, Data Science Certificate<br>UW–Madison, May 2027</figcaption>
+    </figure>
+  </div>
+
+  <section>
+    <h2>Research</h2>
+    <div class="pub">
+      <div class="media"><img src="../optimus-portfolio/public/assets/quadmorph/quadmorph-rolling-enhanced.png" alt=""><span class="tag">Hardware</span></div>
+      <div>
+        <h3>QuadMorph: Smart-Material-Enabled Reconfigurable Shins for Wheel-Legged Quadrupedal Locomotion</h3>
+        <div class="meta"><b>T. Theerawit</b>, E. Dretzka, X. Xiong, X. Kuang <span class="status">Under review, IEEE ICRA</span></div>
+        <p>Shape-memory-polymer shins let a small quadruped switch between wheels and legs using only its own joint motors and body weight. Learned policies handle rolling, walking and the transitions between them.</p>
+        <div class="links"><a href="#">Project page →</a><a href="#">Video</a><a href="#">Paper (after review)</a></div>
+      </div>
+    </div>
+    <div class="pub">
+      <div class="media"><video src="../optimus-portfolio/public/assets/hardware_3leg.mp4" muted loop autoplay playsinline></video><span class="tag">Video</span></div>
+      <div>
+        <h3>A three-legged policy for a robot with a dead motor</h3>
+        <div class="meta">LeggedAI Lab · 2025</div>
+        <p>A hip motor failed during sim-to-real validation and the replacement was two weeks away. I modelled the joint as a passive hinge and trained a hopping policy, so the pipeline could be validated on hardware without waiting.</p>
+        <div class="links"><a href="#">Read the story →</a></div>
+      </div>
+    </div>
+    <div class="pub">
+      <div class="media"><img src="../optimus-portfolio/public/assets/badgerbots/team-2026.jpg" alt=""><span class="tag">Live demo</span></div>
+      <div>
+        <h3>Humanoid walking, ball interception and a policy gallery</h3>
+        <div class="meta">BadgerBots, UW–Madison RoboCup · 2026 to present</div>
+        <p>Walking and interception policies for the Booster K1, and a browser-based gallery that runs every teammate's policy through the same simulated gauntlet. Fifteen policies ranked so far. Interception is trained in simulation with hardware testing ongoing.</p>
+        <div class="links"><a href="#">Drive a policy in your browser →</a><a href="#">Team site</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>News</h2>
+    <ul class="news">
+      <li><time>Fall 2026</time><span>Started senior capstone with Prof. Adamczyk on a bio-inspired tail for the Unitree Go2 (in progress).</span></li>
+      <li><time>Fall 2026</time><span>QuadMorph submitted to IEEE ICRA as first author.</span></li>
+      <li><time>Summer 2026</time><span>BadgerBots placed 4th of 14 at the RoboCup Asia-Pacific Beijing Masters.</span></li>
+      <li><time>Summer 2026</time><span>Competed at RoboCup 2026 in South Korea.</span></li>
+    </ul>
+  </section>
+
+  <footer><span>Madison, Wisconsin</span><span>Last updated November 2026</span></footer>
+</div>
+</body>
+</html>

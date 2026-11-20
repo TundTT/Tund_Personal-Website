@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>D · Drive the robot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#eef0ee; --card:#ffffff; --ink:#101614; --mute:#5f6965; --rule:#d5dad6; --go:#0b7a53; --key:#101614; }
+  * { box-sizing:border-box; margin:0; }
+  body { background:var(--bg); color:var(--ink); font-family:Manrope,sans-serif; font-size:16px; line-height:1.55; }
+  a { color:inherit; text-decoration:none; }
+  .mono { font-family:"JetBrains Mono",monospace; font-size:12px; letter-spacing:.06em; text-transform:uppercase; }
+  .wrap { max-width:1320px; margin:0 auto; padding:0 28px; }
+  nav { display:flex; justify-content:space-between; align-items:center; padding:20px 0; }
+  nav b { font-weight:800; font-size:17px; }
+  nav span a { margin-left:24px; font-size:14px; font-weight:500; color:var(--mute); }
+  nav span a.cv { background:var(--ink); color:#fff; padding:9px 16px; border-radius:8px; }
+  .hero { display:grid; grid-template-columns:4fr 7fr; gap:20px; align-items:stretch; }
+  .id { background:var(--card); border-radius:18px; padding:36px; display:flex; flex-direction:column; border:1px solid var(--rule); }
+  .who { display:flex; gap:14px; align-items:center; margin-bottom:28px; }
+  .who img { width:52px; height:52px; border-radius:50%; object-fit:cover; object-position:50% 28%; }
+  .who small { display:block; color:var(--mute); font-size:13.5px; }
+  h1 { font-weight:800; font-size:clamp(34px,3.5vw,52px); line-height:1.04; letter-spacing:-.03em; margin-bottom:18px; }
+  h1 span { color:var(--go); }
+  .id p { color:#333d39; margin-bottom:12px; }
+  .keys { display:flex; gap:22px; margin:22px 0 6px; align-items:center; }
+  .kb { display:grid; grid-template-columns:repeat(3,34px); gap:5px; }
+  .kb i { font-style:normal; font-family:"JetBrains Mono",monospace; font-size:13px; height:34px; display:grid; place-items:center; border-radius:7px; background:var(--key); color:#fff; box-shadow:0 3px 0 #000; }
+  .kb i.dim { background:#c9cfcb; color:#48524e; box-shadow:0 3px 0 #a9b0ab; }
+  .keys small { color:var(--mute); font-size:13.5px; line-height:1.5; }
+  .links { margin-top:auto; padding-top:24px; display:flex; flex-wrap:wrap; gap:8px; }
+  .links a { font-size:14px; font-weight:500; padding:8px 14px; border:1px solid var(--rule); border-radius:8px; background:var(--bg); }
+  .links a:hover { border-color:var(--ink); }
+  .sim { background:#0b0b0c; border-radius:18px; overflow:hidden; border:1px solid var(--ink); display:flex; flex-direction:column; min-height:640px; }
+  .sim .top { display:flex; justify-content:space-between; padding:13px 18px; color:#c9cfcb; border-bottom:1px solid #26292a; }
+  .sim .top .live::before { content:""; display:inline-block; width:8px; height:8px; border-radius:50%; background:#2fe39b; margin-right:8px; box-shadow:0 0 0 4px rgba(47,227,155,.2); }
+  .sim iframe { flex:1; width:100%; border:0; background:#000; }
+  .rows { margin:20px 0 60px; background:var(--card); border:1px solid var(--rule); border-radius:18px; overflow:hidden; }
+  .rows h2 { font-size:13px; padding:16px 26px; border-bottom:1px solid var(--rule); color:var(--mute); font-weight:500; }
+  .row { display:grid; grid-template-columns:110px 1.1fr 2fr 150px; gap:22px; align-items:center; padding:14px 26px; border-bottom:1px solid var(--rule); }
+  .row:last-child { border:0; }
+  .row:hover { background:#f6f8f6; }
+  .row .th { width:110px; height:70px; border-radius:8px; overflow:hidden; background:#ddd; }
+  .row .th img, .row .th video { width:100%; height:100%; object-fit:cover; display:block; }
+  .row h3 { font-size:18px; font-weight:700; letter-spacing:-.01em; }
+  .row h3 small { display:block; font-weight:500; font-size:13px; color:var(--mute); letter-spacing:0; }
+  .row p { font-size:14.5px; color:#333d39; }
+  .badge { justify-self:end; font-size:12.5px; font-weight:500; padding:4px 10px; border-radius:99px; background:#e3f3ec; color:var(--go); }
+  .badge.g { background:#eceeed; color:var(--mute); }
+  @media (max-width:900px){ .hero{grid-template-columns:1fr} .row{grid-template-columns:90px 1fr} .row p,.row .badge{grid-column:2;justify-self:start} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav><b>Tund Theerawit</b><span><a href="#">Projects</a><a href="#">Paper</a><a href="#">About</a><a class="cv" href="#">CV</a></span></nav>
+
+  <div class="hero">
+    <div class="id">
+      <div class="who"><img src="tund.jpeg" alt=""><div><b>Tund Theerawit</b><small>Mechanical Engineering, UW–Madison '27</small></div></div>
+      <h1>This robot is running a policy I trained. <span>Go ahead, drive it.</span></h1>
+      <p>I work on reinforcement learning and sim-to-real for humanoid and legged robots, and on the hardware underneath.</p>
+      <div class="keys">
+        <div class="kb"><i class="dim">Q</i><i>W</i><i class="dim">E</i><i>A</i><i>S</i><i>D</i></div>
+        <small>W/S walk, A/D sidestep, Q/E turn.<br>Real physics, real network, in your browser.</small>
+      </div>
+      <div class="links"><a href="#">GitHub</a><a href="#">LinkedIn</a><a href="#">Email</a><a href="#">How this demo works</a></div>
+    </div>
+    <div class="sim">
+      <div class="top mono"><span class="live">Booster K1 · walking policy</span><span>MuJoCo in the browser</span></div>
+      <iframe src="/pal-demo/site/index.html?embed=1" title="K1 policy demo" loading="lazy"></iframe>
+    </div>
+  </div>
+
+  <div class="rows">
+    <h2 class="mono">Projects</h2>
+    <a class="row" href="#">
+      <div class="th"><img src="../optimus-portfolio/public/assets/quadmorph/quadmorph-rolling-enhanced.png" alt=""></div>
+      <h3>QuadMorph<small>LeggedAI Lab · first author</small></h3>
+      <p>Smart-material shins that switch a quadruped between wheels and legs with no added actuators.</p>
+      <span class="badge">ICRA, under review</span>
+    </a>
+    <a class="row" href="#">
+      <div class="th"><img src="../optimus-portfolio/public/assets/badgerbots/team-2026.jpg" alt=""></div>
+      <h3>BadgerBots<small>RoboCup humanoid team · co-lead</small></h3>
+      <p>Walking and interception policies for the K1, and the policy gallery behind the demo above.</p>
+      <span class="badge">4th of 14, Beijing</span>
+    </a>
+    <a class="row" href="#">
+      <div class="th"><video src="../optimus-portfolio/public/assets/hardware_3leg.mp4" muted loop autoplay playsinline></video></div>
+      <h3>Three-legged hopping<small>LeggedAI Lab</small></h3>
+      <p>A motor died mid-validation, so I trained a policy around it instead of waiting two weeks for a part.</p>
+      <span class="badge g">2025</span>
+    </a>
+    <a class="row" href="#">
+      <div class="th"><video style="transform:scale(3.2)" src="../optimus-portfolio/public/assets/hardware_walking.mp4" muted loop autoplay playsinline></video></div>
+      <h3>Stabilizing tail<small>Senior capstone · Prof. Adamczyk</small></h3>
+      <p>A bio-inspired tail and whole-body controller for a Unitree Go2.</p>
+      <span class="badge g">In progress</span>
+    </a>
+  </div>
+</div>
+</body>
+</html>

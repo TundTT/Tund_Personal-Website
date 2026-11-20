@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>H · My path</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#f3ede2; --ink:#1d2a24; --mute:#6c756f; --line:#1d2a24; --hot:#e0531c; --card:#fffdf8; }
+  * { box-sizing:border-box; margin:0; }
+  body { background:var(--bg); color:var(--ink); font-family:Inter,sans-serif; line-height:1.55; }
+  a { color:inherit; text-decoration:none; }
+  .wrap { max-width:1120px; margin:0 auto; padding:0 32px; }
+  nav { display:flex; justify-content:space-between; padding:24px 0; font-size:14px; }
+  nav b { font-family:Fraunces,serif; font-size:18px; }
+  nav a { margin-left:24px; }
+  header { padding:9vh 0 8vh; }
+  h1 { font-family:Fraunces,serif; font-weight:700; font-size:clamp(60px,10vw,138px); line-height:.92; letter-spacing:-.035em; }
+  h1 em { font-weight:500; color:var(--hot); }
+  header p { font-size:clamp(18px,1.8vw,23px); max-width:44ch; margin-top:28px; color:#33413a; }
+  .facts { display:flex; flex-wrap:wrap; gap:8px; margin-top:26px; }
+  .facts span { font-size:13.5px; padding:6px 14px; border:1px solid var(--line); border-radius:99px; }
+  .facts span:first-child { background:var(--ink); color:var(--bg); }
+  .path { position:relative; padding:20px 0 100px; }
+  .path::before { content:""; position:absolute; left:74px; top:0; bottom:60px; width:2px; background:var(--line); }
+  .yr { display:grid; grid-template-columns:150px 1fr; margin-bottom:54px; }
+  .yr > b { position:sticky; top:20px; align-self:start; font-family:Fraunces,serif; font-size:30px; background:var(--bg); padding:6px 0; width:150px; }
+  .yr > b::after { content:""; position:absolute; left:67px; top:52px; width:16px; height:16px; border-radius:50%; background:var(--hot); border:3px solid var(--bg); }
+  .yr > b small { display:block; font-family:Inter,sans-serif; font-weight:400; font-size:12.5px; color:var(--mute); margin-top:22px; padding-left:98px; margin-left:-98px; width:150px; }
+  .cards { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+  .cards.one { grid-template-columns:1fr; }
+  .card { background:var(--card); border-radius:16px; overflow:hidden; border:1px solid #e2d9c8; transition:transform .25s, box-shadow .25s; }
+  .card:hover { transform:translateY(-4px) rotate(-.4deg); box-shadow:0 14px 30px rgba(29,42,36,.14); }
+  .pic { aspect-ratio:16/10; overflow:hidden; background:#e6ded0; }
+  .cards.one .pic { aspect-ratio:21/9; }
+  .pic img, .pic video { width:100%; height:100%; object-fit:cover; display:block; }
+  .ph { height:100%; display:grid; place-items:center; text-align:center; color:#a49a88; font-size:13px; }
+  .b { padding:16px 18px 20px; }
+  .b small { font-size:12.5px; color:var(--hot); }
+  .b h3 { font-family:Fraunces,serif; font-weight:700; font-size:24px; letter-spacing:-.01em; margin:2px 0 4px; }
+  .b p { font-size:14.5px; color:#46524c; }
+  @media (max-width:760px){ .yr{grid-template-columns:1fr} .path::before,.yr>b::after{display:none} .yr>b{position:static} .cards{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav><b>Tund</b><span><a href="#">Work</a><a href="#">About me</a><a href="#">CV</a></span></nav>
+  <header>
+    <h1>Hi, I'm Tund.<br><em>I build robots.</em></h1>
+    <p>I teach them to walk, and I build and fix them too. This is how I got here, most recent first.</p>
+    <div class="facts"><span>Tund Theerawit</span><span>Bangkok → Madison</span><span>Mechanical Engineering '27</span><span>Rock climber</span></div>
+  </header>
+  <div class="path" id="path"></div>
+</div>
+<script src="r2-data.js"></script>
+<script>
+  const notes = { 2027:'Senior year', 2026:'Joined BadgerBots', 2025:'Joined the LeggedAI Lab', 2024:'First robots' };
+  const years = [...new Set(PROJECTS.map(p => p.year))].sort().reverse();
+  path.innerHTML = years.map(y => { const ps = PROJECTS.filter(p => p.year === y);
+    return `<div class="yr"><b>${y}<small>${notes[y]}</small></b><div class="cards ${ps.length === 1 ? 'one' : ''}">` +
+      ps.map(p => `<a class="card" href="#"><div class="pic">${media(p)}</div><div class="b"><small>${p.where} · ${p.tag}</small><h3>${p.title}</h3><p>${p.line}</p></div></a>`).join('') + `</div></div>`; }).join('');
+</script>
+</body>
+</html>

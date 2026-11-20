@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>B · Engineering drawing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --sheet:#f1efe8; --ink:#14202b; --line:#14202b; --mute:#5c6770; --grid:rgba(20,32,43,.07); --orange:#e2591b; }
+  * { box-sizing:border-box; margin:0; }
+  body { background:var(--sheet); color:var(--ink); font-family:"IBM Plex Sans",sans-serif; font-size:15.5px; line-height:1.55;
+    background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px); background-size:24px 24px; }
+  a { color:inherit; }
+  .mono { font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; }
+  .sheet { max-width:1180px; margin:24px auto; border:1.5px solid var(--line); background:rgba(241,239,232,.6); }
+  .bar { display:flex; justify-content:space-between; align-items:center; padding:10px 18px; border-bottom:1.5px solid var(--line); }
+  .bar nav a { margin-left:22px; text-decoration:none; }
+  .bar nav a:hover { color:var(--orange); }
+  .hero { display:grid; grid-template-columns:5fr 6fr; border-bottom:1.5px solid var(--line); }
+  .hero .text { padding:54px 40px 40px; border-right:1.5px solid var(--line); display:flex; flex-direction:column; }
+  h1 { font-family:"IBM Plex Sans Condensed",sans-serif; font-weight:700; font-size:66px; line-height:.95; letter-spacing:-.01em; text-transform:uppercase; margin:16px 0 22px; }
+  h1 span { color:var(--orange); }
+  .hero p { max-width:44ch; margin-bottom:12px; }
+  .btns { display:flex; gap:0; margin-top:auto; padding-top:28px; }
+  .btns a { border:1.5px solid var(--line); padding:10px 16px; text-decoration:none; margin-right:-1.5px; }
+  .btns a:first-child { background:var(--ink); color:var(--sheet); }
+  .btns a:hover { background:var(--orange); color:#fff; border-color:var(--orange); }
+  .fig { position:relative; padding:28px 28px 130px; }
+  .fig .img { position:relative; }
+  .fig img { width:100%; display:block; filter:grayscale(1) contrast(1.08); mix-blend-mode:multiply; }
+  .call { position:absolute; display:flex; align-items:center; white-space:nowrap; }
+  .call i { width:9px; height:9px; border-radius:50%; background:var(--orange); box-shadow:0 0 0 3px rgba(226,89,27,.25); flex:none; }
+  .call b { width:54px; height:1.5px; background:var(--orange); flex:none; }
+  .call span { background:var(--sheet); border:1.5px solid var(--line); padding:3px 7px; font-weight:400; }
+  .call.r { flex-direction:row-reverse; transform:translateX(-100%); }
+  .cap { position:absolute; left:28px; bottom:18px; }
+  .title-block { position:absolute; right:0; bottom:0; display:grid; grid-template-columns:auto auto; border-top:1.5px solid var(--line); border-left:1.5px solid var(--line); background:var(--sheet); }
+  .title-block div { padding:5px 10px; border-right:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .title-block div:nth-child(even){ border-right:0; } .title-block div:nth-last-child(-n+2){ border-bottom:0; }
+  .specs { display:grid; grid-template-columns:repeat(4,1fr); border-bottom:1.5px solid var(--line); }
+  .specs div { padding:20px 22px; border-right:1.5px solid var(--line); }
+  .specs div:last-child { border-right:0; }
+  .specs strong { display:block; font-family:"IBM Plex Sans Condensed",sans-serif; font-size:34px; font-weight:600; line-height:1.1; margin-top:6px; }
+  .specs small { color:var(--mute); font-size:13.5px; }
+  .parts { display:grid; grid-template-columns:repeat(3,1fr); }
+  .part { border-right:1.5px solid var(--line); display:flex; flex-direction:column; }
+  .part:last-child { border-right:0; }
+  .part .head { display:flex; justify-content:space-between; padding:9px 16px; border-bottom:1.5px solid var(--line); }
+  .part .pic { aspect-ratio:16/10; overflow:hidden; border-bottom:1.5px solid var(--line); background:#d9d6cc; }
+  .part .pic img, .part .pic video { width:100%; height:100%; object-fit:cover; display:block; filter:grayscale(1) contrast(1.05); transition:filter .3s; }
+  .part:hover .pic img, .part:hover .pic video { filter:none; }
+  .part .body { padding:18px 16px 22px; }
+  .part h3 { font-family:"IBM Plex Sans Condensed",sans-serif; font-size:24px; font-weight:600; text-transform:uppercase; line-height:1.1; margin-bottom:8px; }
+  .part p { font-size:14.5px; color:#2c3944; }
+  .part .st { color:var(--orange); margin-top:12px; display:block; }
+  @media (max-width:860px){ .hero,.parts{grid-template-columns:1fr} .specs{grid-template-columns:1fr 1fr} h1{font-size:46px} .hero .text{border-right:0;border-bottom:1.5px solid var(--line)} }
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="bar mono">
+    <span>Tund Theerawit / Robot learning + hardware</span>
+    <nav><a href="#">01 Work</a><a href="#">02 Paper</a><a href="#">03 About</a><a href="#">04 CV</a></nav>
+  </div>
+
+  <div class="hero">
+    <div class="text">
+      <span class="mono" style="color:var(--mute)">Mechanical Engineering · UW–Madison · May 2027</span>
+      <h1>Policies that survive <span>real hardware.</span></h1>
+      <p>I train reinforcement learning controllers for legged and humanoid robots, and I design, wire and repair the machines they run on.</p>
+      <p style="color:var(--mute)">You can't control a robot well without knowing it physically.</p>
+      <div class="btns mono"><a href="#">Download CV</a><a href="#">GitHub</a><a href="#">LinkedIn</a><a href="#">Email</a></div>
+    </div>
+    <div class="fig">
+      <div class="img">
+        <img src="../optimus-portfolio/public/assets/quadmorph/quadmorph-rolling-enhanced.png" alt="QuadMorph robot in wheel configuration">
+        <div class="call mono" style="left:21%;top:70%"><i></i><b></b><span>Morphing shin, wheel form</span></div>
+        <div class="call mono r" style="left:77%;top:78%"><i></i><b></b><span>Powered hub</span></div>
+        <div class="call mono" style="left:27%;top:52%"><i></i><b></b><span>Joint motor does the reshaping</span></div>
+      </div>
+      <span class="cap mono">Fig. 1 · QuadMorph, wheel configuration</span>
+      <div class="title-block mono">
+        <div>Project</div><div>QuadMorph</div>
+        <div>Role</div><div>First author</div>
+        <div>Status</div><div style="color:var(--orange)">ICRA, under review</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="specs">
+    <div><span class="mono">Publication</span><strong>1st author</strong><small>QuadMorph, submitted to IEEE ICRA</small></div>
+    <div><span class="mono">Competition</span><strong>4th / 14</strong><small>BadgerBots, RoboCup Asia-Pacific Beijing Masters</small></div>
+    <div><span class="mono">Benchmark</span><strong>15 policies</strong><small>ranked in the policy gallery I built</small></div>
+    <div><span class="mono">Team</span><strong>10 people</strong><small>motion control, which I co-lead</small></div>
+  </div>
+
+  <div class="parts">
+    <div class="part">
+      <div class="head mono"><span>Part 01</span><span>LeggedAI Lab</span></div>
+      <div class="pic"><video style="transform:scale(3.2)" src="../optimus-portfolio/public/assets/hardware_walking.mp4" muted loop autoplay playsinline></video></div>
+      <div class="body">
+        <h3>QuadMorph</h3>
+        <p>A quadruped whose shins reshape between wheels and legs with no added actuators. Mechanism, simulation co-design and learned policies for rolling, walking and transitions.</p>
+        <span class="st mono">→ Open case study</span>
+      </div>
+    </div>
+    <div class="part">
+      <div class="head mono"><span>Part 02</span><span>BadgerBots</span></div>
+      <div class="pic"><img src="../optimus-portfolio/public/assets/badgerbots/robots-2026.png" alt=""></div>
+      <div class="body">
+        <h3>Humanoid soccer</h3>
+        <p>Walking and ball-interception policies for the Booster K1, plus a gallery that puts every teammate's policy through the same gauntlet before it touches hardware.</p>
+        <span class="st mono">→ Drive a policy live</span>
+      </div>
+    </div>
+    <div class="part">
+      <div class="head mono"><span>Part 03</span><span>Capstone</span></div>
+      <div class="pic"><video src="../optimus-portfolio/public/assets/hardware_3leg.mp4" muted loop autoplay playsinline></video></div>
+      <div class="body">
+        <h3>Stabilizing tail</h3>
+        <p>A bio-inspired tail and whole-body controller for a Unitree Go2, to correct body roll where stepping can't. Design and controller in development.</p>
+        <span class="st mono">→ In progress, 2026–27</span>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

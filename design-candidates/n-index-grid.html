@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>N · Ruled grid</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* Layout idea: strict black and white, edge to edge. A wide video band, then every project in one ruled four-column grid. */
+  :root { --bg:#000; --ink:#fff; --mute:#9b9b9b; --rule:#333; --inv:#fff; --font:Onest,system-ui,sans-serif; --pad:clamp(18px,2.4vw,48px); }
+  * { box-sizing:border-box; margin:0; }
+  body { background:var(--bg); color:var(--ink); font-family:var(--font); line-height:1.45; }
+  a { color:inherit; text-decoration:none; }
+  nav { display:grid; grid-template-columns:1fr auto 1fr; align-items:center; height:60px; padding:0 var(--pad); border-bottom:1px solid var(--rule); font-size:14px; }
+  nav b { font-size:17px; font-weight:600; letter-spacing:-.01em; }
+  nav .mid { display:flex; gap:clamp(18px,2.6vw,46px); }
+  nav .end { justify-self:end; border:1px solid var(--ink); padding:7px 16px; }
+  nav .end:hover, nav .mid a:hover { background:var(--ink); color:var(--bg); }
+  .hero { position:relative; height:clamp(300px,36vw,700px); overflow:hidden; border-bottom:1px solid var(--rule); }
+  .hero img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 42%; animation:drift 24s ease-in-out infinite alternate; }
+  @keyframes drift { from { transform:scale(1.02); } to { transform:scale(1.12) translateY(-2%); } }
+  .hero::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(0,0,0,.82) 0%,rgba(0,0,0,.3) 60%,transparent 100%); }
+  .hero div { position:absolute; z-index:1; left:var(--pad); bottom:var(--pad); max-width:min(60vw,1100px); }
+  .hero h1 { font-size:clamp(30px,4.2vw,84px); font-weight:500; letter-spacing:-.035em; line-height:1.02; text-wrap:balance; }
+  .hero p { font-size:clamp(15px,1.2vw,22px); color:#dcdcdc; margin-top:14px; }
+  .bar { display:flex; justify-content:space-between; align-items:baseline; padding:18px var(--pad); border-bottom:1px solid var(--rule); font-size:14px; color:var(--mute); }
+  .bar b { color:var(--ink); font-size:clamp(18px,1.5vw,26px); font-weight:500; letter-spacing:-.02em; }
+  .bar span { display:flex; gap:22px; }
+  .bar button { font:inherit; color:var(--mute); background:none; border:0; padding:0 0 3px; cursor:pointer; border-bottom:1px solid transparent; }
+  .bar button.on { color:var(--ink); border-color:var(--ink); }
+  .grid { display:grid; grid-template-columns:repeat(4,1fr); }
+  .cell { border-right:1px solid var(--rule); border-bottom:1px solid var(--rule); padding:clamp(12px,1.1vw,22px); display:flex; flex-direction:column; gap:clamp(10px,1vw,18px); transition:background .25s, color .25s, opacity .25s; }
+  .cell:nth-child(4n) { border-right:0; }
+  .pic { aspect-ratio:16/10; overflow:hidden; background:#111; position:relative; }
+  .pic img, .pic video, .pic .ph { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform .8s cubic-bezier(.2,.7,.2,1); }
+  .ph { display:grid; place-items:center; text-align:center; color:#555; font-size:13px; }
+  .cell h3 { font-size:clamp(18px,1.6vw,30px); font-weight:500; letter-spacing:-.025em; line-height:1.1; display:flex; justify-content:space-between; gap:12px; align-items:baseline; }
+  .cell h3 small { font-size:clamp(12px,.85vw,15px); font-weight:400; letter-spacing:0; color:var(--mute); white-space:nowrap; }
+  .cell p { font-size:clamp(14px,1vw,17px); color:#bdbdbd; max-width:40ch; }
+  .cell:hover { background:var(--inv); color:#000; }
+  .cell:hover p, .cell:hover h3 small { color:#444; }
+  .cell:hover .pic img, .cell:hover .pic video { transform:scale(1.05); }
+  .cell.off { opacity:.2; }
+  .nums { display:grid; grid-template-columns:repeat(4,1fr); border-bottom:1px solid var(--rule); }
+  .nums div { padding:clamp(20px,2.4vw,44px) var(--pad); border-right:1px solid var(--rule); }
+  .nums div:last-child { border:0; }
+  .nums b { display:block; font-size:clamp(26px,3vw,60px); font-weight:500; letter-spacing:-.04em; line-height:1; }
+  .nums span { display:block; margin-top:10px; color:var(--mute); font-size:clamp(13px,.95vw,16px); }
+  .about { display:grid; grid-template-columns:1fr 2fr; padding:clamp(28px,3.4vw,64px) var(--pad); gap:40px; }
+  .about h2 { font-size:clamp(18px,1.5vw,26px); font-weight:500; letter-spacing:-.02em; }
+  .about p { font-size:clamp(18px,1.8vw,32px); letter-spacing:-.02em; line-height:1.25; max-width:36ch; }
+  @media (max-width:900px){ .grid,.nums{grid-template-columns:1fr 1fr} .cell:nth-child(2n){border-right:0} .about{grid-template-columns:1fr} nav .mid{display:none} }
+  @media (prefers-reduced-motion:reduce){ .hero img{animation:none} }
+</style>
+</head>
+<body>
+<nav><b>Tund Theerawit</b><span class="mid"><a href="#">Work</a><a href="#">Research</a><a href="#">About</a><a href="#">Contact</a></span><a class="end" href="#">Download CV</a></nav>
+<div class="hero">
+  <img src="../optimus-portfolio/public/assets/badgerbots/robots-2026.png" alt="">
+  <div><h1>I teach robots to walk, and I build and fix the robots too.</h1><p>Robot learning and hardware. Mechanical Engineering at UW–Madison, class of 2027.</p></div>
+</div>
+<div class="bar"><b>Work</b><span id="kinds"></span></div>
+<div class="grid" id="grid"></div>
+<div class="nums">
+  <div><b>First author</b><span>QuadMorph, under review at IEEE ICRA</span></div>
+  <div><b>4th of 14</b><span>RoboCup Asia-Pacific Beijing Masters</span></div>
+  <div><b>10 people</b><span>on the motion-control team I co-lead</span></div>
+  <div><b>15 policies</b><span>ranked in the policy gallery</span></div>
+</div>
+<div class="about"><h2>About</h2><p>I'm a senior at UW–Madison. I do research in the LeggedAI Lab and co-lead motion control on BadgerBots, our RoboCup humanoid team.</p></div>
+<script src="r2-data.js"></script>
+<script>
+  grid.innerHTML = PROJECTS.map(p => `<a class="cell" data-k="${p.kind}" href="#"><div class="pic">${media(p)}</div><h3>${p.title}<small>${p.tag}</small></h3><p>${p.line}</p></a>`).join('');
+  grid.querySelectorAll('.cell').forEach(c => { const v = c.querySelector('video'); if (!v) return; v.autoplay = false; v.pause(); c.onmouseenter = () => v.play(); c.onmouseleave = () => v.pause(); });
+  const ks = ['All', ...new Set(PROJECTS.map(p => p.kind))];
+  kinds.innerHTML = ks.map((k,i) => `<button class="${i?'':'on'}">${k}</button>`).join('');
+  kinds.onclick = e => { if (e.target.tagName !== 'BUTTON') return; const k = e.target.textContent;
+    [...kinds.children].forEach(b => b.classList.toggle('on', b === e.target));
+    grid.querySelectorAll('.cell').forEach(c => c.classList.toggle('off', k !== 'All' && c.dataset.k !== k)); };
+</script>
+</body>
+</html>

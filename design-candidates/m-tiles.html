@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M · Tiles</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Layout idea: a product-page stack. Edge-to-edge tiles, each with a centred title, one line and two links over its photo. */
+  :root { --bg:#000; --tile:#151516; --ink:#f5f5f7; --mute:#a1a1a6; --rule:#2c2c2e; --accent:#7fd4ff; --font:"Albert Sans",system-ui,sans-serif; --gap:12px; }
+  * { box-sizing:border-box; margin:0; }
+  body { background:var(--bg); color:var(--ink); font-family:var(--font); line-height:1.4; }
+  a { color:inherit; text-decoration:none; }
+  nav { position:sticky; top:0; z-index:10; height:48px; display:flex; justify-content:space-between; align-items:center; padding:0 clamp(18px,3vw,64px); background:rgba(0,0,0,.72); backdrop-filter:blur(18px); font-size:13.5px; }
+  nav b { font-size:16px; font-weight:600; letter-spacing:-.01em; }
+  nav span { display:flex; gap:clamp(16px,2.4vw,40px); color:#d2d2d7; }
+  nav a:hover { color:#fff; }
+  .intro { text-align:center; padding:clamp(22px,3vw,44px) 20px clamp(18px,2.4vw,34px); }
+  .intro h1 { font-size:clamp(24px,2.5vw,44px); font-weight:600; letter-spacing:-.025em; line-height:1.1; text-wrap:balance; max-width:26ch; margin:0 auto; }
+  .intro p { color:var(--mute); font-size:clamp(15px,1.1vw,19px); margin-top:10px; }
+  .tiles { display:grid; grid-template-columns:repeat(6,1fr); gap:var(--gap); padding:0 var(--gap) var(--gap); }
+  .tile { position:relative; overflow:hidden; background:var(--tile); grid-column:span 3; height:clamp(320px,31vw,640px); display:flex; flex-direction:column; align-items:center; text-align:center; padding:clamp(24px,2.6vw,48px) 24px; }
+  .tile:nth-child(1) { grid-column:span 6; height:clamp(380px,40vw,820px); }
+  .tile:nth-child(4), .tile:nth-child(5), .tile:nth-child(6) { grid-column:span 2; height:clamp(300px,27vw,560px); }
+  .tile img, .tile video, .tile .ph { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform 1.2s cubic-bezier(.2,.7,.2,1); }
+  .tile:hover img, .tile:hover video { transform:scale(1.03); }
+  .ph { display:grid; place-items:center; color:#5c5c61; font-size:13px; padding-top:22%; }
+  .tile::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,.78) 0%,rgba(0,0,0,.25) 38%,transparent 60%); }
+  .tile > div { position:relative; z-index:1; }
+  .tile h2 { font-size:clamp(24px,2.3vw,46px); font-weight:600; letter-spacing:-.025em; line-height:1.08; }
+  .tile:nth-child(1) h2 { font-size:clamp(32px,3.6vw,68px); }
+  .tile p { font-size:clamp(15px,1.15vw,21px); color:#e3e3e8; margin-top:6px; text-wrap:balance; max-width:34ch; margin-inline:auto; }
+  .btns { display:flex; gap:10px; justify-content:center; margin-top:14px; }
+  .btns a { font-size:clamp(13px,.95vw,16px); font-weight:500; padding:.55em 1.2em; border-radius:99px; background:var(--ink); color:#000; }
+  .btns a + a { background:transparent; color:var(--ink); box-shadow:inset 0 0 0 1px rgba(245,245,247,.7); }
+  .btns a:hover { background:var(--accent); color:#000; box-shadow:none; }
+  .about { display:grid; grid-template-columns:1fr 1fr; gap:var(--gap); padding:0 var(--gap) var(--gap); }
+  .about > div { background:var(--tile); padding:clamp(28px,3.4vw,64px); }
+  .about h3 { font-size:clamp(22px,2vw,38px); font-weight:600; letter-spacing:-.02em; margin-bottom:12px; }
+  .about p { color:#c7c7cc; font-size:clamp(15px,1.1vw,19px); max-width:52ch; }
+  .facts { display:grid; grid-template-columns:1fr 1fr; gap:26px 20px; }
+  .facts b { display:block; font-size:clamp(26px,2.6vw,50px); font-weight:600; letter-spacing:-.03em; }
+  .facts span { color:var(--mute); font-size:clamp(13px,.95vw,16px); }
+  footer { display:flex; justify-content:space-between; padding:22px clamp(18px,3vw,64px) 40px; color:var(--mute); font-size:13px; border-top:1px solid var(--rule); margin-top:8px; }
+  @media (max-width:820px){ .tile,.tile:nth-child(n){grid-column:span 6} .about{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<nav><b>Tund Theerawit</b><span><a href="#">Work</a><a href="#">Research</a><a href="#">About</a><a href="#">CV</a><a href="#">Contact</a></span></nav>
+<div class="intro"><h1>I teach robots to walk, and I build and fix the robots too.</h1><p>Mechanical Engineering at UW–Madison, class of 2027</p></div>
+<div class="tiles" id="tiles"></div>
+<div class="about">
+  <div><h3>About me</h3><p>I'm a senior at UW–Madison working on robot learning and the hardware it runs on. I do research in the LeggedAI Lab and co-lead motion control on BadgerBots, our RoboCup humanoid team.</p><div class="btns" style="justify-content:flex-start"><a href="#">More about me</a><a href="#">Download CV</a></div></div>
+  <div class="facts">
+    <div><b>First author</b><span>QuadMorph, under review at IEEE ICRA</span></div>
+    <div><b>4th of 14</b><span>RoboCup Asia-Pacific Beijing Masters</span></div>
+    <div><b>10 people</b><span>on the motion-control team I co-lead</span></div>
+    <div><b>15 policies</b><span>ranked in the policy gallery</span></div>
+  </div>
+</div>
+<footer><span>Tund Theerawit, Madison, Wisconsin</span><span>Email, GitHub, LinkedIn</span></footer>
+<script src="r2-data.js"></script>
+<script>
+  tiles.innerHTML = PROJECTS.map(p => `<div class="tile">${media(p)}<div><h2>${p.title}</h2><p>${p.line}</p><div class="btns"><a href="#">Read more</a><a href="#">Watch</a></div></div></div>`).join('');
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>L · Scroll timeline</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  /* Layout idea: a short intro, then photo cards on both sides of a centre line that fills in as you scroll. */
+  :root { --bg:#20262d; --card:#2a323b; --ink:#eceff1; --mute:#94a0aa; --rule:#3a444f; --accent:#58c4b8; --font:"Hanken Grotesk",system-ui,sans-serif; }
+  * { box-sizing:border-box; margin:0; }
+  body { background:var(--bg); color:var(--ink); font-family:var(--font); font-size:15px; line-height:1.5; }
+  a { color:inherit; text-decoration:none; }
+  .wrap { max-width:1180px; margin:0 auto; padding:0 32px; }
+  header { display:grid; grid-template-columns:1fr auto; gap:30px; align-items:end; padding:30px 0 26px; }
+  h1 { font-size:28px; font-weight:700; letter-spacing:-.02em; }
+  header p { font-size:19px; color:#d3dae0; margin-top:6px; max-width:44ch; }
+  nav a { margin-left:20px; font-size:14px; color:var(--mute); }
+  nav a:hover { color:var(--ink); }
+  nav a.cv { color:var(--bg); background:var(--ink); padding:7px 14px; border-radius:5px; font-weight:500; }
+  .tl { position:relative; padding-bottom:90px; }
+  .line { position:absolute; left:50%; top:0; bottom:60px; width:2px; margin-left:-1px; background:var(--rule); }
+  .line i { display:block; width:100%; height:0; background:var(--accent); }
+  .yr { position:relative; display:grid; grid-template-columns:1fr 1fr; column-gap:84px; row-gap:22px; padding-top:14px; margin-bottom:26px; }
+  .yr > span { position:absolute; left:50%; top:0; transform:translateX(-50%); z-index:2; font-size:15px; font-weight:700; background:var(--bg); border:2px solid var(--rule); border-radius:99px; padding:4px 13px; transition:border-color .4s, color .4s, background .4s; }
+  .yr.seen > span { border-color:var(--accent); background:var(--accent); color:#0f2421; }
+  .card { position:relative; display:block; aspect-ratio:16/10; border-radius:6px; overflow:hidden; background:var(--card); margin-top:26px; transition:transform .6s cubic-bezier(.2,.7,.2,1), opacity .6s; }
+  .card:nth-child(odd) { margin-top:96px; }
+  .card.solo { grid-column:1 / -1; width:62%; justify-self:center; margin-top:44px; aspect-ratio:21/9; }
+  .card.wait { transform:translateY(26px); opacity:.35; }
+  .card img, .card video, .card .ph { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  .ph { display:grid; place-items:center; text-align:center; color:#687581; font-size:13px; }
+  .card::after { content:""; position:absolute; inset:0; background:linear-gradient(0deg,rgba(20,25,31,.9),transparent 55%); }
+  .cap { position:absolute; z-index:1; left:18px; right:18px; bottom:15px; }
+  .cap small { font-size:13px; color:var(--accent); }
+  .cap b { display:block; font-size:24px; font-weight:700; letter-spacing:-.02em; line-height:1.15; }
+  .cap p { font-size:14.5px; color:#d3dae0; margin-top:3px; max-width:46ch; }
+  @media (max-width:760px){ .yr{grid-template-columns:1fr} .line{left:10px} .yr>span{left:10px; transform:translateX(-20%)} .card,.card:nth-child(odd){margin-top:16px; margin-left:30px} .card.solo{width:auto} header{grid-template-columns:1fr} nav a:first-child{margin-left:0} }
+  @media (prefers-reduced-motion:reduce){ .card{transition:none} .card.wait{transform:none; opacity:1} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div><h1>Tund Theerawit</h1><p>I teach robots to walk, and I build and fix the robots too.</p></div>
+    <nav><a href="#">About me</a><a href="#">Email</a><a href="#">GitHub</a><a class="cv" href="#">CV</a></nav>
+  </header>
+  <div class="tl" id="tl"><div class="line"><i id="fill"></i></div></div>
+</div>
+<script src="r2-data.js"></script>
+<script>
+  const years = [...new Set(PROJECTS.map(p => p.year))].sort().reverse();
+  tl.insertAdjacentHTML('beforeend', years.map(y => { const ps = PROJECTS.filter(p => p.year === y);
+    return `<div class="yr"><span>${y}</span>` + ps.map((p,i) => `<a class="card ${ps.length % 2 && i === ps.length - 1 ? 'solo' : ''}" href="#">${media(p)}<div class="cap"><small>${p.tag}</small><b>${p.title}</b><p>${p.line}</p></div></a>`).join('') + `</div>`; }).join(''));
+  // The centre line fills as you scroll; cards below the fold settle into place as they arrive.
+  const yrs = [...tl.querySelectorAll('.yr')], cards = [...tl.querySelectorAll('.card')];
+  function tick() { const r = tl.getBoundingClientRect(), mark = innerHeight * .6;
+    fill.style.height = Math.max(0, Math.min(r.height - 60, mark - r.top)) + 'px';
+    yrs.forEach(y => y.classList.toggle('seen', y.getBoundingClientRect().top < mark));
+    cards.forEach(c => { if (c.getBoundingClientRect().top < innerHeight * .92) c.classList.remove('wait'); }); }
+  cards.forEach(c => { if (c.getBoundingClientRect().top > innerHeight) c.classList.add('wait'); });
+  addEventListener('scroll', tick, { passive:true }); addEventListener('resize', tick); tick();
+</script>
+</body>
+</html>
