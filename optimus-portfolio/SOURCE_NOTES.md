@@ -49,3 +49,15 @@ Source assets:
 - https://badger-bots-github-io.vercel.app/assets/badgerbots-logo.png → `logo.png`
 - https://badger-bots-github-io.vercel.app/assets/badgerbots-rcap-team-2026.jpg → `team-2026.jpg`
 - https://badger-bots-github-io.vercel.app/assets/robots-2026.png → `robots-2026.png`
+
+## Sync with resume, SOP and story bank (11 November 2026)
+
+- `public/Tund_Theerawit_Resume.pdf` and `public/resume.pdf` are now the 11 November 2026 CV (`Tund_Theerawit_CV_2026-11-11`).
+- BadgerBots start date is January 2026 (not fall 2025). Motion control is a 10-person team within a ~50-member club. The Booster repair was done alongside a Booster engineer, never solo.
+- Added the senior capstone (bio-inspired tail, Unitree Go2, Prof. Adamczyk). The tail result is simulation only; do not claim hardware results.
+- QuadMorph is first-author, under review at ICRA. The heating circuit was Ethan Dretzka's work; do not describe it as Tund's.
+- Skills list matches the CV. About text avoids framing the research as simulator or physics-engine work.
+- Still unverified against the CV or story bank: AI Group description (A* planning), CATS Lab description, the "Custom RL Environments" card, and the Featured Project claims about building the MJX model (the repo vendors Stanford's Pupper v3 pipeline).
+
+- Update (11 November 2026): Tund says World Humanoid Robot Games is the more accurate event name; the site now uses it and drops the RoboCup Asia-Pacific division details. AI Group card covers both A* planning and the line-following/PID work. CATS Lab "Ranger" is the wheeled platform robot, so that card stands. "Custom RL Environments" card removed. Featured Project now says adapted Stanford Pupper v3 pipeline.
+- Media added 11 November 2026 (supplied by Tund): two RoboCup 2026 Incheon field photos (`public/assets/badgerbots/robocup-2026-incheon-*.jpg`) and two QuadMorph hardware videos, re-encoded without audio at 720 px wide (`public/assets/quadmorph/wheel-to-leg.mp4` at 4x speed; `leg-to-wheel.mp4` trimmed to its second half, from 75 s, at 4x speed; both with poster frames). Captions state the playback speed. No text, timings or results appear in the footage.

@@ -43,13 +43,13 @@ export default function RecentWork() {
               <figure className="flex flex-col">
                 <Image
                   src="/assets/badgerbots/team-2026.jpg"
-                  alt="BadgerBots teammates with their humanoid robots at RCAP 2026 in Beijing"
+                  alt="BadgerBots teammates with their humanoid robots in Beijing, 2026"
                   width={1727}
                   height={1219}
                   className="w-full h-auto lg:h-full object-cover"
                 />
                 <figcaption className="px-5 py-3 text-xs text-gray-400 bg-black/40">
-                  BadgerBots at RCAP 2026 · Photo from the official team site
+                  BadgerBots in Beijing, 2026 · Photo from the official team site
                 </figcaption>
               </figure>
               <div className="p-6 md:p-8 flex flex-col justify-center">
@@ -80,19 +80,52 @@ export default function RecentWork() {
                   </span>
                 </p>
                 <h4 className="text-xl font-semibold text-white mt-3 mb-2">
-                  RoboCup Asia-Pacific Beijing Masters
+                  World Humanoid Robot Games
                 </h4>
                 <p className="text-sm text-gray-400 mb-5">
-                  2026 · Humanoid Soccer · Middle Division 5v5 · International
-                  Teams
+                  2026 · Beijing · Humanoid Robot Soccer
                 </p>
                 <p className="text-sm text-gray-300 leading-relaxed">
                   Our BadgerBots team placed fourth in robot soccer. As
                   Low-Level Control Co-Lead for UW–Madison’s RoboCup team, I
-                  work on locomotion policies, deployment, and hardware
-                  recovery.
+                  train locomotion and ball-interception policies for the
+                  Booster K1, help teammates learn the RL workflow, and deploy
+                  policies on the robots at competition.
                 </p>
               </div>
+            </div>
+            <div className="grid md:grid-cols-[1fr_2fr] gap-4 mb-8">
+              {[
+                {
+                  src: "robocup-2026-incheon-1.jpg",
+                  w: 949,
+                  h: 1069,
+                  alt: "A teammate kicks a ball back and forth with a Booster K1 humanoid on the RoboCup 2026 field in Incheon",
+                },
+                {
+                  src: "robocup-2026-incheon-2.jpg",
+                  w: 1477,
+                  h: 682,
+                  alt: "Testing a policy on a Booster K1 humanoid beside the goal at RoboCup 2026 in Incheon, with a teammate holding a laptop",
+                },
+              ].map((photo) => (
+                <figure
+                  key={photo.src}
+                  className="rounded-lg overflow-hidden border border-zinc-800 bg-zinc-900"
+                >
+                  <Image
+                    src={`/assets/badgerbots/${photo.src}`}
+                    alt={photo.alt}
+                    width={photo.w}
+                    height={photo.h}
+                    className="w-full h-full object-cover"
+                  />
+                </figure>
+              ))}
+              <p className="md:col-span-2 text-xs text-gray-400">
+                Testing on the Booster K1 at RoboCup 2026 in Incheon, South
+                Korea.
+              </p>
             </div>
             <p className="text-gray-300 leading-relaxed max-w-3xl">
               With several RoboCup teammates training policies, I built the PAL
@@ -183,10 +216,22 @@ export default function RecentWork() {
               QuadMorph: Wheels That Change Shape
             </h3>
             <p className="text-gray-300 leading-relaxed max-w-3xl">
-              My quadruped research centers on Pupper, a four-legged robot.
-              QuadMorph adds morphing end effectors that let it roll or walk. My
-              work connects mechanical design, simulation, and learned control
-              on the physical platform.
+              QuadMorph is built on Stanford’s open-source Pupper v3 quadruped.
+              Its lower legs are shape-memory-polymer wheels that soften with
+              heat, reshape under the robot’s own weight, and hold the new shape
+              as they cool, so the robot can switch between rolling and walking
+              using only its existing joint motors. As first author I designed
+              the mechanism and trained the policies that control it, tying
+              together mechanical design, simulation, and learned control on the
+              physical robot.
+            </p>
+            <p className="text-gray-400 leading-relaxed max-w-3xl mt-4">
+              The polymer never reshapes to exactly the same leg length, about
+              1 cm of variation, so I trained the walking policy with varied leg
+              lengths and used IMU and joint data to detect the difference.
+              Motions that never change, like turning a wheel to a fixed angle,
+              stay as plain scripted commands. Teammate Ethan Dretzka built the
+              heating circuit, and Prof. Xiaobin Xiong advised the project.
             </p>
             <span className="inline-flex items-center gap-2 text-xs text-red-400 bg-red-950/20 border border-red-900/40 rounded-full px-3 py-1.5 mt-5">
               <span className="w-1.5 h-1.5 rounded-full bg-red-500" />
@@ -283,6 +328,42 @@ export default function RecentWork() {
                 </figure>
               ))}
             </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
+              {[
+                {
+                  src: "wheel-to-leg",
+                  label: "Wheel to leg",
+                  note: "Heated, the wheel softens and the robot’s weight reshapes it. Shown at 4× speed.",
+                },
+                {
+                  src: "leg-to-wheel",
+                  label: "Leg to wheel",
+                  note: "Reheated with no load, the shin returns to its wheel shape. Shown at 4× speed.",
+                },
+              ].map((item) => (
+                <figure
+                  key={item.src}
+                  className="rounded-lg overflow-hidden border border-zinc-800 bg-zinc-900"
+                >
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="metadata"
+                    poster={`/assets/quadmorph/${item.src}-poster.jpg`}
+                    className="w-full h-auto max-h-[640px] object-contain bg-black"
+                    aria-label={`QuadMorph end effector, ${item.label.toLowerCase()} transition on the real robot`}
+                  >
+                    <source src={`/assets/quadmorph/${item.src}.mp4`} type="video/mp4" />
+                  </video>
+                  <figcaption className="px-5 py-4 text-sm text-gray-300">
+                    <span className="text-white font-semibold">{item.label}</span>
+                    <span className="block text-gray-400 mt-1">{item.note}</span>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
           </div>
         </article>
       </div>
@@ -296,10 +377,10 @@ export function RecentExperience() {
       <div className="max-w-6xl mx-auto px-6">
         <div>
           <h3 className="text-3xl font-bold mb-8">Recent Experience</h3>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
             <article className="p-6 rounded-lg bg-zinc-900 border border-zinc-800">
               <p className="text-xs font-mono text-zinc-400 mb-3">
-                FALL 2025 – PRESENT
+                JANUARY 2026 – PRESENT
               </p>
               <h4 className="text-xl font-bold mb-1">
                 BadgerBots · UW–Madison RoboCup
@@ -308,14 +389,16 @@ export function RecentExperience() {
                 Current Low-Level Control Co-Lead
               </p>
               <p className="text-gray-400 text-sm leading-relaxed">
-                I co-lead a five-person motion-control team, connecting walking,
-                kicking, and recovery with the rest of our humanoid system. My
-                work includes policy deployment and live hardware recovery at
-                RoboCup.
+                I co-lead a 10-person motion-control team within our roughly
+                50-member club, coordinating with the infrastructure,
+                localization, and behavior teams so walking, kicking, and
+                recovery work as one system. I teach new members the full RL
+                workflow, from MuJoCo models to hardware deployment, and I
+                help repair robots at competition alongside Booster engineers.
               </p>
               <p className="text-gray-400 text-sm leading-relaxed mt-3">
-                Our team placed 4th of 14 in robot soccer at the RoboCup
-                Asia-Pacific Beijing Masters.
+                Our team placed 4th of 14 in robot soccer at the World
+                Humanoid Robot Games in Beijing.
               </p>
             </article>
             <article className="p-6 rounded-lg bg-zinc-900 border border-zinc-800">
@@ -329,11 +412,36 @@ export function RecentExperience() {
               <p className="text-gray-400 text-sm leading-relaxed">
                 Mechanical design, simulation, and learned control for
                 QuadMorph, from custom morphing end effectors to hardware
-                integration and locomotion policy training.
+                integration and locomotion policy training. First author on
+                a paper submitted to IEEE ICRA, under review.
               </p>
               <p className="text-gray-400 text-sm leading-relaxed mt-3">
                 B.S. Mechanical Engineering with a Certificate in Data Science
-                at UW–Madison · Expected May 2027.
+                at UW–Madison · GPA 3.86 · Dean’s Honor List every semester ·
+                Expected May 2027.
+              </p>
+            </article>
+            <article className="p-6 rounded-lg bg-zinc-900 border border-zinc-800">
+              <p className="text-xs font-mono text-zinc-400 mb-3">
+                FALL 2026 – SPRING 2027
+              </p>
+              <h4 className="text-xl font-bold mb-1">
+                Senior Capstone · Bio-Inspired Tail
+              </h4>
+              <p className="text-red-400 mb-4">
+                UW–Madison ME · Advisor: Prof. Peter Adamczyk
+              </p>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                Designing a tail and whole-body controller for a Unitree Go2 so
+                a quadruped can correct body roll when its footing is
+                unreliable, as on construction sites. The design and controller
+                are still in development.
+              </p>
+              <p className="text-gray-400 text-sm leading-relaxed mt-3">
+                Early simulation result: on a narrow beam under random pushes,
+                the policy learned on its own to whip the tail toward the
+                tipping side, and a tailless Go2 fell every time. Hardware
+                testing is still ahead.
               </p>
             </article>
           </div>

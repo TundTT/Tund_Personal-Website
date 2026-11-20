@@ -5,14 +5,13 @@ export default function About() {
                 <h2 className="text-3xl font-bold mb-8 border-l-4 border-red-600 pl-4">About Me</h2>
                 <div className="prose prose-invert prose-lg text-gray-300">
                     <p className="mb-6">
-                        I develop physics-accurate digital twins in <strong className="text-white">MuJoCo (MJX/JAX)</strong> and train reinforcement learning policies (PPO) with domain randomization to achieve robust <strong className="text-white">sim-to-real transfer</strong> on legged robots.
+                        I&apos;m a Mechanical Engineering senior at UW–Madison working on <strong className="text-white">reinforcement learning and sim-to-real transfer for legged and humanoid robots</strong>. I train policies in <strong className="text-white">MuJoCo (MJX/JAX)</strong> with PPO and domain randomization, then test them on real hardware: a morphing quadruped in the LeggedAI Lab, and the Booster K1 humanoid for BadgerBots, our RoboCup team.
                     </p>
                     <p className="mb-6">
-                        My current research focuses on reward shaping and simulation fidelity to enable efficient, stable locomotion—skills directly applicable to accelerating autonomy stacks for general-purpose humanoid platforms. I am passionate about neural and physics-based simulators that close the sim-to-real gap.
+                        What I keep coming back to is how much to tell a robot and how much it should find out for itself. On QuadMorph I scripted the motion that never changes and trained a policy for the part that varies. In my capstone I let the environment do the teaching. On RoboCup I&apos;ve seen how far rewards and motion references can take a policy, and where they start to limit it. I&apos;m now working on methods that rely less on hand-written references.
                     </p>
-
                     <p>
-                        I am a Mechanical Engineer working on simulation and neural network control. I firmly believe that capable hardware is useless without intelligent controls, and vice versa. Mastering the intersection of both disciplines is the key to driving real progress in robotics.
+                        I believe capable hardware is useless without intelligent control, and the reverse. Control only works when it understands the machine it runs on, so I try to work on both.
                     </p>
                 </div>
             </div>

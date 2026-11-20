@@ -1,20 +1,16 @@
 export default function Skills() {
     const skillCategories = [
         {
-            title: "Simulation & RL",
-            skills: ["MuJoCo (MJX/JAX)", "Physics Engines", "Domain Randomization", "PPO", "Reward Design", "Sim-to-Real Transfer"]
+            title: "Learning & Simulation",
+            skills: ["MuJoCo / MJX", "Isaac Lab", "JAX", "PyTorch", "PPO", "Domain Randomization", "Sim-to-Real Transfer"]
         },
         {
-            title: "Machine Learning",
-            skills: ["PyTorch", "JAX", "Reinforcement Learning", "Policy Optimization"]
+            title: "Hardware & Robotics",
+            skills: ["SolidWorks", "Onshape", "FDM & DLP Resin 3D Printing", "Mechatronics", "Motor-Controller Debugging", "Firmware Flashing", "PCB Soldering", "ROS 2"]
         },
         {
-            title: "Programming",
-            skills: ["Python (Advanced)", "C++", "Linux/Bash", "Git"]
-        },
-        {
-            title: "Robotics & Tools",
-            skills: ["ROS 2", "OpenCV", "SolidWorks", "PCB Design", "Kinematics & Dynamics"]
+            title: "Programming & Tools",
+            skills: ["Python", "C++", "Git", "Linux / Bash", "OpenCV", "Kalman Filtering", "PLC / Ladder Logic"]
         }
     ];
 
@@ -22,7 +18,7 @@ export default function Skills() {
         <section className="py-20 bg-zinc-900 border-t border-zinc-800">
             <div className="max-w-6xl mx-auto px-6">
                 <h2 className="text-3xl font-bold text-white mb-12 text-center">Technical Expertise</h2>
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="grid md:grid-cols-3 gap-8">
                     {skillCategories.map((category, idx) => (
                         <div key={idx} className="bg-black/50 p-6 rounded-lg border border-zinc-800 hover:border-red-900/50 transition-colors">
                             <h3 className="text-red-500 font-semibold mb-4 text-lg">{category.title}</h3>

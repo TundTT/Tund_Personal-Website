@@ -11,15 +11,8 @@ export default function OtherProjects() {
             title: "AI Group Internship",
             role: "Project Assistant",
             date: "July 2023 – August 2023",
-            tech: "C++ • Graph Search • Motion Planning",
-            desc: "Implemented real-time C++ A* path-planning and control algorithms for AGVs in industrial factory settings. Integrated PLC/Ladder logic within a cross-functional team."
-        },
-        {
-            title: "Custom RL Environments",
-            role: "Personal Project",
-            date: "Ongoing",
-            tech: "PyTorch • Gymnasium • Physics",
-            desc: "Created custom Gymnasium environments for experimenting with novel reward shaping techniques for pendulum systems."
+            tech: "C++ • Graph Search • PLC • PID",
+            desc: "Implemented real-time C++ A* path-planning and control algorithms for AGVs in industrial factory settings, and integrated PLC/Ladder logic within a cross-functional team. Also built magnetic-tape line-following platform robots and tuned PID control on a fan-balance demo."
         }
     ];
 
@@ -27,7 +20,7 @@ export default function OtherProjects() {
         <section className="py-20 bg-black text-white border-t border-zinc-900">
             <div className="max-w-6xl mx-auto px-6">
                 <h2 className="text-3xl font-bold mb-12 text-center text-gray-200">Other Relevant Work</h2>
-                <div className="grid md:grid-cols-3 gap-8">
+                <div className="grid md:grid-cols-2 gap-8">
                     {projects.map((proj, idx) => (
                         <div key={idx} className="bg-zinc-900 p-6 rounded-lg border border-zinc-800 hover:border-red-900/40 transition-all hover:-translate-y-1">
                             <div className="mb-4">

@@ -36,7 +36,7 @@ export default function FeaturedProject() {
                             <div>
                                 <h4 className="text-xl font-bold mb-2 text-white">Technical Overview</h4>
                                 <ul className="space-y-3 text-gray-300 list-disc pl-5">
-                                    <li>Built accurate actuator, sensor, and dynamics model in <span className="text-red-400 font-mono">MJX/JAX</span> for parallelized simulation.</li>
+                                    <li>Adapted Stanford’s open-source Pupper v3 training pipeline (<span className="text-red-400 font-mono">MJX/JAX</span>) with custom environments and rewards for parallelized simulation.</li>
                                     <li>Implemented <strong>exponential velocity tracking</strong> to minimize sensitivity near target speeds (v_d).</li>
                                     <li>Designed custom "Effort Conservation" rewards penalizing <strong>joint torques, acceleration, mechanical work, and action rate</strong> (tuned to 10⁻⁴ scale).</li>
                                     <li>Trained <span className="text-red-400 font-mono">PPO policies</span> for over <strong>300 million timesteps</strong>, achieving stable 0.75 m/s locomotion.</li>
